@@ -1,0 +1,33 @@
+version: '3'
+services:
+  db:
+    build: mysql
+    container_name: 'after-works-db'
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: after_works_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      TZ: 'Asia/Tokyo'
+    volumes:
+      - ./db/data:/var/lib/mysql
+      - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./db/sql:/initdb.d
+    ports:
+      - '3306:3306'
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+  app:
+    build: node
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - '8080:8080'
+      - '1337:1337'
+      - '3000:3000'
+      - '24678:24678'
+    volumes:
+      - ./app:/src
+    working_dir: /src
+    tty: true
+    depends_on:
+      - db
