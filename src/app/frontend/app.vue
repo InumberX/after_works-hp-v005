@@ -2,7 +2,6 @@
   <div class="l-wrapper">
     <Html lang="ja">
       <Head>
-        <Title>{{ $const.meta.title }}</Title>
         <Meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover"

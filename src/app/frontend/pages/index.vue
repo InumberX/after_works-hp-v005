@@ -2,6 +2,7 @@
   <div>
     <Html lang="ja">
       <Head>
+        <Title>{{ $const.meta.title }}</Title>
         <Meta name="description" :content="$const.meta.description" />
         <Meta
           name="og:image"
