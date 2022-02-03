@@ -1,0 +1,319 @@
+@use '../_global/index' as g;
+
+// 変数
+// サイト全体
+$color-site-background: g.$palette-white;
+$color-site-text: g.$palette-mine_shaft;
+
+// リンク
+$color-link-text: g.$palette-resolution_blue;
+$color-link-text_visited: g.$palette-east_bay;
+$color-link-text_hover: g.$palette-east_bay;
+
+// マーク
+$color-mark-background: g.$palette-marigold_yellow;
+$color-mark-text: g.$palette-mine_shaft;
+
+/* 共通 ========== */
+/* リセット */
+* {
+  box-sizing: border-box;
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+}
+html {
+  width: 100%;
+  height: 100%;
+  line-height: 1;
+  font-size: 62.5%;
+  background: $color-site-background;
+  color: $color-site-text;
+}
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 1.6;
+  overflow-y: auto;
+  -webkit-text-size-adjust: 100%;
+  background-repeat: no-repeat;
+  background-position: top center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: g.$font-main;
+  font-size: 1.6rem;
+  &.is-fixed {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+article,
+aside,
+details,
+figcaption,
+include,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary,
+figure {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dl,
+dt,
+dd,
+p,
+blockquote,
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  -webkit-overflow-wrap: break-word;
+  -ms-overflow-wrap: break-word;
+  overflow-wrap: break-word;
+  -webkit-word-wrap: break-word;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+  font-size: 1.6rem;
+}
+ul,
+ol {
+  list-style: none;
+}
+figcaption,
+span {
+  -webkit-overflow-wrap: break-word;
+  -ms-overflow-wrap: break-word;
+  overflow-wrap: break-word;
+  -webkit-word-wrap: break-word;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+}
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+[hidden],
+template {
+  display: none;
+}
+a {
+  color: $color-link-text;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s color, 0.3s opacity, 0.3s background-color, 0.3s border-color;
+  &:link,
+  &:visited {
+    color: $color-link-text_visited;
+    text-decoration: none;
+  }
+  &:hover,
+  &:active {
+    color: $color-link-text_hover;
+    text-decoration: none;
+  }
+}
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+i,
+em,
+address {
+  font-style: normal;
+}
+b,
+strong,
+em {
+  font-weight: 700;
+}
+dfn {
+  font-style: italic;
+}
+mark {
+  background-color: $color-mark-background;
+  color: $color-mark-text;
+}
+small {
+  font-size: 100%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+img {
+  border: 0;
+  vertical-align: top;
+  -ms-interpolation-mode: bicubic;
+  max-width: 100%;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+pre {
+  overflow: auto;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: g.$font-main;
+  font-size: 1em;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td,
+th {
+  padding: 0;
+}
+@include g.mxMediaQuery(g.$bp-sm) {
+  body {
+    font-size: 1.6rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  dl,
+  dt,
+  dd,
+  p,
+  blockquote,
+  ul,
+  ol,
+  li {
+    font-size: 1.6rem;
+  }
+  p {
+    font-size: 1.6rem;
+  }
+}
+
+/* サイト内共通 ========== */
+/* clearfix */
+.clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+/* obj */
+.sm-obj:not(:root) {
+  display: none;
+}
+.md-obj:not(:root) {
+  display: none;
+}
+.lg-obj:not(:root) {
+  display: none;
+}
+.xl-obj:not(:root) {
+  display: none;
+}
+.xs-obj:not(:root) {
+  display: block;
+}
+@include g.mxMediaQuery(g.$bp-xs) {
+  .xs-obj:not(:root) {
+    display: none;
+  }
+  .sm-obj:not(:root) {
+    display: block;
+  }
+}
+@include g.mxMediaQuery(g.$bp-sm) {
+  .sm-obj:not(:root) {
+    display: none;
+  }
+  .md-obj:not(:root) {
+    display: block;
+  }
+}
+@include g.mxMediaQuery(g.$bp-md) {
+  .md-obj:not(:root) {
+    display: none;
+  }
+  .lg-obj:not(:root) {
+    display: block;
+  }
+}
+@include g.mxMediaQuery(g.$bp-lg) {
+  .lg-obj:not(:root) {
+    display: none;
+  }
+  .xl-obj:not(:root) {
+    display: block;
+  }
+}
+
+/* レイアウト */
+.l-wrapper {
+  overflow: hidden;
+}
+.l-inner {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1164px;
+  padding: 0 4vw;
+}
+@include g.mxMediaQuery(g.$bp-sm) {
+  .l-inner {
+    padding: 0 4.6vw;
+  }
+}
+@include g.mxMediaQuery(g.$bp-md) {
+  .l-inner {
+    padding: 0 32px;
+  }
+}
+@include g.mxMediaQuery(g.$bp-lg) {
+}

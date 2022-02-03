@@ -1,0 +1,140 @@
+@use 'sass:math';
+
+// 線の矢印
+@mixin mxArrowLine(
+  $width-and-height,
+  $top,
+  $right,
+  $bottom,
+  $left,
+  $margin-top,
+  $margin-right,
+  $margin-bottom,
+  $margin-left,
+  $border-width,
+  $border-color,
+  $deg
+) {
+  content: '';
+  position: absolute;
+  display: block;
+  width: $width-and-height;
+  height: $width-and-height;
+  @if ($top != '') {
+    top: $top;
+  }
+  @if ($right != '') {
+    right: $right;
+  }
+  @if ($bottom != '') {
+    bottom: $bottom;
+  }
+  @if ($left != '') {
+    left: $left;
+  }
+  @if ($margin-top != '') {
+    margin-top: $margin-top;
+  }
+  @if ($margin-right != '') {
+    margin-right: $margin-right;
+  }
+  @if ($margin-bottom != '') {
+    margin-bottom: $margin-bottom;
+  }
+  @if ($margin-left != '') {
+    margin-left: $margin-left;
+  }
+  border-left: $border-width solid $border-color;
+  border-bottom: $border-width solid $border-color;
+  @if ($deg != '') {
+    transform: rotate($deg);
+  }
+  transition: 0.3s border-color, 0.3s transform;
+  @content;
+}
+
+// 三角形
+@mixin mxTriangle(
+  $width,
+  $height,
+  $top,
+  $right,
+  $bottom,
+  $left,
+  $margin-top,
+  $margin-right,
+  $margin-bottom,
+  $margin-left,
+  $border-color,
+  $deg
+) {
+  content: '';
+  position: absolute;
+  display: block;
+  @if ($top != '') {
+    top: $top;
+  }
+  @if ($right != '') {
+    right: $right;
+  }
+  @if ($bottom != '') {
+    bottom: $bottom;
+  }
+  @if ($left != '') {
+    left: $left;
+  }
+  @if ($margin-top != '') {
+    margin-top: $margin-top;
+  }
+  @if ($margin-right != '') {
+    margin-right: $margin-right;
+  }
+  @if ($margin-bottom != '') {
+    margin-bottom: $margin-bottom;
+  }
+  @if ($margin-left != '') {
+    margin-left: $margin-left;
+  }
+  border-top: $height solid $border-color;
+  border-right: math.div($width, 2) solid transparent;
+  border-left: math.div($width, 2) solid transparent;
+  @if ($deg != '') {
+    transform: rotate($deg);
+  }
+  transition: 0.3s border-color, 0.3s transform;
+  @content;
+}
+
+// メディアクエリ
+@mixin mxMediaQuery($bp) {
+  @media screen and (min-width: $bp), print {
+    @content;
+  }
+}
+
+// リストの横幅定義
+@mixin mxListWidth($col, $marign-light) {
+  width: calc(
+    (100% / #{$col}) - ((#{$marign-light} * (#{$col} - 1)) / #{$col})
+  );
+  margin-right: $marign-light;
+  &:nth-of-type(#{$col}n) {
+    margin-right: 0;
+  }
+  &:nth-of-type(-n + #{$col}) {
+    margin-top: 0;
+  }
+  @content;
+}
+@mixin mxListWidthBetween($col, $marign-light) {
+  width: calc(
+    (100% / #{$col}) - ((#{$marign-light} * (#{$col} - 1)) / #{$col})
+  );
+  @content;
+}
+@mixin mxGetListWidth($col, $marign-light) {
+  width: calc(
+    (100% / #{$col}) - ((#{$marign-light} * (#{$col} - 1)) / #{$col})
+  );
+  @content;
+}

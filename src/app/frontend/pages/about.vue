@@ -6,18 +6,18 @@
         <Meta name="description" :content="meta.description" />
         <Meta
           name="og:image"
-          :content="config.siteUrl + 'assets/img/img-ogp.png'"
+          :content="`${config.siteUrl}assets/img/img-ogp.png`"
         />
         <Meta
           name="og:site_name"
-          :content="meta.title + $const.meta.titleTemplate"
+          :content="`${meta.title}${$const.meta.titleTemplate}`"
         />
         <Meta name="og:description" :content="meta.description" />
         <Meta name="twitter:description" :content="meta.description" />
         <Link
           hid="canonical"
           rel="canonical"
-          :href="config.siteUrl + meta.url"
+          :href="`${config.siteUrl}${meta.url}`"
         />
       </Head>
     </Html>

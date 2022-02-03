@@ -6,7 +6,7 @@
         <Meta name="description" :content="$const.meta.description" />
         <Meta
           name="og:image"
-          :content="config.siteUrl + 'assets/img/img-ogp.png'"
+          :content="`${config.siteUrl}assets/img/img-ogp.png`"
         />
         <Meta name="og:site_name" :content="$const.meta.title" />
         <Meta name="og:description" :content="$const.meta.description" />

@@ -14,12 +14,8 @@
       </Head>
     </Html>
     <NuxtLayout>
+      <CommonHeader />
       <NuxtPage />
     </NuxtLayout>
   </div>
 </template>
-
-<script setup lang="ts">
-const { $const } = useNuxtApp();
-const config = useRuntimeConfig();
-</script>

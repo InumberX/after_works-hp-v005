@@ -1,0 +1,52 @@
+// 変数 ==========
+// フォント =====
+// デフォルト
+$font-main: 游明朝, 'Yu Mincho', YuMincho, 'Hiragino Mincho ProN',
+  'Hiragino Mincho Pro', HGS明朝E, serif, Times, メイリオ, Meiryo;
+
+// ブレイクポイント =====
+$bp-xs: 321px;
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;
+$bp-xxl: 1400px;
+
+// カラー =====
+// パレット
+$palette-white: #fff;
+$palette-black: #000;
+
+$palette-mine_shaft: #2e2e2e;
+
+$palette-gallery: #eaeaea;
+$palette-seashell: #f1f1f1;
+$palette-boulder: #7b7b7b;
+$palette-alto: #d0d0d0;
+
+$palette-resolution_blue: #002984;
+$palette-east_bay: #475982;
+$palette-stratos: #00133e;
+
+$palette-marigold_yellow: #fad37d;
+
+// z-index =====
+// 汎用
+$z_index-1: 1;
+$z_index-2: 2;
+$z_index-3: 3;
+$z_index-4: 4;
+$z_index-5: 5;
+
+// モーダル
+$z_index-modal_1: 20000;
+$z_index-modal_2: 20100;
+$z_index-modal_3: 20200;
+
+// ヘッダー
+$z_index-header_1: 10000;
+$z_index-header_2: 10100;
+$z_index-header_3: 10200;
+
+// 透明度 =====
+$opacity-main: 0.6;

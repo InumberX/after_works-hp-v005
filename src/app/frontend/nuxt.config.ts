@@ -15,6 +15,7 @@ const cashBuster = 'ver=' + nowDatetime;
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
+  ssr: true,
   publicRuntimeConfig: {
     // ルートディレクトリ
     baseDir,
@@ -26,6 +27,7 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
+  css: ['@/assets/css/common.scss'],
   build: {
     extractCSS: true,
     filenames: {
