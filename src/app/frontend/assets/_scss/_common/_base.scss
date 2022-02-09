@@ -7,7 +7,7 @@ $color-site-text: g.$palette-mine_shaft;
 
 // リンク
 $color-link-text: g.$palette-resolution_blue;
-$color-link-text_visited: g.$palette-east_bay;
+$color-link-text_visited: g.$palette-resolution_blue;
 $color-link-text_hover: g.$palette-east_bay;
 
 // マーク
@@ -305,6 +305,9 @@ th {
   max-width: 1164px;
   padding: 0 4vw;
 }
+.l-main {
+  padding-top: 64px;
+}
 @include g.mxMediaQuery(g.$bp-sm) {
   .l-inner {
     padding: 0 4.6vw;
@@ -316,4 +319,9 @@ th {
   }
 }
 @include g.mxMediaQuery(g.$bp-lg) {
+}
+
+/* Vue ========== */
+[v-cloak]:not(:root) {
+  display: none !important;
 }

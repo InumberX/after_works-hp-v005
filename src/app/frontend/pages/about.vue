@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main class="l-main">
     <Html lang="ja">
       <Head>
         <Title>{{ meta.title }}{{ $const.meta.titleTemplate }}</Title>
@@ -23,7 +23,7 @@
     </Html>
     bbb
     <NuxtLink to="/">Home page</NuxtLink>
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">

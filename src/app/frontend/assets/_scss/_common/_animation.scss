@@ -1,0 +1,18 @@
+@use '../_global/index' as g;
+
+/* アニメーション ========== */
+/* フェード */
+.animation-fade {
+  &-enter-active,
+  &-leave-active {
+    transition: 0.3s opacity;
+  }
+  &-enter-from,
+  &-leave-to {
+    opacity: 0 !important;
+  }
+  &-enter-to,
+  &-leave-from {
+    opacity: 1 !important;
+  }
+}

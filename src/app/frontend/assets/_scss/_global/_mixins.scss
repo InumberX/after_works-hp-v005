@@ -126,12 +126,14 @@
   }
   @content;
 }
+
 @mixin mxListWidthBetween($col, $marign-light) {
   width: calc(
     (100% / #{$col}) - ((#{$marign-light} * (#{$col} - 1)) / #{$col})
   );
   @content;
 }
+
 @mixin mxGetListWidth($col, $marign-light) {
   width: calc(
     (100% / #{$col}) - ((#{$marign-light} * (#{$col} - 1)) / #{$col})

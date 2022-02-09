@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main class="l-main">
     <Html lang="ja">
       <Head>
         <Title>{{ $const.meta.title }}</Title>
@@ -15,7 +15,7 @@
       </Head>
     </Html>
     <NuxtLink to="/about/">Home page</NuxtLink>
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">
