@@ -380,6 +380,14 @@ $color-header_overlay_bg-background: g.$palette-black;
   .l-header {
     position: fixed;
     border-bottom: 1px solid $color-l_header-border;
+    background-color: rgba($color-l_header-background, 0.64);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+  }
+  @supports not (backdrop-filter: blur(16px)) {
+    .l-header {
+      background-color: $color-l_header-background;
+    }
   }
   .header-box {
     justify-content: space-between;
