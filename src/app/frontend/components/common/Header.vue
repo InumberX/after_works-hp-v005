@@ -6,7 +6,7 @@
           <h1 class="header-logo">
             <NuxtLink to="/" class="header-logo-link">
               <img
-                :src="`${config.baseDir}assets/img/img-logo.svg?${config.cashBuster}`"
+                :src="`${config.baseDir}${$const.url.imgLogo}?${config.cashBuster}`"
                 :alt="$const.meta.title"
                 class="header-logo-img"
                 width="160"
@@ -49,7 +49,11 @@
                       :key="menuInfo.text"
                       class="header-menu-link-item"
                     >
-                      <NuxtLink :to="menuInfo.url" class="header-menu-link">
+                      <NuxtLink
+                        :to="menuInfo.url"
+                        class="header-menu-link"
+                        @click="hideMenu"
+                      >
                         <span class="header-menu-link-contents">
                           <CommonIcon :class-name="menuInfo.iconClassName" />
                           <span class="header-menu-link-text">

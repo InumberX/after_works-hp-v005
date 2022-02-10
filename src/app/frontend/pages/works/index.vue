@@ -21,13 +21,13 @@ const config = useRuntimeConfig();
 const breadcrumbInfos: breadcrumbInfos[] = [
   {
     url: '',
-    text: $const.pageInfos.about.title,
+    text: $const.pageInfos.works.title,
   },
 ];
 const meta = <meta>{
-  title: $const.pageInfos.about.title + $const.meta.titleTemplate,
-  description: $const.pageInfos.about.description,
+  title: $const.pageInfos.works.title + $const.meta.titleTemplate,
+  description: $const.pageInfos.works.description,
   ogImage: config.siteUrl + $const.url.imgOgp,
-  canonical: config.siteUrl + $const.pageInfos.about.url,
+  canonical: config.siteUrl + $const.pageInfos.works.url,
 };
 </script>

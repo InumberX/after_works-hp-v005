@@ -2,23 +2,25 @@
   <main class="l-main">
     <Html lang="ja">
       <Head>
-        <Title>{{ $const.meta.title }}</Title>
-        <Meta name="description" :content="$const.meta.description" />
-        <Meta
-          name="og:image"
-          :content="`${config.siteUrl}assets/img/img-ogp.png`"
-        />
-        <Meta name="og:site_name" :content="$const.meta.title" />
-        <Meta name="og:description" :content="$const.meta.description" />
-        <Meta name="twitter:description" :content="$const.meta.description" />
-        <Link hid="canonical" rel="canonical" :href="config.siteUrl" />
+        <Title>{{ meta.title }}</Title>
+        <Meta name="description" :content="meta.description" />
+        <Meta name="og:image" :content="meta.ogImage" />
+        <Meta name="og:site_name" :content="meta.title" />
+        <Meta name="og:description" :content="meta.description" />
+        <Meta name="twitter:description" :content="meta.description" />
+        <Link rel="canonical" :href="meta.canonical" />
       </Head>
     </Html>
-    <NuxtLink to="/about/">Home page</NuxtLink>
   </main>
 </template>
 
 <script setup lang="ts">
 const { $const } = useNuxtApp();
 const config = useRuntimeConfig();
+const meta = <meta>{
+  title: $const.pageInfos.top.title,
+  description: $const.pageInfos.top.description,
+  ogImage: config.siteUrl + $const.url.imgOgp,
+  canonical: config.siteUrl,
+};
 </script>

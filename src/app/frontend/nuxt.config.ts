@@ -3,15 +3,15 @@ import $const from './config/const';
 
 let baseDir = '/';
 
-const now = new Date();
-const nowDatetime =
+const now: Date = new Date();
+const nowDatetime: string =
   now.getFullYear() +
   ('0' + (now.getMonth() + 1)).slice(-2) +
   ('0' + now.getDate()).slice(-2) +
   ('0' + now.getHours()).slice(-2) +
   ('0' + now.getMinutes()).slice(-2) +
   ('0' + now.getSeconds()).slice(-2);
-const cashBuster = 'ver=' + nowDatetime;
+const cashBuster: string = 'ver=' + nowDatetime;
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({

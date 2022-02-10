@@ -3,12 +3,10 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps({
-  className: {
-    type: String,
-    required: true,
-  },
-});
+type Props = {
+  className: string;
+};
+const { className } = defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>
