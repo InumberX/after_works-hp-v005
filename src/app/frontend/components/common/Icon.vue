@@ -35,4 +35,10 @@ const { className } = defineProps<Props>();
 .icon-mail {
   background-image: url('~/assets/img/icon-mail.svg');
 }
+.icon-palette {
+  background-image: url('~/assets/img/icon-palette.svg');
+}
+.icon-laptop {
+  background-image: url('~/assets/img/icon-laptop.svg');
+}
 </style>
