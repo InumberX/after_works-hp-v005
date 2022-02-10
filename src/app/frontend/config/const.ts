@@ -84,6 +84,8 @@ export default <$const>{
   },
   // URL
   url: {
+    // 画像
+    img: 'assets/img/',
     // ロゴ画像
     imgLogo: 'assets/img/img-logo.svg',
     // SNSシェア画像

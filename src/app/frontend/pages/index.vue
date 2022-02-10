@@ -11,6 +11,7 @@
         <Link rel="canonical" :href="meta.canonical" />
       </Head>
     </Html>
+    <PartsMainVisual />
   </main>
 </template>
 
