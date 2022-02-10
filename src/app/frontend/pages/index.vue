@@ -11,7 +11,22 @@
         <Link rel="canonical" :href="meta.canonical" />
       </Head>
     </Html>
+
     <PartsMainVisual />
+
+    <PartsMessage />
+
+    <section class="l-section">
+      <PartsSectionTitle title="提供サービス" sub-title="Service" />
+    </section>
+
+    <section class="l-section">
+      <PartsSectionTitle title="コンテンツ" sub-title="Contents" />
+    </section>
+
+    <section class="l-section">
+      <PartsSectionTitle title="ブログ" sub-title="Blog" />
+    </section>
   </main>
 </template>
 

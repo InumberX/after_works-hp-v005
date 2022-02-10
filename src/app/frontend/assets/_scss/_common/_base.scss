@@ -308,9 +308,15 @@ th {
 .l-main {
   padding-top: 64px;
 }
+.l-section {
+  padding: 40px 0;
+}
 @include g.mxMediaQuery(g.$bp-sm) {
   .l-inner {
     padding: 0 4.6vw;
+  }
+  .l-section {
+    padding: 80px 0;
   }
 }
 @include g.mxMediaQuery(g.$bp-md) {

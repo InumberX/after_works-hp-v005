@@ -33,7 +33,7 @@ $color-main_visual_title_box-background: g.$palette-seashell;
 
 .l-main-visual {
   position: relative;
-  padding-bottom: 40px;
+  padding-bottom: 80px;
 }
 .main-visual-img-box {
   position: relative;
@@ -54,7 +54,7 @@ $color-main_visual_title_box-background: g.$palette-seashell;
     display: block;
     position: absolute;
     z-index: g.$z_index-1;
-    bottom: 0;
+    bottom: 40px;
     left: 0;
     background-color: $color-main_visual_title_box-background;
   }
@@ -75,6 +75,7 @@ $color-main_visual_title_box-background: g.$palette-seashell;
   .main-visual-title-box {
     &:after {
       width: 320px;
+      bottom: 0;
     }
   }
   .main-visual-title {
@@ -90,7 +91,7 @@ $color-main_visual_title_box-background: g.$palette-seashell;
     align-items: flex-end;
     flex-direction: row-reverse;
     position: relative;
-    padding-bottom: 80px;
+    padding: 16px 0 80px;
   }
   .main-visual-img-box {
     width: 100%;

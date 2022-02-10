@@ -216,7 +216,6 @@ $color-header_overlay_bg-background: g.$palette-black;
   top: 0;
   left: 0;
   z-index: g.$z_index-header_1;
-  border-bottom: 1px solid $color-l_header-border;
   background-color: $color-l_header-background;
 }
 .header-box {
@@ -378,6 +377,10 @@ $color-header_overlay_bg-background: g.$palette-black;
   }
 }
 @include g.mxMediaQuery(g.$bp-sm) {
+  .l-header {
+    position: fixed;
+    border-bottom: 1px solid $color-l_header-border;
+  }
   .header-box {
     justify-content: space-between;
   }
