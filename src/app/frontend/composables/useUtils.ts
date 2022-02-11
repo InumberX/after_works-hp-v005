@@ -9,8 +9,43 @@ export const useUtils = () => {
     winY: 0,
   }));
 
+  // 値が空ではないか判定する処理
+  const isNotEmpty = (val: any) => {
+    let result = false;
+    if (typeof val !== 'undefined' && val != null) {
+      if (Array.isArray(val)) {
+        if (val.length > 0) {
+          result = true;
+        }
+      } else if (val !== 'null' && val !== '') {
+        result = true;
+      }
+    }
+    return result;
+  };
+
+  // 0埋め処理
+  const zeroPadding = (val: string | number, length: number) => {
+    let result: string = '';
+    let zero: string = '';
+
+    for (
+      let i: number = 0, iLength: number = length;
+      i < iLength;
+      i = (i + 1) | 0
+    ) {
+      zero += '0';
+    }
+
+    result = (zero + val).slice(-length);
+
+    return result;
+  };
+
   return {
     vars: vars,
+    // 値が空ではないか判定する処理
+    isNotEmpty: isNotEmpty,
     // 親画面を固定する処理
     fixParentScreen: () => {
       vars.value.winY =
@@ -26,6 +61,28 @@ export const useUtils = () => {
       body.style.top = '';
       scrollTo(0, vars.value.winY);
       vars.value.winY = 0;
+    },
+    // 0埋め処理
+    zeroPadding: zeroPadding,
+    // 日を取得する処理
+    getDate: (date?: string | number | Date) => {
+      let result: string = '';
+      let targetDate: Date;
+
+      if (typeof date !== 'undefined') {
+        targetDate = new Date(date);
+      } else {
+        targetDate = new Date();
+      }
+
+      result =
+        targetDate.getFullYear() +
+        '/' +
+        zeroPadding(targetDate.getMonth() + 1, 2) +
+        '/' +
+        zeroPadding(targetDate.getDate(), 2);
+
+      return result;
     },
   };
 };

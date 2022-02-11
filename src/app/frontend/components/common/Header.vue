@@ -87,7 +87,6 @@
 </template>
 
 <script setup lang="ts">
-import { useUtils } from '~/composables/useUtils';
 import { useBreakpoints } from '~/composables/useBreakpoints';
 
 const { $const } = useNuxtApp();

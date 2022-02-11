@@ -23,6 +23,8 @@ export default defineNuxtConfig({
     cashBuster,
     // サイトURL
     siteUrl: process.env.SITE_URL,
+    // APIURL
+    apiUrl: process.env.API_URL,
   },
   typescript: {
     strict: true,
@@ -37,6 +39,14 @@ export default defineNuxtConfig({
       img: () => 'img/[name].[ext]?' + cashBuster,
       font: () => 'font/[name].[ext]?' + cashBuster,
       video: () => 'video/[name].[ext]?' + cashBuster,
+    },
+  },
+  vite: {
+    server: {
+      proxy: {
+        // CMSからアップロードした静的ファイル
+        '/uploads': process.env.API_URL,
+      },
     },
   },
 });

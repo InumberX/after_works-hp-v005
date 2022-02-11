@@ -26,15 +26,25 @@
       <PartsCardList :card-list-infos="contentsInfos" />
     </section>
 
-    <section class="l-section">
+    <section v-if="blogInfos.length > 0" class="l-section">
       <PartsSectionTitle title="ブログ" sub-title="Blog" />
+      <PartsArticleList
+        :article-list-infos="blogInfos"
+        :article-url="`${config.baseDir}${$const.pageInfos.blogs.url}`"
+        :list-page-url="`${config.baseDir}${$const.pageInfos.blogs.url}`"
+        list-page-text="ブログ一覧"
+      />
     </section>
   </main>
 </template>
 
 <script setup lang="ts">
+import { useUtils } from '~/composables/useUtils';
+import { useClientHandle } from '@urql/vue';
+const urql = useClientHandle();
 const { $const } = useNuxtApp();
 const config = useRuntimeConfig();
+const utils = useUtils();
 const meta = <meta>{
   title: $const.pageInfos.top.title,
   description: $const.pageInfos.top.description,
@@ -80,4 +90,55 @@ const contentsInfos: cardListInfos[] = [
     linkText: 'Works',
   },
 ];
+
+const blogsResult = await urql.useQuery({
+  query: `query getBlogs {
+    blogs(
+      pagination: {
+        limit: 3
+      }
+      sort: [
+        "createdDate:desc"
+        "id:desc"
+      ]
+    ) {
+      data {
+        id
+        attributes {
+          title
+          date: createdDate
+          img {
+            data {
+              id
+              attributes {
+                url
+              }
+            }
+          }
+          tags: blog_tags(
+            pagination: {
+              limit: 5
+            }
+          ) {
+            data {
+              id
+              attributes {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }`,
+});
+
+let blogInfos: articleListInfos[] = [];
+
+if (
+  utils.isNotEmpty(blogsResult.data.value.blogs) &&
+  utils.isNotEmpty(blogsResult.data.value.blogs.data)
+) {
+  blogInfos = blogsResult.data.value.blogs.data;
+}
 </script>

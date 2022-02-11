@@ -6,9 +6,24 @@
     "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^2.2.1",
+    "@graphql-codegen/fragment-matcher": "^3.1.0",
+    "@graphql-codegen/near-operation-file-preset": "^2.2.2",
+    "@graphql-codegen/typed-document-node": "^2.2.1",
+    "@graphql-codegen/typescript": "^2.4.1",
+    "@graphql-codegen/typescript-apollo-client-helpers": "^2.1.8",
+    "@graphql-codegen/typescript-operations": "^2.2.1",
+    "@graphql-codegen/typescript-urql": "^3.4.1",
+    "@graphql-codegen/typescript-urql-graphcache": "^2.2.2",
+    "@graphql-codegen/typescript-vue-urql": "^2.2.1",
+    "@graphql-codegen/urql-introspection": "^2.1.0",
+    "@urql/exchange-graphcache": "^4.3.6",
+    "@urql/vue": "^0.6.1",
+    "graphql-tag": "^2.12.6",
     "nuxt3": "latest"
   },
   "dependencies": {
-    "sass": "^1.49.7"
+    "sass": "^1.49.7",
+    "graphql": "^16.0.1"
   }
 }

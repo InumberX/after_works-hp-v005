@@ -8,10 +8,10 @@ interface $const {
   };
   pageInfos: {
     [key: string]: {
-      menuText: string;
+      menuText?: string;
       url: string;
-      iconClassName: string;
-      title: string;
+      iconClassName?: string;
+      title?: string;
       description: string;
     };
   };
@@ -90,5 +90,9 @@ export default <$const>{
     imgLogo: 'assets/img/img-logo.svg',
     // SNSシェア画像
     imgOgp: 'assets/img/img-ogp.png',
+    // 空画像
+    imgEmpty: 'assets/img/img-empty.jpg',
+    // API
+    api: 'api/',
   },
 };
