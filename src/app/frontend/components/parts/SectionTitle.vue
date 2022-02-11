@@ -1,5 +1,5 @@
 <template>
-  <div class="l-section-title">
+  <div class="l-section-title" :class="[flgSimple ? 'is-simple' : '']">
     <div class="l-inner">
       <div class="section-title-box">
         <span v-if="subTitle" class="section-title-sub">{{ subTitle }}</span>
@@ -13,6 +13,7 @@
 type Props = {
   title: string;
   subTitle?: string;
+  flgSimple?: boolean;
 };
 const { title, subTitle } = defineProps<Props>();
 </script>
@@ -25,6 +26,23 @@ $color-section_title_box-background: g.$palette-east_bay;
 
 $color-section_title_sub-text: g.$palette-east_bay;
 
+.l-section-title {
+  &.is-simple {
+    .section-title-box {
+      padding-top: 0;
+      &:before,
+      &:after {
+        content: none;
+      }
+    }
+    .section-title-sub {
+      margin-top: 0;
+    }
+    .section-title-main {
+      margin-top: 0;
+    }
+  }
+}
 .section-title-box {
   position: relative;
   padding-top: 32px;

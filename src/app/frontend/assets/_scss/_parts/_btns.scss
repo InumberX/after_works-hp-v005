@@ -54,11 +54,22 @@ $color-primary_btn_icon-border_hover: g.$palette-resolution_blue;
       border-color: $color-primary_btn_icon-border_hover;
     }
   }
+  .icon {
+    margin-right: 8px;
+  }
+  &:not(:hover) {
+    .icon-mail {
+      background-image: url('~/assets/img/icon-mail-link.svg');
+    }
+  }
 }
 @include g.mxMediaQuery(g.$bp-sm) {
   .primary-btn:not(:root) {
     font-size: 2rem;
     padding: 16px 40px;
     max-width: 320px;
+    .icon {
+      margin-right: 16px;
+    }
   }
 }

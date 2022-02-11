@@ -14,6 +14,9 @@ $color-link-text_hover: g.$palette-east_bay;
 $color-mark-background: g.$palette-marigold_yellow;
 $color-mark-text: g.$palette-mine_shaft;
 
+// レイアウト
+$color-l_section-background: g.$palette-seashell;
+
 /* 共通 ========== */
 /* リセット */
 * {
@@ -310,6 +313,9 @@ th {
 }
 .l-section {
   padding: 40px 0;
+  &.is-paint {
+    background-color: $color-l_section-background;
+  }
 }
 @include g.mxMediaQuery(g.$bp-sm) {
   .l-inner {

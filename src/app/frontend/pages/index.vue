@@ -35,6 +35,8 @@
         list-page-text="ブログ一覧"
       />
     </section>
+
+    <CommonContact />
   </main>
 </template>
 

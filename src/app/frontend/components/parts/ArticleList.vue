@@ -153,6 +153,9 @@ $color-article_list_tag-text: g.$palette-boulder;
   background-color: $color-article_list_link-background;
   &:hover {
     color: $color-article_list_link-text_hover;
+    .article-list-img {
+      transform: scale(1.1);
+    }
   }
 }
 .article-list-img-box {
@@ -167,6 +170,7 @@ $color-article_list_tag-text: g.$palette-boulder;
   left: 0;
   width: 100%;
   height: 100%;
+  transition: 0.3s transform;
 }
 .article-list-date-box {
   font-size: 1.4rem;
