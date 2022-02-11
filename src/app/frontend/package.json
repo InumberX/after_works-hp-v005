@@ -23,7 +23,7 @@
     "nuxt3": "latest"
   },
   "dependencies": {
-    "sass": "^1.49.7",
-    "graphql": "^16.0.1"
+    "graphql": "^16.0.1",
+    "sass": "^1.49.7"
   }
 }

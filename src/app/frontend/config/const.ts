@@ -15,6 +15,13 @@ interface $const {
       description: string;
     };
   };
+  snsInfos: {
+    [key: string]: {
+      url: string;
+      iconClassName: string;
+      title: string;
+    };
+  };
   className: {
     [key: string]: string;
   };
@@ -75,6 +82,49 @@ export default <$const>{
       title: 'お問い合わせ',
       description:
         '東京都在住のフロントエンドエンジニア：N/NE（ナイン）のポートフォリオ用Webサイトです。お問い合わせはこちらのページからお気軽にご連絡ください。',
+    },
+  },
+  // SNS情報
+  snsInfos: {
+    twitter: {
+      url: 'https://twitter.com/InumberX/',
+      iconClassName: 'icon-twitter',
+      title: 'Twitter',
+    },
+    instagram: {
+      url: 'https://www.instagram.com/inumberx/',
+      iconClassName: 'icon-instagram',
+      title: 'Instagram',
+    },
+    github: {
+      url: 'https://github.com/InumberX/',
+      iconClassName: 'icon-github',
+      title: 'GitHub',
+    },
+    youtube: {
+      url: 'https://www.youtube.com/channel/UCjd4GJBAQ1eIs-dXPEBbYng/',
+      iconClassName: 'icon-youtube',
+      title: 'YouTube',
+    },
+    qiita: {
+      url: 'https://qiita.com/inumberx/',
+      iconClassName: 'icon-qiita',
+      title: 'Qiita',
+    },
+    note: {
+      url: 'https://note.mu/inumberx/',
+      iconClassName: 'icon-note',
+      title: 'note',
+    },
+    behance: {
+      url: 'https://www.behance.net/inumberx21ac/',
+      iconClassName: 'icon-behance',
+      title: 'Behance',
+    },
+    pixiv: {
+      url: 'https://www.pixiv.net/users/2146818/',
+      iconClassName: 'icon-pixiv',
+      title: 'pixiv',
     },
   },
   // クラス名

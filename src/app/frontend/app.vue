@@ -13,6 +13,7 @@
     <NuxtLayout>
       <CommonHeader />
       <NuxtPage />
+      <CommonFooter />
     </NuxtLayout>
   </div>
 </template>

@@ -84,5 +84,32 @@ export const useUtils = () => {
 
       return result;
     },
+    // スムーススクロール
+    actSmoothScroll: (target: string, speed?: number) => {
+      let targetElm: HTMLBodyElement | null = null;
+      let scrollSpeed: number = 300;
+
+      if (target === '#') {
+        targetElm = document.querySelector('body');
+      } else {
+        targetElm = document.querySelector(target);
+      }
+
+      // スクロールスピードが指定されている場合
+      if (typeof speed !== 'undefined') {
+        scrollSpeed = speed;
+      }
+
+      // スクロール先が存在する場合
+      if (targetElm !== null) {
+        const targetPos: number = targetElm.getBoundingClientRect().top;
+        const winY: number = window.pageYOffset;
+
+        window.scrollTo({
+          top: targetPos + winY - 24,
+          behavior: 'smooth',
+        });
+      }
+    },
   };
 };

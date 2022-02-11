@@ -41,4 +41,44 @@ const { className } = defineProps<Props>();
 .icon-laptop {
   background-image: url('~/assets/img/icon-laptop.svg');
 }
+.icon-twitter {
+  background-image: url('~/assets/img/icon-twitter.svg');
+  width: 32px;
+  height: 26px;
+}
+.icon-instagram {
+  background-image: url('~/assets/img/icon-instagram.svg');
+  width: 26px;
+  height: 26px;
+}
+.icon-github {
+  background-image: url('~/assets/img/icon-github.svg');
+  width: 26px;
+  height: 26px;
+}
+.icon-youtube {
+  background-image: url('~/assets/img/icon-youtube.svg');
+  width: 37px;
+  height: 26px;
+}
+.icon-qiita {
+  background-image: url('~/assets/img/icon-qiita.svg');
+  width: 24px;
+  height: 26px;
+}
+.icon-note {
+  background-image: url('~/assets/img/icon-note.svg');
+  width: 23px;
+  height: 26px;
+}
+.icon-behance {
+  background-image: url('~/assets/img/icon-behance.svg');
+  width: 41px;
+  height: 26px;
+}
+.icon-pixiv {
+  background-image: url('~/assets/img/icon-pixiv.svg');
+  width: 28px;
+  height: 26px;
+}
 </style>
