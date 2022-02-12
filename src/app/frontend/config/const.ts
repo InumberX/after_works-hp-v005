@@ -28,6 +28,8 @@ interface $const {
   url: {
     [key: string]: string;
   };
+  pageSize: number;
+  tagsLimit: number;
 }
 
 export default <$const>{
@@ -145,4 +147,8 @@ export default <$const>{
     // API
     api: 'api/',
   },
+  // 1ページの件数
+  pageSize: 12,
+  // タグの表示件数
+  tagsLimit: 5,
 };

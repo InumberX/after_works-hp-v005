@@ -12,6 +12,7 @@ const ssrKey = '__URQL_DATA__';
 
 export default defineNuxtPlugin((nuxt) => {
   const { vueApp } = nuxt;
+  const config = useRuntimeConfig();
 
   const ssr = ssrExchange({
     isClient: process.client,
@@ -30,7 +31,7 @@ export default defineNuxtPlugin((nuxt) => {
   }
 
   const client = createClient({
-    url: 'http://localhost:1337/graphql',
+    url: `${config.apiUrl}${config.apiRoot}`,
     exchanges: [dedupExchange, ssr, fetchExchange],
   });
 

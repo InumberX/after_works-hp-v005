@@ -19,7 +19,9 @@
 
 /* ページ遷移 */
 .page {
-  &-enter-active,
+  &-enter-active {
+    transition: 0.9s opacity;
+  }
   &-leave-active {
     transition: 0.3s opacity;
   }

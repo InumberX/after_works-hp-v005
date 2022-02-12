@@ -41,3 +41,10 @@ interface articleListInfos {
     };
   };
 }
+
+interface pagingInfo {
+  pageUrl: string;
+  currentPage: number;
+  pageSize: number;
+  pageCount: number;
+}

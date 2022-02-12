@@ -64,6 +64,10 @@
             </NuxtLink>
           </li>
         </ul>
+        <PartsPaging
+          v-if="pagingInfo && pagingInfo.pageCount >= 2"
+          :paging-info="pagingInfo"
+        />
         <div
           v-if="listPageUrl && listPageText"
           class="article-list-page-link-box"
@@ -115,9 +119,21 @@ type Props = {
   className?: string;
   listPageUrl?: string;
   listPageText?: string;
+  pagingInfo?: {
+    pageUrl: string;
+    currentPage: number;
+    pageSize: number;
+    pageCount: number;
+  };
 };
-const { articleListInfos, articleUrl, className, listPageUrl, listPageText } =
-  defineProps<Props>();
+const {
+  articleListInfos,
+  articleUrl,
+  className,
+  listPageUrl,
+  listPageText,
+  pagingInfo,
+} = defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>
@@ -133,6 +149,13 @@ $color-article_list_date_box-text: g.$palette-boulder;
 $color-article_list_tag-background: g.$palette-seashell;
 $color-article_list_tag-text: g.$palette-boulder;
 
+.l-article-list {
+  &.is-ground-top {
+    .article-list-box {
+      margin-top: 0;
+    }
+  }
+}
 .article-list-box {
   margin-top: 24px;
 }
@@ -242,10 +265,10 @@ $color-article_list_tag-text: g.$palette-boulder;
 @include g.mxMediaQuery(g.$bp-md) {
   .article-list-items {
     > .article-list-item {
-      @include g.mxListWidth(3, 24px) {
-      }
       &:nth-of-type(2n) {
         margin-right: 24px;
+      }
+      @include g.mxListWidth(3, 24px) {
       }
     }
   }

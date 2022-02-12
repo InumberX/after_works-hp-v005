@@ -42,7 +42,7 @@
 
 <script setup lang="ts">
 import { useUtils } from '~/composables/useUtils';
-import { useClientHandle } from '@urql/vue';
+import { useClientHandle, gql } from '@urql/vue';
 const urql = useClientHandle();
 const { $const } = useNuxtApp();
 const config = useRuntimeConfig();
@@ -94,53 +94,46 @@ const contentsInfos: cardListInfos[] = [
 ];
 
 const blogsResult = await urql.useQuery({
-  query: `query getBlogs {
-    blogs(
-      pagination: {
-        limit: 3
-      }
-      sort: [
-        "createdDate:desc"
-        "id:desc"
-      ]
-    ) {
-      data {
-        id
-        attributes {
-          title
-          date: createdDate
-          img {
-            data {
-              id
-              attributes {
-                url
+  query: gql`
+    query getBlogs($tagsLimit: Int!) {
+      blogs(pagination: { limit: 3 }, sort: ["createdDate:desc", "id:desc"]) {
+        data {
+          id
+          attributes {
+            title
+            date: createdDate
+            img {
+              data {
+                id
+                attributes {
+                  url
+                }
               }
             }
-          }
-          tags: blog_tags(
-            pagination: {
-              limit: 5
-            }
-          ) {
-            data {
-              id
-              attributes {
-                name
+            tags: blog_tags(pagination: { limit: $tagsLimit }) {
+              data {
+                id
+                attributes {
+                  name
+                }
               }
             }
           }
         }
       }
     }
-  }`,
+  `,
+  variables: {
+    tagsLimit: $const.tagsLimit,
+  },
 });
 
-let blogInfos: articleListInfos[] = [];
+const blogInfos = ref<articleListInfos[]>([]);
 
 if (
   utils.isNotEmpty(blogsResult.data.value.blogs) &&
   utils.isNotEmpty(blogsResult.data.value.blogs.data)
 ) {
-  blogInfos = blogsResult.data.value.blogs.data;
+  blogInfos.value = blogsResult.data.value.blogs.data;
 }
 </script>

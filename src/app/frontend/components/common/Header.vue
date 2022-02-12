@@ -185,8 +185,12 @@ const showMenu = () => {
 
 // メニューを非表示にする処理
 const hideMenu = () => {
-  flgShowMenu.value = false;
-  utils.unfixParentScreen();
+  if (flgShowMenu.value) {
+    flgShowMenu.value = false;
+    utils.unfixParentScreen();
+  } else {
+    flgShowMenu.value = false;
+  }
 };
 </script>
 

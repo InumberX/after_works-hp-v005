@@ -25,6 +25,8 @@ export default defineNuxtConfig({
     siteUrl: process.env.SITE_URL,
     // APIURL
     apiUrl: process.env.API_URL,
+    // APIルート
+    apiRoot: process.env.API_ROOT,
   },
   typescript: {
     strict: true,

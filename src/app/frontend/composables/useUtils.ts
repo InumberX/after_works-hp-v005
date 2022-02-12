@@ -103,10 +103,25 @@ export const useUtils = () => {
       // スクロール先が存在する場合
       if (targetElm !== null) {
         const targetPos: number = targetElm.getBoundingClientRect().top;
-        const winY: number = window.pageYOffset;
+        const winY: number =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        const { breakpoints } = useBreakpoints();
+        let staggerPos = 24;
+
+        // 特定の画面幅以上の場合
+        if (
+          breakpoints.value.flg.sm ||
+          breakpoints.value.flg.md ||
+          breakpoints.value.flg.lg ||
+          breakpoints.value.flg.xl ||
+          breakpoints.value.flg.xxl
+        ) {
+          staggerPos = 80;
+        }
 
         window.scrollTo({
-          top: targetPos + winY - 24,
+          top: targetPos + winY - staggerPos,
           behavior: 'smooth',
         });
       }
