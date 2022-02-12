@@ -12,6 +12,7 @@ interface $const {
       url: string;
       iconClassName?: string;
       title?: string;
+      subTitle?: string;
       description: string;
     };
   };
@@ -55,6 +56,7 @@ export default <$const>{
       url: 'blogs/',
       iconClassName: 'icon-article',
       title: 'ブログ',
+      subTitle: 'Blog',
       description:
         '東京都在住のフロントエンドエンジニア：N/NE（ナイン）のポートフォリオ用Webサイトです。このページでは、私が投稿した記事の一覧を閲覧できます。',
     },
@@ -64,6 +66,7 @@ export default <$const>{
       url: 'about/',
       iconClassName: 'icon-person',
       title: '経歴',
+      subTitle: 'About',
       description:
         '東京都在住のフロントエンドエンジニア：N/NE（ナイン）のポートフォリオ用Webサイトです。このページでは、私のプロフィールやこれまでの経験、担当業務等をご紹介します。',
     },
@@ -73,6 +76,7 @@ export default <$const>{
       url: 'works/',
       iconClassName: 'icon-star',
       title: '実績',
+      subTitle: 'Works',
       description:
         '東京都在住のフロントエンドエンジニア：N/NE（ナイン）のポートフォリオ用Webサイトです。このページでは、私のこれまでの実績・制作物の一覧を閲覧できます。',
     },
@@ -82,6 +86,7 @@ export default <$const>{
       url: 'contact/',
       iconClassName: 'icon-mail',
       title: 'お問い合わせ',
+      subTitle: 'Contact',
       description:
         '東京都在住のフロントエンドエンジニア：N/NE（ナイン）のポートフォリオ用Webサイトです。お問い合わせはこちらのページからお気軽にご連絡ください。',
     },

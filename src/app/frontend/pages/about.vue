@@ -11,7 +11,15 @@
         <Link rel="canonical" :href="meta.canonical" />
       </Head>
     </Html>
+
+    <PartsPageTitle
+      :title="$const.pageInfos.about.title"
+      :sub-title="$const.pageInfos.about.subTitle"
+    />
+
     <CommonBreadcrumb :breadcrumb-infos="breadcrumbInfos" />
+
+    <CommonContact />
   </main>
 </template>
 
