@@ -3,7 +3,7 @@
     <div class="l-inner header-inner">
       <div class="header-box">
         <div class="header-logo-box">
-          <h1 class="header-logo">
+          <div class="header-logo">
             <NuxtLink to="/" class="header-logo-link">
               <img
                 :src="`${config.baseDir}${$const.url.imgLogo}?${config.cashBuster}`"
@@ -13,7 +13,7 @@
                 height="26"
               />
             </NuxtLink>
-          </h1>
+          </div>
         </div>
         <!-- /.header-logo-box -->
         <div class="header-menu-box">

@@ -32,7 +32,9 @@
           </div>
         </div>
 
-        <aside class="l-parallel-side"></aside>
+        <aside class="l-parallel-side">
+          <PartsSidebarArticleList />
+        </aside>
       </div>
     </div>
 
@@ -143,14 +145,16 @@ const blogInfos = computed(() => {
 });
 
 watch(route, () => {
-  const { query } = route;
+  if (route.path === config.baseDir + $const.pageInfos.blogs.url) {
+    const { query } = route;
 
-  if (utils.isNotEmpty(query.p)) {
-    changePage(Number(query.p));
-  } else {
-    changePage(1);
+    if (utils.isNotEmpty(query.p)) {
+      changePage(Number(query.p));
+    } else {
+      changePage(1);
+    }
+
+    utils.actSmoothScroll('#' + resultTarget);
   }
-
-  utils.actSmoothScroll('#' + resultTarget);
 });
 </script>

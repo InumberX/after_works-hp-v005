@@ -15,7 +15,7 @@ type Props = {
   subTitle?: string;
   flgSimple?: boolean;
 };
-const { title, subTitle } = defineProps<Props>();
+const { title, subTitle, flgSimple } = defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>

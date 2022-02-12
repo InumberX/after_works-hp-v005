@@ -325,6 +325,9 @@ th {
     padding: 0;
   }
 }
+.l-parallel-side {
+  margin-top: 80px;
+}
 @include g.mxMediaQuery(g.$bp-sm) {
   .l-inner {
     padding: 0 4.6vw;
@@ -349,6 +352,9 @@ th {
   }
   .l-parallel-side {
     width: 240px;
+  }
+  .l-parallel-side {
+    margin-top: 0;
   }
 }
 @include g.mxMediaQuery(g.$bp-lg) {

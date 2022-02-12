@@ -13,7 +13,6 @@
 type Props = {
   title: string;
   subTitle?: string;
-  flgSimple?: boolean;
 };
 const { title, subTitle } = defineProps<Props>();
 </script>

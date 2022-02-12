@@ -41,7 +41,6 @@
 </template>
 
 <script setup lang="ts">
-import { useUtils } from '~/composables/useUtils';
 import { useClientHandle, gql } from '@urql/vue';
 const urql = useClientHandle();
 const { $const } = useNuxtApp();
