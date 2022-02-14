@@ -178,12 +178,24 @@ $color-history_contents_description_box-text: g.$palette-boulder;
 @include g.mxMediaQuery(g.$bp-sm) {
   .history-items {
     > .history-item {
+      &:first-of-type {
+        .history-contents-items {
+          > .history-contents-item {
+            &:first-of-type {
+              &:after {
+                height: calc(100% - 16px);
+                top: 16px;
+              }
+            }
+          }
+        }
+      }
       .history-contents-items {
         > .history-contents-item {
           &:first-of-type {
             &:after {
-              height: calc(100% + 40px);
-              top: -40px;
+              height: calc(100% + 36px);
+              top: -36px;
             }
           }
         }
@@ -191,7 +203,7 @@ $color-history_contents_description_box-text: g.$palette-boulder;
     }
   }
   .history-item {
-    margin-top: 40px;
+    margin-top: 36px;
   }
   .history-title {
     font-size: 2.4rem;
@@ -200,12 +212,78 @@ $color-history_contents_description_box-text: g.$palette-boulder;
   .history-contents {
     padding-left: 56px;
   }
+  .history-contents-items {
+    > .history-contents-item {
+      &:first-of-type {
+        &:after {
+          height: calc(100% - 16px);
+          top: 16px;
+        }
+        &:before {
+          top: 14px;
+        }
+        .history-contents-date {
+          padding-top: 4px;
+        }
+      }
+    }
+  }
   .history-contents-item {
     &:before {
       left: -31px;
     }
     &:after {
       left: -28px;
+    }
+  }
+}
+@include g.mxMediaQuery(g.$bp-md) {
+  .history-items {
+    > .history-item {
+      &:first-of-type {
+        .history-contents-items {
+          > .history-contents-item {
+            &:first-of-type {
+              &:after {
+                height: calc(100% - 24px);
+                top: 24px;
+              }
+            }
+          }
+        }
+      }
+      .history-contents-items {
+        > .history-contents-item {
+          &:first-of-type {
+            &:after {
+              height: calc(100% + 28px);
+              top: -28px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .history-item {
+    margin-top: 28px;
+  }
+  .history-title {
+    font-size: 3.2rem;
+  }
+  .history-contents-items {
+    > .history-contents-item {
+      &:first-of-type {
+        &:after {
+          height: calc(100% - 24px);
+          top: 24px;
+        }
+        &:before {
+          top: 22px;
+        }
+        .history-contents-date {
+          padding-top: 12px;
+        }
+      }
     }
   }
 }
