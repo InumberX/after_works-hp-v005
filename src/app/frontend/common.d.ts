@@ -22,6 +22,8 @@ interface articleListInfos {
   id: string;
   attributes: {
     title: string;
+    description?: string;
+    content?: string;
     date: string;
     img: {
       data?: {

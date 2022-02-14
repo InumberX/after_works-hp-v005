@@ -81,4 +81,14 @@ const { className } = defineProps<Props>();
   width: 28px;
   height: 26px;
 }
+.icon-facebook {
+  background-image: url('~/assets/img/icon-facebook.svg');
+  width: 14px;
+  height: 28px;
+}
+.icon-line {
+  background-image: url('~/assets/img/icon-line.svg');
+  width: 21px;
+  height: 20px;
+}
 </style>

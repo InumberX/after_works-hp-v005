@@ -9,7 +9,7 @@
           class="sidebar-article-list-item"
         >
           <NuxtLink
-            :to="`${config.baseDir}${$const.pageInfos.blogs.url}${blogInfo.id}`"
+            :to="`${config.baseDir}${$const.pageInfos.blogs.url}${blogInfo.id}/`"
             class="sidebar-article-list-link"
           >
             <figure class="sidebar-article-list-img-box">
@@ -47,6 +47,19 @@
           </NuxtLink>
         </li>
       </ul>
+      <div
+        v-if="listPageUrl && listPageText"
+        class="sidebar-article-bottom-list-page-link-box"
+      >
+        <NuxtLink
+          :to="listPageUrl"
+          class="sidebar-article-bottom-list-page-link"
+        >
+          <span class="sidebar-article-bottom-list-page-link-text">
+            {{ listPageText }}
+          </span>
+        </NuxtLink>
+      </div>
     </div>
   </section>
 </template>
@@ -57,6 +70,13 @@ const urql = useClientHandle();
 const { $const } = useNuxtApp();
 const config = useRuntimeConfig();
 const utils = useUtils();
+
+type Props = {
+  listPageUrl?: string;
+  listPageText?: string;
+};
+
+const { listPageUrl, listPageText } = defineProps<Props>();
 
 const blogsResult = await urql.useQuery({
   query: gql`
@@ -101,6 +121,9 @@ $color-sidebar_article_list_link-text: g.$palette-mine_shaft;
 $color-sidebar_article_list_link-text_hover: g.$palette-resolution_blue;
 
 $color-sidebar_article_list_date_box-text: g.$palette-boulder;
+
+$color-sidebar_article_bottom_list_page_link-border: g.$palette-resolution_blue;
+$color-sidebar_article_bottom_list_page_link-border_hover: g.$palette-east_bay;
 
 .sidebar-article-list-box {
   margin-top: 24px;
@@ -152,5 +175,40 @@ $color-sidebar_article_list_date_box-text: g.$palette-boulder;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
+}
+.sidebar-article-bottom-list-page-link-box {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+.sidebar-article-bottom-list-page-link:not(:root) {
+  display: block;
+  position: relative;
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding-right: 24px;
+  &:after {
+    @include g.mxArrowLine(
+      12px,
+      50%,
+      4px,
+      '',
+      '',
+      -6px,
+      '',
+      '',
+      '',
+      4px,
+      $color-sidebar_article_bottom_list_page_link-border,
+      225deg
+    ) {
+      transition: 0.3s border-color;
+    }
+  }
+  &:hover {
+    &:after {
+      border-color: $color-sidebar_article_bottom_list_page_link-border_hover;
+    }
+  }
 }
 </style>

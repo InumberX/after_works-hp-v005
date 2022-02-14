@@ -9,7 +9,7 @@
             class="article-list-item"
           >
             <NuxtLink
-              :to="`${articleUrl}${articleListInfo.id}`"
+              :to="`${articleUrl}${articleListInfo.id}/`"
               class="article-list-link"
             >
               <figure class="article-list-img-box">

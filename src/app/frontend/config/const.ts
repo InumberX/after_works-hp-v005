@@ -1,10 +1,12 @@
 const title: string = 'After Works.';
 const titleTemplate: string = '：' + title;
+const pageSeparator: string = ' - ';
 
 interface $const {
   meta: {
     title: string;
     titleTemplate: string;
+    pageSeparator: string;
   };
   pageInfos: {
     [key: string]: {
@@ -38,6 +40,7 @@ export default <$const>{
   meta: {
     title: title,
     titleTemplate: titleTemplate,
+    pageSeparator: pageSeparator,
   },
   // ページ情報
   pageInfos: {
@@ -46,7 +49,7 @@ export default <$const>{
       menuText: 'トップ',
       url: '',
       iconClassName: 'icon-home',
-      title: title,
+      title: `${title}${pageSeparator}N/NE's Portfolio Site`,
       description:
         '東京都在住のフロントエンドエンジニア：N/NE（ナイン）のポートフォリオ用Webサイトです。',
     },
