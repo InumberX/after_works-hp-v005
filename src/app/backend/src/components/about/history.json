@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_about_histories",
+  "info": {
+    "displayName": "history",
+    "icon": "history",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "displayName": "historyContent",
+      "type": "component",
+      "repeatable": true,
+      "component": "about.history-content"
+    },
+    "year": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

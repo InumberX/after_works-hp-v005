@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_about_qualifications",
+  "info": {
+    "displayName": "qualification",
+    "icon": "file-alt"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}

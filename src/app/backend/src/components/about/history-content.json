@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_about_history_contents",
+  "info": {
+    "displayName": "historyContent",
+    "icon": "clipboard-check",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "text",
+      "required": false
+    },
+    "from": {
+      "type": "integer",
+      "max": 12,
+      "min": 1,
+      "required": false
+    },
+    "to": {
+      "type": "integer",
+      "max": 12,
+      "min": 1
+    }
+  }
+}

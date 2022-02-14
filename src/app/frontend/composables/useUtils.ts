@@ -46,6 +46,51 @@ export const useUtils = () => {
     vars: vars,
     // 値が空ではないか判定する処理
     isNotEmpty: isNotEmpty,
+    // エスケープを行う処理
+    escape: (val: string) => {
+      let resutl: string = '';
+
+      if (isNotEmpty(val)) {
+        resutl = String(val)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/'/g, '&apos;')
+          .replace(/"/g, '&quot;');
+      }
+
+      return resutl;
+    },
+    // エンコードを行う処理
+    encode: (val: string) => {
+      let resutl: string = '';
+
+      if (isNotEmpty(val)) {
+        resutl = encodeURIComponent(val);
+      }
+
+      return resutl;
+    },
+    // デコードを行う処理
+    decode: (val: string) => {
+      let resutl: string = '';
+
+      if (isNotEmpty(val)) {
+        resutl = decodeURIComponent(val);
+      }
+
+      return resutl;
+    },
+    // 改行コードを置換する処理
+    replaceNewLine: (val: string) => {
+      let resutl: string = '';
+
+      if (isNotEmpty(val)) {
+        resutl = val.replace(/\r?\n/g, '<br>');
+      }
+
+      return resutl;
+    },
     // 親画面を固定する処理
     fixParentScreen: () => {
       vars.value.winY =

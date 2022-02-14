@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "abouts",
+  "info": {
+    "singularName": "about",
+    "pluralName": "abouts",
+    "displayName": "About",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "qualification": {
+      "displayName": "qualification",
+      "type": "component",
+      "repeatable": true,
+      "component": "about.qualification"
+    },
+    "lead": {
+      "displayName": "lead",
+      "type": "component",
+      "repeatable": true,
+      "component": "about.lead"
+    },
+    "skill": {
+      "displayName": "skill",
+      "type": "component",
+      "repeatable": true,
+      "component": "about.skill"
+    },
+    "history": {
+      "displayName": "history",
+      "type": "component",
+      "repeatable": true,
+      "component": "about.history"
+    }
+  }
+}

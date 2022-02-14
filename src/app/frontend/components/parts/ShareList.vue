@@ -23,6 +23,8 @@
 </template>
 
 <script setup lang="ts">
+const utils = useUtils();
+
 type Props = {
   shareUrl: string;
 };
@@ -36,23 +38,23 @@ interface shareInfos {
   iconClassName: string;
 }
 
+const url: string = utils.encode(shareUrl);
+
 const shareInfos = <shareInfos[]>[
   {
-    url: 'https://twitter.com/share?url=' + encodeURIComponent(shareUrl),
+    url: 'https://twitter.com/share?url=' + url,
     title: 'Twitterでシェアする',
     className: 'is-twitter',
     iconClassName: 'icon-twitter',
   },
   {
-    url:
-      'https://www.facebook.com/sharer/sharer.php?u=' +
-      encodeURIComponent(shareUrl),
+    url: 'https://www.facebook.com/sharer/sharer.php?u=' + url,
     title: 'Facebookでシェアする',
     className: 'is-facebook',
     iconClassName: 'icon-facebook',
   },
   {
-    url: 'https://line.me/R/msg/text/?' + encodeURIComponent(shareUrl),
+    url: 'https://line.me/R/msg/text/?' + url,
     title: 'LINEでシェアする',
     className: 'is-line',
     iconClassName: 'icon-line',

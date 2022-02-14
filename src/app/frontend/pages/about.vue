@@ -19,11 +19,31 @@
 
     <CommonBreadcrumb :breadcrumb-infos="breadcrumbInfos" />
 
+    <div class="l-section is-short">
+      <div class="l-inner">
+        <PartsLead :leads="leads" />
+      </div>
+    </div>
+
+    <section class="l-section is-paint is-short">
+      <div class="l-inner">
+        <PartsProfile :qualifications="qualifications" :skills="skills" />
+      </div>
+    </section>
+
+    <div class="l-section">
+      <div class="l-inner">
+        <PartsHistory :histories="histories" />
+      </div>
+    </div>
+
     <CommonContact />
   </main>
 </template>
 
 <script setup lang="ts">
+import { useClientHandle, gql } from '@urql/vue';
+const urql = useClientHandle();
 const { $const } = useNuxtApp();
 const config = useRuntimeConfig();
 const breadcrumbInfos: breadcrumbInfos[] = [
@@ -38,4 +58,48 @@ const meta = <meta>{
   ogImage: config.siteUrl + $const.url.imgOgp,
   canonical: config.siteUrl + $const.pageInfos.about.url,
 };
+
+const aboutResult = await urql.useQuery({
+  query: gql`
+    query geAbout {
+      about {
+        data {
+          attributes {
+            lead {
+              text
+            }
+            qualification {
+              name
+              url
+            }
+            skill {
+              text
+            }
+            history {
+              year
+              content {
+                from
+                to
+                title
+                text
+              }
+            }
+          }
+        }
+      }
+    }
+  `,
+});
+
+const leads = <lead[]>aboutResult.data.value.about.data.attributes.lead;
+
+const qualifications = <qualification[]>(
+  aboutResult.data.value.about.data.attributes.qualification
+);
+
+const skills = <skill[]>aboutResult.data.value.about.data.attributes.skill;
+
+const histories = <history[]>(
+  aboutResult.data.value.about.data.attributes.history
+);
 </script>

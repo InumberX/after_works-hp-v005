@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_about_leads",
+  "info": {
+    "displayName": "lead",
+    "icon": "pen"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

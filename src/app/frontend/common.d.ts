@@ -50,3 +50,26 @@ interface pagingInfo {
   pageSize: number;
   pageCount: number;
 }
+
+interface lead {
+  text: string;
+}
+
+interface qualification {
+  name: string;
+  url: string;
+}
+
+interface skill {
+  text: string;
+}
+
+interface history {
+  year: string;
+  content: {
+    from: number;
+    to: number;
+    title: string;
+    text?: string;
+  }[];
+}

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_about_skills",
+  "info": {
+    "displayName": "skill",
+    "icon": "laptop-code"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    }
+  }
+}
