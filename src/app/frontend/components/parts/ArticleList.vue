@@ -27,15 +27,45 @@
                 />
               </figure>
               <div
-                v-if="articleListInfo.attributes.date"
+                v-if="
+                  articleListInfo.attributes.date ||
+                  articleListInfo.attributes.from ||
+                  articleListInfo.attributes.to
+                "
                 class="article-list-date-box"
               >
-                <time
-                  class="article-list-date"
-                  :datetime="articleListInfo.attributes.date"
+                <template
+                  v-if="
+                    articleListInfo.attributes.from ||
+                    articleListInfo.attributes.to
+                  "
                 >
-                  {{ utils.getDate(articleListInfo.attributes.date) }}
-                </time>
+                  <time
+                    v-if="articleListInfo.attributes.from"
+                    class="article-list-date"
+                    :datetime="articleListInfo.attributes.from"
+                  >
+                    {{ utils.getDate(articleListInfo.attributes.from) }}
+                  </time>
+                  <template v-if="articleListInfo.attributes.to">
+                    〜
+                    <time
+                      v-if="articleListInfo.attributes.to"
+                      class="article-list-date"
+                      :datetime="articleListInfo.attributes.to"
+                    >
+                      {{ utils.getDate(articleListInfo.attributes.to) }}
+                    </time>
+                  </template>
+                </template>
+                <template v-else>
+                  <time
+                    class="article-list-date"
+                    :datetime="articleListInfo.attributes.date"
+                  >
+                    {{ utils.getDate(articleListInfo.attributes.date) }}
+                  </time>
+                </template>
               </div>
               <div class="article-list-title-box">
                 <p class="article-list-title">
@@ -92,29 +122,7 @@ const config = useRuntimeConfig();
 const utils = useUtils();
 
 type Props = {
-  articleListInfos: {
-    id: string;
-    attributes: {
-      title: string;
-      date: string;
-      img: {
-        data?: {
-          id: string;
-          attributes: {
-            url: string;
-          };
-        };
-      };
-      tags: {
-        data?: {
-          id: string;
-          attributes: {
-            name: string;
-          };
-        }[];
-      };
-    };
-  }[];
+  articleListInfos: articleListInfos[];
   articleUrl: string;
   className?: string;
   listPageUrl?: string;
@@ -196,6 +204,8 @@ $color-article_list_tag-text: g.$palette-boulder;
   transition: 0.3s transform;
 }
 .article-list-date-box {
+  display: flex;
+  align-items: center;
   font-size: 1.4rem;
   color: $color-article_list_date_box-text;
   margin-top: 16px;
