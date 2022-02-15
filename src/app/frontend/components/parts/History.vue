@@ -30,7 +30,7 @@
                 </template>
                 <template v-else>
                   <time
-                    v-if="content.from"
+                    v-if="content.from && content.from > 0"
                     class="history-contents-date-text"
                     :datetime="`${history.year}-${utils.zeroPadding(
                       content.from,
@@ -41,7 +41,7 @@
                   </time>
                   〜
                   <time
-                    v-if="content.to"
+                    v-if="content.to && content.to > 0"
                     class="history-contents-date-text"
                     :datetime="`${history.year}-${utils.zeroPadding(
                       content.to,

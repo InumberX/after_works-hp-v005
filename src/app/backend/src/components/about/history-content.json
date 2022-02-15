@@ -18,13 +18,13 @@
     "from": {
       "type": "integer",
       "max": 12,
-      "min": 1,
+      "min": 0,
       "required": false
     },
     "to": {
       "type": "integer",
       "max": 12,
-      "min": 1
+      "min": 0
     }
   }
 }
