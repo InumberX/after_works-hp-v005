@@ -64,12 +64,48 @@ interface skill {
   text: string;
 }
 
+interface historyContent {
+  from: number;
+  to: number;
+  title: string;
+  positions: {
+    data: {
+      attributes: {
+        name: string;
+      };
+    }[];
+  };
+  programs: {
+    data: {
+      attributes: {
+        name: string;
+      };
+    }[];
+  };
+  cmses: {
+    data: {
+      attributes: {
+        name: string;
+      };
+    }[];
+  };
+  designs: {
+    data: {
+      attributes: {
+        name: string;
+      };
+    }[];
+  };
+  others: {
+    data: {
+      attributes: {
+        name: string;
+      };
+    }[];
+  };
+}
+
 interface history {
   year: string;
-  content: {
-    from: number;
-    to: number;
-    title: string;
-    text?: string;
-  }[];
+  content: historyContent[];
 }

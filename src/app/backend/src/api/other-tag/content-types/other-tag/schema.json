@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "other_tags",
+  "info": {
+    "singularName": "other-tag",
+    "pluralName": "other-tags",
+    "displayName": "otherTag"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "displayOrder": {
+      "unique": true,
+      "required": true,
+      "type": "integer"
+    }
+  }
+}

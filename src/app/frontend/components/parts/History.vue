@@ -57,11 +57,55 @@
                   {{ content.title }}
                 </h3>
               </div>
-              <div v-if="content.text" class="history-contents-description-box">
-                <p
-                  class="history-contents-description"
-                  v-html="utils.replaceNewLine(utils.escape(content.text))"
-                ></p>
+              <div
+                v-if="flgShowDescription(content)"
+                class="history-contents-description-box"
+              >
+                <div
+                  v-if="content.positions.data.length > 0"
+                  class="history-contents-description-items"
+                >
+                  <span
+                    v-for="position in content.positions.data"
+                    class="history-contents-description-item"
+                  >
+                    {{ position.attributes.name }}
+                  </span>
+                </div>
+                <div
+                  v-if="
+                    content.programs.data.length > 0 ||
+                    content.cmses.data.length > 0 ||
+                    content.designs.data.length > 0 ||
+                    content.others.data.length > 0
+                  "
+                  class="history-contents-description-items"
+                >
+                  <span
+                    v-for="program in content.programs.data"
+                    class="history-contents-description-item"
+                  >
+                    {{ program.attributes.name }}
+                  </span>
+                  <span
+                    v-for="cms in content.cmses.data"
+                    class="history-contents-description-item"
+                  >
+                    {{ cms.attributes.name }}
+                  </span>
+                  <span
+                    v-for="design in content.designs.data"
+                    class="history-contents-description-item"
+                  >
+                    {{ design.attributes.name }}
+                  </span>
+                  <span
+                    v-for="other in content.others.data"
+                    class="history-contents-description-item"
+                  >
+                    {{ other.attributes.name }}
+                  </span>
+                </div>
               </div>
             </li>
           </ul>
@@ -79,6 +123,24 @@ type Props = {
 };
 
 const { histories } = defineProps<Props>();
+
+const flgShowDescription = computed(() => {
+  return (val: historyContent) => {
+    let result: boolean = false;
+
+    if (
+      val.positions.data.length > 0 ||
+      val.programs.data.length > 0 ||
+      val.cmses.data.length > 0 ||
+      val.designs.data.length > 0 ||
+      val.others.data.length > 0
+    ) {
+      result = true;
+    }
+
+    return result;
+  };
+});
 </script>
 
 <style lang="scss" scoped>
@@ -174,6 +236,22 @@ $color-history_contents_description_box-text: g.$palette-boulder;
   margin-top: 8px;
   padding-left: 24px;
   color: $color-history_contents_description_box-text;
+}
+.history-contents-description-items {
+  display: flex;
+  flex-wrap: wrap;
+  > .history-contents-description-item {
+    &:last-of-type {
+      &:after {
+        content: none;
+      }
+    }
+  }
+}
+.history-contents-description-item {
+  &:after {
+    content: '、';
+  }
 }
 @include g.mxMediaQuery(g.$bp-sm) {
   .history-items {

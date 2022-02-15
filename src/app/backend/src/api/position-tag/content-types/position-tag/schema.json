@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "position_tags",
+  "info": {
+    "singularName": "position-tag",
+    "pluralName": "position-tags",
+    "displayName": "positionTag"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "displayOrder": {
+      "required": true,
+      "unique": true,
+      "type": "integer"
+    }
+  }
+}

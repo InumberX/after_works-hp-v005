@@ -11,10 +11,6 @@
       "type": "string",
       "required": true
     },
-    "text": {
-      "type": "text",
-      "required": false
-    },
     "from": {
       "type": "integer",
       "max": 12,
@@ -25,6 +21,31 @@
       "type": "integer",
       "max": 12,
       "min": 0
+    },
+    "cms_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cms-tag.cms-tag"
+    },
+    "design_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::design-tag.design-tag"
+    },
+    "other_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::other-tag.other-tag"
+    },
+    "position_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::position-tag.position-tag"
+    },
+    "program_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::program-tag.program-tag"
     }
   }
 }

@@ -81,7 +81,41 @@ const aboutResult = await urql.useQuery({
                 from
                 to
                 title
-                text
+                positions: position_tags(sort: ["displayOrder:asc"]) {
+                  data {
+                    attributes {
+                      name
+                    }
+                  }
+                }
+                programs: program_tags(sort: ["displayOrder:asc"]) {
+                  data {
+                    attributes {
+                      name
+                    }
+                  }
+                }
+                cmses: cms_tags(sort: ["displayOrder:asc"]) {
+                  data {
+                    attributes {
+                      name
+                    }
+                  }
+                }
+                designs: design_tags(sort: ["displayOrder:asc"]) {
+                  data {
+                    attributes {
+                      name
+                    }
+                  }
+                }
+                others: other_tags(sort: ["displayOrder:asc"]) {
+                  data {
+                    attributes {
+                      name
+                    }
+                  }
+                }
               }
             }
           }

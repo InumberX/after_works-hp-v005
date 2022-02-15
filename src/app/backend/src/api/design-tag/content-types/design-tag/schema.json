@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "design_tags",
+  "info": {
+    "singularName": "design-tag",
+    "pluralName": "design-tags",
+    "displayName": "designTag"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "displayOrder": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    }
+  }
+}
