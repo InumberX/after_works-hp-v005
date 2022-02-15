@@ -61,7 +61,7 @@ const meta = <meta>{
 
 const aboutResult = await urql.useQuery({
   query: gql`
-    query geAbout {
+    query getAbout {
       about {
         data {
           attributes {

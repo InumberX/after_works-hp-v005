@@ -112,7 +112,10 @@ const blogsResult = await urql.useQuery({
                 }
               }
             }
-            tags: blog_tags(pagination: { limit: $tagsLimit }) {
+            tags: blog_tags(
+              pagination: { limit: $tagsLimit }
+              sort: ["id:asc"]
+            ) {
               data {
                 id
                 attributes {

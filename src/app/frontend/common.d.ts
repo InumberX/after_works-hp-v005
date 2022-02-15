@@ -25,6 +25,9 @@ interface articleListInfos {
     description?: string;
     content?: string;
     date: string;
+    from?: string;
+    to?: string;
+    flgHobby?: boolean;
     img: {
       data?: {
         id: string;

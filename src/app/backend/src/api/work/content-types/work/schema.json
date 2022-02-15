@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "works",
+  "info": {
+    "singularName": "work",
+    "pluralName": "works",
+    "displayName": "Work",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "from": {
+      "type": "date",
+      "required": true
+    },
+    "to": {
+      "type": "date"
+    },
+    "position_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::position-tag.position-tag"
+    },
+    "program_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::program-tag.program-tag"
+    },
+    "cms_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cms-tag.cms-tag"
+    },
+    "design_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::design-tag.design-tag"
+    },
+    "other_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::other-tag.other-tag"
+    },
+    "description": {
+      "type": "string"
+    },
+    "createdDate": {
+      "type": "date",
+      "required": true
+    },
+    "flgHobby": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}
