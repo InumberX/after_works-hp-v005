@@ -1,7 +1,10 @@
 <template>
   <article class="l-article">
     <div class="article-wrap">
-      <div class="article-title-wrap">
+      <div
+        class="article-title-wrap"
+        :class="[{ 'is-parallel': flgMainVisualParallel }]"
+      >
         <figure
           v-if="articleInfo.attributes.img.data"
           class="article-main-visual-img-box"
@@ -15,16 +18,198 @@
         <div class="article-title-box">
           <div class="article-title-info-box">
             <div class="article-date-box">
+              <template
+                v-if="articleInfo.attributes.from || articleInfo.attributes.to"
+              >
+                <time
+                  v-if="articleInfo.attributes.from"
+                  class="article-date"
+                  :datetime="articleInfo.attributes.from"
+                >
+                  {{ utils.getDate(articleInfo.attributes.from) }}
+                </time>
+                <template v-if="articleInfo.attributes.to">
+                  〜
+                  <time
+                    class="article-date"
+                    :datetime="articleInfo.attributes.to"
+                  >
+                    {{ utils.getDate(articleInfo.attributes.to) }}
+                  </time>
+                </template>
+              </template>
               <time
+                v-else
                 class="article-date"
                 :datetime="articleInfo.attributes.date"
               >
                 {{ utils.getDate(articleInfo.attributes.date) }}
               </time>
             </div>
-            <PartsShareList :share-url="shareUrl" />
+            <PartsShareList v-if="isShowShareListTop" :share-url="shareUrl" />
+          </div>
+          <div
+            v-if="
+              articleInfo.attributes.tags &&
+              articleInfo.attributes.tags.data &&
+              articleInfo.attributes.tags.data.length > 0
+            "
+            class="article-tag-box"
+          >
+            <ul class="article-tag-items">
+              <li
+                v-for="tag in articleInfo.attributes.tags.data"
+                :key="tag.id"
+                class="article-tag-item"
+              >
+                <span class="article-tag">
+                  {{ tag.attributes.name }}
+                </span>
+              </li>
+            </ul>
           </div>
           <h1 class="article-title">{{ articleInfo.attributes.title }}</h1>
+          <div v-if="articleInfo.attributes.url" class="article-work-link-box">
+            <a
+              :href="articleInfo.attributes.url"
+              class="article-work-link"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="article-work-link-text">
+                {{ articleInfo.attributes.url }}
+              </span>
+              <CommonIcon class-name="icon-open_in_new" />
+            </a>
+          </div>
+          <ClientOnly>
+            <PartsShareList
+              v-if="isShowShareListBottom"
+              :share-url="shareUrl"
+            />
+            <template
+              v-if="
+                articleInfo.attributes.positions &&
+                articleInfo.attributes.positions.data &&
+                articleInfo.attributes.positions.data.length > 0
+              "
+            >
+              <div class="article-work-tag-box">
+                <dl class="article-work-tag-item">
+                  <dt class="article-work-tag-title">担当箇所</dt>
+                  <dd class="article-work-tag-contents">
+                    <ul class="article-tag-items">
+                      <li
+                        v-for="position in articleInfo.attributes.positions
+                          .data"
+                        :key="position.id"
+                        class="article-tag-item"
+                      >
+                        <span class="article-tag">
+                          {{ position.attributes.name }}
+                        </span>
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+              </div>
+            </template>
+            <template
+              v-if="
+                (articleInfo.attributes.programs &&
+                  articleInfo.attributes.programs.data &&
+                  articleInfo.attributes.programs.data.length > 0) ||
+                (articleInfo.attributes.cmses &&
+                  articleInfo.attributes.cmses.data &&
+                  articleInfo.attributes.cmses.data.length > 0) ||
+                (articleInfo.attributes.designs &&
+                  articleInfo.attributes.designs.data &&
+                  articleInfo.attributes.designs.data.length > 0) ||
+                (articleInfo.attributes.others &&
+                  articleInfo.attributes.others.data &&
+                  articleInfo.attributes.others.data.length > 0)
+              "
+            >
+              <div class="article-work-tag-box">
+                <dl class="article-work-tag-item">
+                  <dt class="article-work-tag-title">使用技術</dt>
+                  <dd class="article-work-tag-contents">
+                    <ul class="article-tag-items">
+                      <template
+                        v-if="
+                          articleInfo.attributes.programs &&
+                          articleInfo.attributes.programs.data &&
+                          articleInfo.attributes.programs.data.length > 0
+                        "
+                      >
+                        <li
+                          v-for="program in articleInfo.attributes.programs
+                            .data"
+                          :key="program.id"
+                          class="article-tag-item"
+                        >
+                          <span class="article-tag">
+                            {{ program.attributes.name }}
+                          </span>
+                        </li>
+                      </template>
+                      <template
+                        v-if="
+                          articleInfo.attributes.cmses &&
+                          articleInfo.attributes.cmses.data &&
+                          articleInfo.attributes.cmses.data.length > 0
+                        "
+                      >
+                        <li
+                          v-for="cms in articleInfo.attributes.cmses.data"
+                          :key="cms.id"
+                          class="article-tag-item"
+                        >
+                          <span class="article-tag">
+                            {{ cms.attributes.name }}
+                          </span>
+                        </li>
+                      </template>
+                      <template
+                        v-if="
+                          articleInfo.attributes.designs &&
+                          articleInfo.attributes.designs.data &&
+                          articleInfo.attributes.designs.data.length > 0
+                        "
+                      >
+                        <li
+                          v-for="design in articleInfo.attributes.designs.data"
+                          :key="design.id"
+                          class="article-tag-item"
+                        >
+                          <span class="article-tag">
+                            {{ design.attributes.name }}
+                          </span>
+                        </li>
+                      </template>
+                      <template
+                        v-if="
+                          articleInfo.attributes.others &&
+                          articleInfo.attributes.others.data &&
+                          articleInfo.attributes.others.data.length > 0
+                        "
+                      >
+                        <li
+                          v-for="other in articleInfo.attributes.others.data"
+                          :key="other.id"
+                          class="article-tag-item"
+                        >
+                          <span class="article-tag">
+                            {{ other.attributes.name }}
+                          </span>
+                        </li>
+                      </template>
+                    </ul>
+                  </dd>
+                </dl>
+              </div>
+            </template>
+          </ClientOnly>
         </div>
       </div>
       <div class="article-contents-wrap" v-html="articleContents"></div>
@@ -51,42 +236,56 @@
 </template>
 
 <script setup lang="ts">
+import { useBreakpoints } from '~/composables/useBreakpoints';
 import { marked } from 'marked';
 const utils = useUtils();
+const { breakpoints } = useBreakpoints();
 
 type Props = {
-  articleInfo: {
-    id: string;
-    attributes: {
-      title: string;
-      description?: string;
-      content?: string;
-      date: string;
-      img: {
-        data?: {
-          id: string;
-          attributes: {
-            url: string;
-          };
-        };
-      };
-      tags: {
-        data?: {
-          id: string;
-          attributes: {
-            name: string;
-          };
-        }[];
-      };
-    };
-  };
+  articleInfo: articleListInfos;
   shareUrl: string;
   listPageUrl?: string;
   listPageText?: string;
+  flgMainVisualParallel?: boolean;
 };
 
-const { articleInfo, shareUrl, listPageUrl, listPageText } =
-  defineProps<Props>();
+const {
+  articleInfo,
+  shareUrl,
+  listPageUrl,
+  listPageText,
+  flgMainVisualParallel,
+} = defineProps<Props>();
+
+const isShowShareListTop = computed(() => {
+  let result: boolean = false;
+  if (
+    !flgMainVisualParallel ||
+    (flgMainVisualParallel &&
+      (breakpoints.value.flg.xxs ||
+        breakpoints.value.flg.xs ||
+        breakpoints.value.flg.sm))
+  ) {
+    result = true;
+  }
+
+  return result;
+});
+
+const isShowShareListBottom = computed(() => {
+  let result: boolean = false;
+  if (
+    flgMainVisualParallel &&
+    (breakpoints.value.flg.md ||
+      breakpoints.value.flg.lg ||
+      breakpoints.value.flg.xl ||
+      breakpoints.value.flg.xxl)
+  ) {
+    result = true;
+  }
+
+  return result;
+});
 
 const articleContents = computed(() => {
   let result: string = '';
@@ -117,6 +316,13 @@ $color-article_contents-pre-border: g.$palette-alto;
 $color-article_contents-blockquote-background: g.$palette-seashell;
 $color-article_contents-blockquote-border: g.$palette-alto;
 
+$color-article_tag-background: g.$palette-seashell;
+$color-article_tag-text: g.$palette-boulder;
+
+$color-article_work_link-text: g.$palette-boulder;
+
+$color-article_work_tag_title-text: g.$palette-boulder;
+
 .article-main-visual-img {
   width: 100%;
 }
@@ -128,6 +334,12 @@ $color-article_contents-blockquote-border: g.$palette-alto;
   align-items: center;
   justify-content: space-between;
 }
+.article-date-box {
+  display: flex;
+  align-items: center;
+  padding-right: 8px;
+  flex-shrink: 0;
+}
 .article-date {
   font-size: 1.4rem;
   color: $color-article_date-text;
@@ -135,6 +347,55 @@ $color-article_contents-blockquote-border: g.$palette-alto;
 .article-title {
   margin-top: 8px;
   font-size: 2.4rem;
+}
+.article-tag-box {
+  margin-top: 8px;
+}
+.article-tag-items {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -4px -8px -4px 0;
+}
+.article-tag-item {
+  margin: 4px 8px 4px 0;
+}
+.article-tag {
+  display: block;
+  font-size: 1rem;
+  color: $color-article_tag-text;
+  background-color: $color-article_tag-background;
+  border-radius: 4px;
+  padding: 1px 8px;
+}
+.article-work-link-box {
+  margin-top: 12px;
+  display: flex;
+}
+.article-work-link:not(:root) {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  color: $color-article_work_link-text;
+  &:hover {
+    opacity: g.$opacity-main;
+  }
+}
+.article-work-tag-box {
+  margin-top: 16px;
+}
+.article-work-tag-item {
+  display: flex;
+}
+.article-work-tag-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  min-width: 72px;
+  padding-right: 8px;
+  color: $color-article_work_tag_title-text;
+}
+.article-work-tag-contents {
+  padding-top: 2px;
 }
 .article-contents-wrap {
   margin-top: 24px;
@@ -296,6 +557,33 @@ $color-article_contents-blockquote-border: g.$palette-alto;
   }
   .article-bottom-list-page-link-box {
     margin-top: 80px;
+  }
+}
+@include g.mxMediaQuery(g.$bp-md) {
+  .article-title-wrap {
+    &.is-parallel {
+      display: flex;
+      .article-main-visual-img-box {
+        width: 400px;
+        margin-right: 24px;
+        flex-shrink: 0;
+      }
+      .article-title-box {
+        margin-top: 0;
+      }
+      .share-list-box {
+        margin-top: 24px;
+      }
+    }
+  }
+}
+@include g.mxMediaQuery(g.$bp-lg) {
+  .article-title-wrap {
+    &.is-parallel {
+      .article-main-visual-img-box {
+        width: 640px;
+      }
+    }
   }
 }
 </style>

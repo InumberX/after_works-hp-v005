@@ -83,6 +83,7 @@ const aboutResult = await urql.useQuery({
                 title
                 positions: position_tags(sort: ["displayOrder:asc"]) {
                   data {
+                    id
                     attributes {
                       name
                     }
@@ -90,6 +91,7 @@ const aboutResult = await urql.useQuery({
                 }
                 programs: program_tags(sort: ["displayOrder:asc"]) {
                   data {
+                    id
                     attributes {
                       name
                     }
@@ -97,6 +99,7 @@ const aboutResult = await urql.useQuery({
                 }
                 cmses: cms_tags(sort: ["displayOrder:asc"]) {
                   data {
+                    id
                     attributes {
                       name
                     }
@@ -104,6 +107,7 @@ const aboutResult = await urql.useQuery({
                 }
                 designs: design_tags(sort: ["displayOrder:asc"]) {
                   data {
+                    id
                     attributes {
                       name
                     }
@@ -111,6 +115,7 @@ const aboutResult = await urql.useQuery({
                 }
                 others: other_tags(sort: ["displayOrder:asc"]) {
                   data {
+                    id
                     attributes {
                       name
                     }

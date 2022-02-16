@@ -28,6 +28,7 @@ interface articleListInfos {
     from?: string;
     to?: string;
     flgHobby?: boolean;
+    url?: string;
     img: {
       data?: {
         id: string;
@@ -36,7 +37,47 @@ interface articleListInfos {
         };
       };
     };
-    tags: {
+    tags?: {
+      data?: {
+        id: string;
+        attributes: {
+          name: string;
+        };
+      }[];
+    };
+    positions?: {
+      data?: {
+        id: string;
+        attributes: {
+          name: string;
+        };
+      }[];
+    };
+    programs?: {
+      data?: {
+        id: string;
+        attributes: {
+          name: string;
+        };
+      }[];
+    };
+    cmses?: {
+      data?: {
+        id: string;
+        attributes: {
+          name: string;
+        };
+      }[];
+    };
+    designs?: {
+      data?: {
+        id: string;
+        attributes: {
+          name: string;
+        };
+      }[];
+    };
+    others?: {
       data?: {
         id: string;
         attributes: {
@@ -73,6 +114,7 @@ interface historyContent {
   title: string;
   positions: {
     data: {
+      id: string;
       attributes: {
         name: string;
       };
@@ -80,6 +122,7 @@ interface historyContent {
   };
   programs: {
     data: {
+      id: string;
       attributes: {
         name: string;
       };
@@ -87,6 +130,7 @@ interface historyContent {
   };
   cmses: {
     data: {
+      id: string;
       attributes: {
         name: string;
       };
@@ -94,6 +138,7 @@ interface historyContent {
   };
   designs: {
     data: {
+      id: string;
       attributes: {
         name: string;
       };
@@ -101,6 +146,7 @@ interface historyContent {
   };
   others: {
     data: {
+      id: string;
       attributes: {
         name: string;
       };

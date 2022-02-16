@@ -50,7 +50,6 @@
                   <template v-if="articleListInfo.attributes.to">
                     〜
                     <time
-                      v-if="articleListInfo.attributes.to"
                       class="article-list-date"
                       :datetime="articleListInfo.attributes.to"
                     >
@@ -74,6 +73,7 @@
               </div>
               <div
                 v-if="
+                  articleListInfo.attributes.tags &&
                   articleListInfo.attributes.tags.data &&
                   articleListInfo.attributes.tags.data.length > 0
                 "

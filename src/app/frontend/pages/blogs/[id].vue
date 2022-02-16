@@ -67,7 +67,7 @@ const blogResult = await urql.useQuery({
                 }
               }
             }
-            tags: blog_tags {
+            tags: blog_tags(sort: ["id:asc"]) {
               data {
                 id
                 attributes {

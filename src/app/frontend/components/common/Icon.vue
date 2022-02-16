@@ -91,4 +91,11 @@ const { className } = defineProps<Props>();
   width: 21px;
   height: 20px;
 }
+.icon-open_in_new {
+  background-image: url('~/assets/img/icon-open_in_new.svg');
+  width: 12px;
+  height: 12px;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
 </style>

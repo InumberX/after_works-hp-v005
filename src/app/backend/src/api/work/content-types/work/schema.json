@@ -71,6 +71,9 @@
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "url": {
+      "type": "string"
     }
   }
 }

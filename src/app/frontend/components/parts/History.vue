@@ -67,6 +67,7 @@
                 >
                   <span
                     v-for="position in content.positions.data"
+                    :key="position.id"
                     class="history-contents-description-item"
                   >
                     {{ position.attributes.name }}
@@ -83,24 +84,28 @@
                 >
                   <span
                     v-for="program in content.programs.data"
+                    :key="program.id"
                     class="history-contents-description-item"
                   >
                     {{ program.attributes.name }}
                   </span>
                   <span
                     v-for="cms in content.cmses.data"
+                    :key="cms.id"
                     class="history-contents-description-item"
                   >
                     {{ cms.attributes.name }}
                   </span>
                   <span
                     v-for="design in content.designs.data"
+                    :key="design.id"
                     class="history-contents-description-item"
                   >
                     {{ design.attributes.name }}
                   </span>
                   <span
                     v-for="other in content.others.data"
+                    :key="other.id"
                     class="history-contents-description-item"
                   >
                     {{ other.attributes.name }}
