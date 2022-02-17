@@ -18,6 +18,28 @@
     />
 
     <CommonBreadcrumb :breadcrumb-infos="breadcrumbInfos" />
+
+    <div class="l-section is-short">
+      <div class="l-inner">
+        <PartsLead
+          :leads="[
+            {
+              text: '下記フォームよりお気軽にお問い合わせください。',
+            },
+          ]"
+        />
+        <div class="contact-link-box">
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfFvT-kuWDU1O45Nr-iq3ldDhH3gqRHO5XKpQlAD9Prw6UfLA/viewform?usp=sf_link"
+            class="primary-btn contact-link"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="primary-btn-text">お問い合わせ</span>
+          </a>
+        </div>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -37,3 +59,13 @@ const meta = <meta>{
   canonical: config.siteUrl + $const.pageInfos.contact.url,
 };
 </script>
+
+<style lang="scss" scoped>
+@use '~/assets/_scss/_global/index' as g;
+
+.contact-link-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+</style>

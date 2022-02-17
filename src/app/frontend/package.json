@@ -26,6 +26,7 @@
   "dependencies": {
     "graphql": "^16.0.1",
     "marked": "^4.0.12",
-    "sass": "^1.49.7"
+    "sass": "^1.49.7",
+    "vee-validate": "^4.5.8"
   }
 }
