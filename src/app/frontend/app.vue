@@ -8,6 +8,11 @@
         <Meta name="twitter:card" content="summary" />
         <Meta name="twitter:site" content="@InumberX" />
         <Meta name="theme-color" content="#002984" />
+        <Link rel="icon" :href="`${config.baseDir}assets/img/favicon.ico`" />
+        <Link
+          rel="apple-touch-icon"
+          :href="`${config.baseDir}assets/img/favicon_180.png`"
+        />
       </Head>
     </Html>
     <NuxtLayout>
@@ -21,6 +26,7 @@
 <script setup lang="ts">
 import { useBreakpoints } from '~/composables/useBreakpoints';
 const { breakpoints } = useBreakpoints();
+const config = useRuntimeConfig();
 
 // ビューポート
 const viewport = computed(() => {
