@@ -1,17 +1,5 @@
 <template>
   <main class="l-main">
-    <Html lang="ja">
-      <Head>
-        <Title>{{ meta.title }}</Title>
-        <Meta name="description" :content="meta.description" />
-        <Meta name="og:image" :content="meta.ogImage" />
-        <Meta name="og:site_name" :content="meta.title" />
-        <Meta name="og:description" :content="meta.description" />
-        <Meta name="twitter:description" :content="meta.description" />
-        <Link rel="canonical" :href="meta.canonical" />
-      </Head>
-    </Html>
-
     <PartsPageTitle
       :title="$const.pageInfos.contact.title"
       :sub-title="$const.pageInfos.contact.subTitle"
@@ -58,6 +46,34 @@ const meta = <meta>{
   ogImage: config.siteUrl + $const.url.imgOgp,
   canonical: config.siteUrl + $const.pageInfos.contact.url,
 };
+
+useMeta({
+  title: meta.title,
+  meta: [
+    {
+      name: 'description',
+      content: meta.description,
+    },
+    {
+      property: 'og:image',
+      content: meta.ogImage,
+    },
+    {
+      property: 'og:title',
+      content: meta.title,
+    },
+    {
+      property: 'og:description',
+      content: meta.description,
+    },
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: meta.canonical,
+    },
+  ],
+});
 </script>
 
 <style lang="scss" scoped>

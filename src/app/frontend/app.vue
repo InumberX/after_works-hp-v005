@@ -1,20 +1,5 @@
 <template>
   <div class="l-wrapper">
-    <Html lang="ja">
-      <Head>
-        <Meta name="viewport" :content="viewport" />
-        <Meta name="format-detection" content="telephone=no" />
-        <Meta name="og:type" content="website" />
-        <Meta name="twitter:card" content="summary" />
-        <Meta name="twitter:site" content="@InumberX" />
-        <Meta name="theme-color" content="#002984" />
-        <Link rel="icon" :href="`${config.baseDir}assets/img/favicon.ico`" />
-        <Link
-          rel="apple-touch-icon"
-          :href="`${config.baseDir}assets/img/favicon_180.png`"
-        />
-      </Head>
-    </Html>
     <NuxtLayout>
       <CommonHeader />
       <NuxtPage />
@@ -26,6 +11,7 @@
 <script setup lang="ts">
 import { useBreakpoints } from '~/composables/useBreakpoints';
 const { breakpoints } = useBreakpoints();
+const { $const } = useNuxtApp();
 const config = useRuntimeConfig();
 
 // ビューポート
@@ -139,5 +125,52 @@ onMounted(() => {
   checkBreakPointLg(matchMediaLg);
   checkBreakPointXl(matchMediaXl);
   checkBreakPointXxl(matchMediaXxl);
+});
+
+useMeta({
+  htmlAttrs: {
+    lang: 'ja',
+    prefix: 'og: http://ogp.me/ns#',
+  },
+  meta: [
+    {
+      name: 'viewport',
+      content: viewport,
+    },
+    {
+      name: 'format-detection',
+      content: 'telephone=no',
+    },
+    {
+      property: 'og:type',
+      content: 'website',
+    },
+    {
+      property: 'og:site_name',
+      content: $const.meta.title,
+    },
+    {
+      name: 'twitter:card',
+      content: 'summary',
+    },
+    {
+      name: 'twitter:site',
+      content: '@InumberX',
+    },
+    {
+      name: 'theme-color',
+      content: '#002984',
+    },
+  ],
+  link: [
+    {
+      rel: 'icon',
+      href: `${config.baseDir}assets/img/favicon.ico`,
+    },
+    {
+      rel: 'apple-touch-icon',
+      href: `${config.baseDir}assets/img/favicon_180.png`,
+    },
+  ],
 });
 </script>

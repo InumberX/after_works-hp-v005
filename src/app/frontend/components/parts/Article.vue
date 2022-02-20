@@ -212,7 +212,10 @@
           </ClientOnly>
         </div>
       </div>
-      <div class="article-contents-wrap" v-html="articleContents"></div>
+      <div
+        class="article-contents-wrap"
+        v-html="utils.replaceNewLine(articleContents)"
+      ></div>
       <div class="article-bottom-wrap">
         <div class="article-bottom-share-box">
           <PartsShareList :share-url="shareUrl" />

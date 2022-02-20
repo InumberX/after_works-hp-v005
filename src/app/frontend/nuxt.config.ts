@@ -27,6 +27,8 @@ export default defineNuxtConfig({
     apiUrl: process.env.API_URL,
     // APIルート
     apiRoot: process.env.API_ROOT,
+    // Google Analytics
+    googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID,
   },
   typescript: {
     strict: true,
@@ -47,8 +49,11 @@ export default defineNuxtConfig({
     server: {
       proxy: {
         // CMSからアップロードした静的ファイル
-        '/uploads': process.env.API_URL,
+        '/uploads': process.env.API_URL + 'uploads',
       },
     },
+  },
+  nitro: {
+    preset: 'server',
   },
 });
