@@ -25,6 +25,7 @@
             </NuxtLink>
           </div>
         </div>
+        <PartsAdSenseList :ad-sense-infos="$const.ads.contact" />
       </div>
     </div>
   </section>

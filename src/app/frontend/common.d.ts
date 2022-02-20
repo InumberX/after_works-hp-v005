@@ -158,3 +158,9 @@ interface history {
   year: string;
   content: historyContent[];
 }
+
+interface adSenseInfo {
+  slot: string;
+  responsive: boolean;
+  style: string;
+}

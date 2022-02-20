@@ -22,6 +22,7 @@
 
         <aside class="l-parallel-side">
           <PartsSidebarArticleList />
+          <PartsSidebarAdSenseList />
         </aside>
       </div>
     </div>

@@ -172,5 +172,12 @@ useMeta({
       href: `${config.baseDir}assets/img/favicon_180.png`,
     },
   ],
+  script: [
+    {
+      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+      'data-ad-client': 'ca-pub-6711167987812480',
+      async: true,
+    },
+  ],
 });
 </script>

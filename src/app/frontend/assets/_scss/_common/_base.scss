@@ -328,6 +328,11 @@ th {
 .l-parallel-side {
   margin-top: 80px;
 }
+.l-sidebar-section {
+  + .l-sidebar-section {
+    margin-top: 40px;
+  }
+}
 @include g.mxMediaQuery(g.$bp-sm) {
   .l-inner {
     padding: 0 4.6vw;
@@ -341,6 +346,11 @@ th {
   .l-parallel {
     padding: 40px 0 80px;
   }
+  .l-sidebar-section {
+    + .l-sidebar-section {
+      margin-top: 80px;
+    }
+  }
 }
 @include g.mxMediaQuery(g.$bp-md) {
   .l-inner {
@@ -350,11 +360,11 @@ th {
     display: flex;
   }
   .l-parallel-main {
-    width: calc(100% - 240px);
+    width: calc(100% - 300px);
     padding-right: 24px;
   }
   .l-parallel-side {
-    width: 240px;
+    width: 300px;
   }
   .l-parallel-side {
     margin-top: 0;
@@ -362,11 +372,7 @@ th {
 }
 @include g.mxMediaQuery(g.$bp-lg) {
   .l-parallel-main {
-    width: calc(100% - 300px);
     padding-right: 40px;
-  }
-  .l-parallel-side {
-    width: 300px;
   }
 }
 

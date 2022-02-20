@@ -20,6 +20,7 @@
             :list-page-url="`${config.baseDir}${$const.pageInfos.blogs.url}`"
             list-page-text="ブログ一覧"
           />
+          <PartsSidebarAdSenseList />
         </aside>
       </div>
     </div>
