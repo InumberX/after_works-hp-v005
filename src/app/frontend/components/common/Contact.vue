@@ -25,7 +25,10 @@
             </NuxtLink>
           </div>
         </div>
-        <PartsAdSenseList :ad-sense-infos="$const.ads.contact" />
+        <PartsAdSenseList
+          :ad-sense-infos="$const.ads.contact"
+          :flg-init="true"
+        />
       </div>
     </div>
   </section>

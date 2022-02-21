@@ -16,8 +16,44 @@
 type Props = {
   adSenseInfos: adSenseInfo[];
   flgSide?: boolean;
+  flgInit?: boolean;
 };
-const { adSenseInfos, flgSide } = defineProps<Props>();
+const { adSenseInfos, flgSide, flgInit } = defineProps<Props>();
+
+onMounted(() => {
+  if (flgInit) {
+    const win: any = window;
+    // 広告リストを初期化
+    if (!win.adsbygoogle) {
+      win.adsbygoogle = [];
+    }
+
+    // 広告用のJSを追加
+    const adsScript = document.createElement('script');
+    adsScript.src =
+      'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+    adsScript.id = 'ads-script';
+    adsScript.setAttribute('data-ad-client', 'ca-pub-6711167987812480');
+    adsScript.async = true;
+    document.body.appendChild(adsScript);
+  }
+});
+
+onUnmounted(() => {
+  if (flgInit) {
+    const win: any = window;
+    // 広告リストを初期化
+    if (!win.adsbygoogle) {
+      win.adsbygoogle = [];
+    }
+
+    // 広告用のJSを削除
+    const adsScript = document.getElementById('ads-script');
+    if (typeof adsScript !== 'undefined' && adsScript !== null) {
+      adsScript.remove();
+    }
+  }
+});
 </script>
 
 <style lang="scss" scoped>
