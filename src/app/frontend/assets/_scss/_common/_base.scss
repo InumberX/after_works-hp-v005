@@ -238,11 +238,11 @@ th {
 /* サイト内共通 ========== */
 /* clearfix */
 .clearfix {
-  *zoom: 1;
+  display: block;
   &:before,
   &:after {
     content: '';
-    display: table;
+    display: block;
   }
   &:after {
     clear: both;
