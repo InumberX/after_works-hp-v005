@@ -33,6 +33,7 @@ interface $const {
   };
   pageSize: number;
   tagsLimit: number;
+  adsId: string;
   ads: {
     [key: string]: adSenseInfo[];
   };
@@ -163,39 +164,40 @@ export default <$const>{
   // タグの表示件数
   tagsLimit: 5,
   // 広告
+  adsId: 'ca-pub-6711167987812480',
   ads: {
     contact: [
       {
         slot: '7889882209',
         responsive: false,
-        style: 'display:inline-block;width:100%;max-width:300px;height:300px',
+        style: 'display:inline-block;width:300px;height:300px',
       },
       {
         slot: '6465119893',
         responsive: false,
-        style: 'display:inline-block;width:100%;max-width:300px;height:300px',
+        style: 'display:inline-block;width:300px;height:300px',
       },
       {
         slot: '4704589318',
         responsive: false,
-        style: 'display:inline-block;width:100%;max-width:300px;height:300px',
+        style: 'display:inline-block;width:300px;height:300px',
       },
     ],
     side: [
       {
         slot: '6287815405',
         responsive: false,
-        style: 'display:inline-block;width:100%;max-width:300px;height:300px',
+        style: 'display:inline-block;width:300px;height:300px',
       },
       {
         slot: '2348570399',
         responsive: false,
-        style: 'display:inline-block;width:100%;max-width:300px;height:300px',
+        style: 'display:inline-block;width:300px;height:300px',
       },
       {
         slot: '7225492559',
         responsive: false,
-        style: 'display:inline-block;width:100%;max-width:300px;height:300px',
+        style: 'display:inline-block;width:300px;height:300px',
       },
     ],
   },
