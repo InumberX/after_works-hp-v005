@@ -13,6 +13,8 @@
         />
       </div>
     </div>
+
+    <CommonContact />
   </main>
 </template>
 
