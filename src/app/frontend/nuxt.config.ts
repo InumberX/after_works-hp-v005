@@ -44,6 +44,7 @@ export default defineNuxtConfig({
       font: () => 'font/[name].[ext]?' + cashBuster,
       video: () => 'video/[name].[ext]?' + cashBuster,
     },
+    transpile: ['@urql/vue'],
   },
   vite: {
     server: {
