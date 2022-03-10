@@ -126,6 +126,9 @@ $color-breadcrumb_link-text_hover: g.$palette-resolution_blue;
   font-size: 1rem;
 }
 @include g.mxMediaQuery(g.$bp-sm) {
+  .l-breadcrumb {
+    overflow-x: hidden;
+  }
   .breadcrumb-items {
     flex-wrap: wrap;
     > .breadcrumb-item {
