@@ -176,6 +176,10 @@ useMeta({
       async: true,
       crossorigin: 'anonymous',
     },
+    {
+      src: `${config.baseDir}assets/js/smoothscroll.polyfill.min.js?${config.cashBuster}`,
+      defer: true,
+    },
   ],
 });
 </script>
