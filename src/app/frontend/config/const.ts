@@ -177,11 +177,13 @@ export default <$const>{
         responsive: false,
         style: 'display:inline-block;width:300px;height:300px',
       },
+      /*
       {
         slot: '4704589318',
         responsive: false,
         style: 'display:inline-block;width:300px;height:300px',
       },
+      */
     ],
     side: [
       {
@@ -189,6 +191,7 @@ export default <$const>{
         responsive: false,
         style: 'display:inline-block;width:300px;height:300px',
       },
+      /*
       {
         slot: '2348570399',
         responsive: false,
@@ -199,6 +202,7 @@ export default <$const>{
         responsive: false,
         style: 'display:inline-block;width:300px;height:300px',
       },
+      */
     ],
   },
 };
