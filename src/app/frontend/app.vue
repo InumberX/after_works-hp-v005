@@ -7,10 +7,14 @@
 </template>
 
 <script setup lang="ts">
+import { onBeforeRouteUpdate } from 'vue-router';
 import { useBreakpoints } from '~/composables/useBreakpoints';
 const { breakpoints } = useBreakpoints();
 const { $const } = useNuxtApp();
 const config = useRuntimeConfig();
+const utils = useUtils();
+const route = useRoute();
+const currentPath = ref<string>(route.path);
 
 // ビューポート
 const viewport = computed(() => {
@@ -72,6 +76,31 @@ const checkBreakPointXxl = (e: any): void => {
   }
 };
 
+// Google広告用のJSを読み込む処理
+const loadAdsense = () => {
+  // 処理を削除
+  window.removeEventListener('scroll', loadAdsense, false);
+
+  // 画面遷移をしていない場合
+  if (!utils.vars.value.isPageTransitionFirstTime) {
+    // Google広告用のJSを生成
+    const adsenseScript = document.createElement('script');
+    adsenseScript.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${$const.adsId}`;
+    adsenseScript.async = true;
+    adsenseScript.crossOrigin = 'anonymous';
+    adsenseScript.addEventListener('load', loadedAdsense);
+    document.head.appendChild(adsenseScript);
+  } else {
+    // 画面遷移している場合
+    utils.vars.value.isAdsenseLoaded = true;
+  }
+};
+
+// Google広告用のJSを読み込む処理
+const loadedAdsense = () => {
+  utils.vars.value.isAdsenseLoaded = true;
+};
+
 onMounted(() => {
   // ブレイクポイント判定
   const matchMediaXxs: MediaQueryList = window.matchMedia(
@@ -123,6 +152,16 @@ onMounted(() => {
   checkBreakPointLg(matchMediaLg);
   checkBreakPointXl(matchMediaXl);
   checkBreakPointXxl(matchMediaXxl);
+
+  // Google広告用のJSを読み込む処理を設定
+  window.addEventListener('scroll', loadAdsense, false);
+});
+
+watch(route, () => {
+  if (route.path !== currentPath.value) {
+    utils.vars.value.isPageTransitionFirstTime = true;
+  }
+  currentPath.value = route.path;
 });
 
 useMeta({
@@ -149,7 +188,7 @@ useMeta({
     },
     {
       name: 'twitter:card',
-      content: 'summary',
+      content: 'summary_large_image',
     },
     {
       name: 'twitter:site',
@@ -171,11 +210,6 @@ useMeta({
     },
   ],
   script: [
-    {
-      src: `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${$const.adsId}`,
-      async: true,
-      crossorigin: 'anonymous',
-    },
     {
       src: `${config.baseDir}assets/js/smoothscroll.polyfill.min.js?${config.cashBuster}`,
       defer: true,

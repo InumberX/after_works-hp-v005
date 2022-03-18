@@ -1,12 +1,17 @@
 interface vars {
-  // スクロール位置
   winY: number;
+  isAdsenseLoaded: boolean;
+  isPageTransitionFirstTime: boolean;
 }
 
 export const useUtils = () => {
-  const vars = useState<vars>('breakpoints', () => ({
+  const vars = useState<vars>('vars', () => ({
     // スクロール位置
     winY: 0,
+    // Google広告用のJSを読み込んだかどうか
+    isAdsenseLoaded: false,
+    // 画面遷移を一度でも行なったかどうか
+    isPageTransitionFirstTime: false,
   }));
 
   // 値が空ではないか判定する処理

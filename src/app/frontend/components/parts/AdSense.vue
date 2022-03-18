@@ -1,6 +1,7 @@
 <template>
-  <div class="adsbygoogle-box">
+  <div :key="`${adSenseInfo.slot}-${Math.random()}`" class="adsbygoogle-box">
     <ins
+      ref="adsenseElm"
       class="adsbygoogle"
       :key="`${route.path}${adSenseInfo.slot}`"
       :data-ad-client="$const.adsId"
@@ -14,29 +15,57 @@
 <script setup lang="ts">
 const { $const } = useNuxtApp();
 const route = useRoute();
+const utils = useUtils();
 
 type Props = {
   adSenseInfo: adSenseInfo;
 };
 const { adSenseInfo } = defineProps<Props>();
+const isShow = ref<boolean>(false);
+const adsenseElm = ref<Element | null>(null);
+
+const showAd = () => {
+  isShow.value = true;
+
+  setTimeout(() => {
+    if (adsenseElm.value !== null && adsenseElm.value.innerHTML) {
+      return;
+    }
+
+    try {
+      // @ts-ignore
+      adsbygoogle = window.adsbygoogle || [];
+      // @ts-ignore
+      adsbygoogle.push({});
+      // @ts-ignore
+      console.log(adsbygoogle.length);
+    } catch (error) {
+      console.log(error);
+    }
+  }, 100);
+};
 
 onMounted(() => {
   nextTick(() => {
-    try {
-      setTimeout(() => {
-        // @ts-ignore
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      }, 100);
-    } catch (error) {
-      console.log(error);
+    if (utils.vars.value.isAdsenseLoaded && !isShow.value) {
+      showAd();
     }
   });
 });
 
+const isAdsenseLoaded = computed(() => {
+  return utils.vars.value.isAdsenseLoaded;
+});
+
+watch(isAdsenseLoaded, () => {
+  if (utils.vars.value.isAdsenseLoaded && !isShow.value) {
+    showAd();
+  }
+});
+
 onUnmounted(() => {
-  try {
-    // @ts-ignore
-    adsbygoogle = [];
-  } catch (error) {}
+  if (adsenseElm.value !== null) {
+    adsenseElm.value.innerHTML = '';
+  }
 });
 </script>
