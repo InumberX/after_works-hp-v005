@@ -21,7 +21,7 @@
     "@urql/exchange-graphcache": "^4.3.6",
     "@urql/vue": "^0.6.1",
     "graphql-tag": "^2.12.6",
-    "nuxt3": "^3.0.0-27428764.271289c"
+    "nuxt3": "^3.0.0-27459267.f69126e"
   },
   "dependencies": {
     "graphql": "^16.0.1",
