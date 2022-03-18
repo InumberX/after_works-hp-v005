@@ -25,7 +25,10 @@
             </NuxtLink>
           </div>
         </div>
-        <PartsAdSenseList :ad-sense-infos="$const.ads.contact" />
+        <PartsAdSenseList
+          v-if="!isPageTransitionFirstTime"
+          :ad-sense-infos="$const.ads.contact"
+        />
       </div>
     </div>
   </section>
@@ -34,6 +37,11 @@
 <script setup lang="ts">
 const { $const } = useNuxtApp();
 const config = useRuntimeConfig();
+const utils = useUtils();
+
+const isPageTransitionFirstTime = computed(() => {
+  return utils.vars.value.isPageTransitionFirstTime;
+});
 </script>
 
 <style lang="scss" scoped>

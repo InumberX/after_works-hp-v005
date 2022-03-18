@@ -22,7 +22,7 @@
 
         <aside class="l-parallel-side">
           <PartsSidebarArticleList />
-          <PartsSidebarAdSenseList />
+          <PartsSidebarAdSenseList v-if="!isPageTransitionFirstTime" />
         </aside>
       </div>
     </div>
@@ -148,6 +148,10 @@ watch(route, () => {
 
     utils.actSmoothScroll('#' + resultTarget);
   }
+});
+
+const isPageTransitionFirstTime = computed(() => {
+  return utils.vars.value.isPageTransitionFirstTime;
 });
 
 useMeta({

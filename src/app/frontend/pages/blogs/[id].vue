@@ -20,7 +20,7 @@
             :list-page-url="`${config.baseDir}${$const.pageInfos.blogs.url}`"
             list-page-text="ブログ一覧"
           />
-          <PartsSidebarAdSenseList />
+          <PartsSidebarAdSenseList v-if="!isPageTransitionFirstTime" />
         </aside>
       </div>
     </div>
@@ -112,6 +112,10 @@ if (utils.isNotEmpty(blogResult.data.value.blog.data.attributes.img.data)) {
 }
 
 const blogInfo = <articleListInfos>blogResult.data.value.blog.data;
+
+const isPageTransitionFirstTime = computed(() => {
+  return utils.vars.value.isPageTransitionFirstTime;
+});
 
 useMeta({
   title: meta.title,
