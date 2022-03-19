@@ -11,53 +11,55 @@
         ></a>
       </div>
     </div>
-    <div class="footer-contents-wrap">
-      <div class="l-inner">
-        <div class="footer-contents-box">
-          <div class="footer-menu-box">
-            <ul class="footer-menu-items">
-              <li
-                v-for="menuInfo in menuInfos"
-                :key="menuInfo.text"
-                class="footer-menu-item"
-              >
-                <NuxtLink :to="menuInfo.url" class="footer-menu-link">
-                  {{ menuInfo.text }}
-                </NuxtLink>
-              </li>
-            </ul>
-          </div>
-          <div class="footer-sns-box">
-            <ul class="footer-sns-items">
-              <li
-                v-for="snsInfo in snsInfos"
-                :key="snsInfo.title"
-                class="footer-sns-item"
-              >
-                <a
-                  :href="snsInfo.url"
-                  :title="snsInfo.title"
-                  :aria-label="snsInfo.title"
-                  target="_blank"
-                  rel="noopener"
-                  class="footer-sns-link"
+    <div class="l-footer-contents">
+      <div class="footer-contents-wrap">
+        <div class="l-inner">
+          <div class="footer-contents-box">
+            <div class="footer-menu-box">
+              <ul class="footer-menu-items">
+                <li
+                  v-for="menuInfo in menuInfos"
+                  :key="menuInfo.text"
+                  class="footer-menu-item"
                 >
-                  <CommonIcon :class-name="snsInfo.iconClassName" />
-                </a>
-              </li>
-            </ul>
+                  <NuxtLink :to="menuInfo.url" class="footer-menu-link">
+                    {{ menuInfo.text }}
+                  </NuxtLink>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-sns-box">
+              <ul class="footer-sns-items">
+                <li
+                  v-for="snsInfo in snsInfos"
+                  :key="snsInfo.title"
+                  class="footer-sns-item"
+                >
+                  <a
+                    :href="snsInfo.url"
+                    :title="snsInfo.title"
+                    :aria-label="snsInfo.title"
+                    target="_blank"
+                    rel="noopener"
+                    class="footer-sns-link"
+                  >
+                    <CommonIcon :class-name="snsInfo.iconClassName" />
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="footer-copy-wrap">
-      <div class="l-inner">
-        <div class="footer-copy-box">
-          <p class="footer-copy">
-            <small class="footer-copy-text" lang="en" translate="no">
-              Copyright &copy; {{ currentYear }} N/NE, All rights reserved.
-            </small>
-          </p>
+      <div class="footer-copy-wrap">
+        <div class="l-inner">
+          <div class="footer-copy-box">
+            <p class="footer-copy">
+              <small class="footer-copy-text" lang="en" translate="no">
+                Copyright &copy; {{ currentYear }} N/NE, All rights reserved.
+              </small>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -114,7 +116,7 @@ const currentYear: number = new Date().getFullYear();
 @use '~/assets/_scss/_global/index' as g;
 
 // 変数
-$color-l_footer-background: g.$palette-stratos;
+$color-l_footer_contents-background: g.$palette-stratos;
 
 $color-footer_menu_link-background: g.$palette-marigold_yellow;
 $color-footer_menu_link-text: g.$palette-marigold_yellow;
@@ -126,8 +128,8 @@ $color-footer_top_btn-background_hover: g.$palette-marigold_yellow;
 $color-footer_top_btn-border: g.$palette-marigold_yellow;
 $color-footer_top_btn-border_hover: g.$palette-resolution_blue;
 
-.l-footer {
-  background-color: $color-l_footer-background;
+.l-footer-contents {
+  background-color: $color-l_footer_contents-background;
 }
 .footer-contents-wrap {
   padding-top: 28px;
