@@ -21,6 +21,7 @@
         :article-url="`${config.baseDir}${$const.pageInfos.blogs.url}`"
         :list-page-url="`${config.baseDir}${$const.pageInfos.blogs.url}`"
         list-page-text="ブログ一覧"
+        class-name="is-horizontality"
       />
     </section>
 

@@ -116,6 +116,8 @@ if (
 @use '~/assets/_scss/_global/index' as g;
 
 // 変数
+$color-sidebar_article_list_item-border: g.$palette-gallery;
+
 $color-sidebar_article_list_link-background: g.$palette-white;
 $color-sidebar_article_list_link-text: g.$palette-mine_shaft;
 $color-sidebar_article_list_link-text_hover: g.$palette-resolution_blue;
@@ -127,18 +129,23 @@ $color-sidebar_article_bottom_list_page_link-border_hover: g.$palette-east_bay;
 
 .sidebar-article-list-box {
   margin-top: 24px;
+}
+.sidebar-article-list-items {
   > .sidebar-article-list-item {
-    margin-top: 0;
+    &:last-of-type {
+      border-bottom: none;
+    }
   }
 }
 .sidebar-article-list-item {
-  margin-top: 16px;
+  border-bottom: 1px solid $color-sidebar_article_list_item-border;
 }
 .sidebar-article-list-link:not(:root) {
   display: flex;
   font-size: 1.4rem;
   color: $color-sidebar_article_list_link-text;
   background-color: $color-sidebar_article_list_link-background;
+  padding: 16px 0;
   &:hover {
     color: $color-sidebar_article_list_link-text_hover;
     .sidebar-article-list-img {
@@ -175,6 +182,7 @@ $color-sidebar_article_bottom_list_page_link-border_hover: g.$palette-east_bay;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
+  font-size: inherit;
 }
 .sidebar-article-bottom-list-page-link-box {
   display: flex;

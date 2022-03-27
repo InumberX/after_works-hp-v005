@@ -12,84 +12,86 @@
               :to="`${articleUrl}${articleListInfo.id}/`"
               class="article-list-link"
             >
-              <figure class="article-list-img-box">
-                <img
-                  v-if="articleListInfo.attributes.img.data"
-                  :src="articleListInfo.attributes.img.data.attributes.url"
-                  alt=""
-                  class="article-list-img"
-                />
-                <img
-                  v-else
-                  :src="`${config.baseDir}${$const.url.imgEmpty}`"
-                  alt=""
-                  class="article-list-img"
-                />
-              </figure>
-              <div
-                v-if="
-                  articleListInfo.attributes.date ||
-                  articleListInfo.attributes.from ||
-                  articleListInfo.attributes.to
-                "
-                class="article-list-date-box"
-              >
-                <template
+              <div class="article-list-link-contents">
+                <figure class="article-list-img-box">
+                  <img
+                    v-if="articleListInfo.attributes.img.data"
+                    :src="articleListInfo.attributes.img.data.attributes.url"
+                    alt=""
+                    class="article-list-img"
+                  />
+                  <img
+                    v-else
+                    :src="`${config.baseDir}${$const.url.imgEmpty}`"
+                    alt=""
+                    class="article-list-img"
+                  />
+                </figure>
+                <div
                   v-if="
+                    articleListInfo.attributes.date ||
                     articleListInfo.attributes.from ||
                     articleListInfo.attributes.to
                   "
+                  class="article-list-date-box"
                 >
-                  <time
-                    v-if="articleListInfo.attributes.from"
-                    class="article-list-date"
-                    :datetime="articleListInfo.attributes.from"
+                  <template
+                    v-if="
+                      articleListInfo.attributes.from ||
+                      articleListInfo.attributes.to
+                    "
                   >
-                    {{ utils.getDate(articleListInfo.attributes.from) }}
-                  </time>
-                  <template v-if="articleListInfo.attributes.to">
-                    〜
+                    <time
+                      v-if="articleListInfo.attributes.from"
+                      class="article-list-date"
+                      :datetime="articleListInfo.attributes.from"
+                    >
+                      {{ utils.getDate(articleListInfo.attributes.from) }}
+                    </time>
+                    <template v-if="articleListInfo.attributes.to">
+                      〜
+                      <time
+                        class="article-list-date"
+                        :datetime="articleListInfo.attributes.to"
+                      >
+                        {{ utils.getDate(articleListInfo.attributes.to) }}
+                      </time>
+                    </template>
+                  </template>
+                  <template v-else>
                     <time
                       class="article-list-date"
-                      :datetime="articleListInfo.attributes.to"
+                      :datetime="articleListInfo.attributes.date"
                     >
-                      {{ utils.getDate(articleListInfo.attributes.to) }}
+                      {{ utils.getDate(articleListInfo.attributes.date) }}
                     </time>
                   </template>
-                </template>
-                <template v-else>
-                  <time
-                    class="article-list-date"
-                    :datetime="articleListInfo.attributes.date"
-                  >
-                    {{ utils.getDate(articleListInfo.attributes.date) }}
-                  </time>
-                </template>
-              </div>
-              <div class="article-list-title-box">
-                <p class="article-list-title">
-                  {{ articleListInfo.attributes.title }}
-                </p>
-              </div>
-              <div
-                v-if="
-                  articleListInfo.attributes.tags &&
-                  articleListInfo.attributes.tags.data &&
-                  articleListInfo.attributes.tags.data.length > 0
-                "
-                class="article-list-tag-box"
-              >
-                <ul class="article-list-tag-items">
-                  <li
-                    v-for="tag in articleListInfo.attributes.tags.data"
-                    :key="tag.id"
-                    class="article-list-tag-item"
-                  >
-                    <span class="article-list-tag">
-                      {{ tag.attributes.name }}
-                    </span>
-                  </li>
-                </ul>
+                </div>
+                <div class="article-list-title-box">
+                  <p class="article-list-title">
+                    {{ articleListInfo.attributes.title }}
+                  </p>
+                </div>
+                <div
+                  v-if="
+                    articleListInfo.attributes.tags &&
+                    articleListInfo.attributes.tags.data &&
+                    articleListInfo.attributes.tags.data.length > 0
+                  "
+                  class="article-list-tag-box"
+                >
+                  <ul class="article-list-tag-items">
+                    <li
+                      v-for="tag in articleListInfo.attributes.tags.data"
+                      :key="tag.id"
+                      class="article-list-tag-item"
+                    >
+                      <span class="article-list-tag">
+                        {{ tag.attributes.name }}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </NuxtLink>
           </li>
@@ -151,6 +153,8 @@ const {
 $color-article_list_link-background: g.$palette-white;
 $color-article_list_link-text: g.$palette-mine_shaft;
 $color-article_list_link-text_hover: g.$palette-resolution_blue;
+$color-article_list_link-border: g.$palette-gallery;
+$color-article_list_link-border_hover: g.$palette-east_bay;
 
 $color-article_list_date_box-text: g.$palette-boulder;
 
@@ -161,6 +165,27 @@ $color-article_list_tag-text: g.$palette-boulder;
   &.is-ground-top {
     .article-list-box {
       margin-top: 0;
+    }
+  }
+  &.is-horizontality {
+    .article-list-items {
+      display: flex;
+      flex-wrap: nowrap;
+      width: calc(100% + (4vw * 2));
+      overflow-x: auto;
+      margin-left: -4vw;
+      padding: 0 4vw;
+      > .article-list-item:not(:root) {
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
+    .article-list-item:not(:root) {
+      flex-shrink: 0;
+      width: 80%;
+      margin: 0;
+      margin-right: 24px;
     }
   }
 }
@@ -178,16 +203,51 @@ $color-article_list_tag-text: g.$palette-boulder;
   margin-top: 24px;
 }
 .article-list-link:not(:root) {
+  position: relative;
   display: block;
   font-size: 1.6rem;
   color: $color-article_list_link-text;
   background-color: $color-article_list_link-background;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 0 4px 4px 0;
+  height: 100%;
+  &:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: $color-article_list_link-border;
+    transition: 0.3s background-color;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: g.$z_index-1;
+    border-radius: 8px;
+  }
   &:hover {
     color: $color-article_list_link-text_hover;
+    &:after {
+      background-color: $color-article_list_link-border_hover;
+    }
+    .article-list-link-contents {
+      border-color: $color-article_list_link-border_hover;
+    }
     .article-list-img {
       transform: scale(1.1);
     }
   }
+}
+.article-list-link-contents {
+  position: relative;
+  display: block;
+  background-color: $color-article_list_link-background;
+  z-index: g.$z_index-2;
+  border: 1px solid $color-article_list_link-border;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 16px;
+  height: 100%;
 }
 .article-list-img-box {
   position: relative;
@@ -222,6 +282,7 @@ $color-article_list_tag-text: g.$palette-boulder;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
+  font-size: inherit;
 }
 .article-list-tag-box {
   margin-top: 16px;
@@ -249,6 +310,18 @@ $color-article_list_tag-text: g.$palette-boulder;
   margin-top: 24px;
 }
 @include g.mxMediaQuery(g.$bp-sm) {
+  .l-article-list {
+    &.is-horizontality {
+      .article-list-items {
+        width: calc(100% + (4.6vw * 2));
+        margin-left: -4.6vw;
+        padding: 0 4.6vw;
+      }
+      .article-list-item:not(:root) {
+        width: 50%;
+      }
+    }
+  }
   .article-list-items {
     display: flex;
     flex-wrap: wrap;
@@ -257,10 +330,9 @@ $color-article_list_tag-text: g.$palette-boulder;
       }
     }
   }
-  .article-list-link:not(:root) {
+  .article-list-link-contents {
     display: flex;
     flex-direction: column;
-    height: 100%;
   }
   .article-list-tag-box {
     margin-top: auto;
@@ -273,6 +345,18 @@ $color-article_list_tag-text: g.$palette-boulder;
   }
 }
 @include g.mxMediaQuery(g.$bp-md) {
+  .l-article-list {
+    &.is-horizontality {
+      .article-list-items {
+        width: 100%;
+        margin-left: 0;
+        padding: 0;
+      }
+      .article-list-item:not(:root) {
+        width: calc(100% / 3 - 16px);
+      }
+    }
+  }
   .article-list-items {
     > .article-list-item {
       &:nth-of-type(2n) {

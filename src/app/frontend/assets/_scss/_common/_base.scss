@@ -314,7 +314,10 @@ th {
     background-color: $color-l_section-background;
   }
   &.is-short {
-    padding: 24px 0;
+    padding-top: 24px;
+    + .l-section.is-short {
+      padding-top: 40px;
+    }
   }
 }
 .l-parallel {
@@ -340,7 +343,10 @@ th {
   .l-section {
     padding: 80px 0;
     &.is-short {
-      padding: 40px 0;
+      padding-top: 40px;
+      + .l-section.is-short {
+        padding-top: 0;
+      }
     }
   }
   .l-parallel {
