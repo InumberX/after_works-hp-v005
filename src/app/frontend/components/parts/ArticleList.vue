@@ -225,16 +225,18 @@ $color-article_list_tag-text: g.$palette-boulder;
     z-index: g.$z_index-1;
     border-radius: 8px;
   }
-  &:hover {
-    color: $color-article_list_link-text_hover;
-    &:after {
-      background-color: $color-article_list_link-border_hover;
-    }
-    .article-list-link-contents {
-      border-color: $color-article_list_link-border_hover;
-    }
-    .article-list-img {
-      transform: scale(1.1);
+  @media (hover: hover) {
+    &:hover {
+      color: $color-article_list_link-text_hover;
+      &:after {
+        background-color: $color-article_list_link-border_hover;
+      }
+      .article-list-link-contents {
+        border-color: $color-article_list_link-border_hover;
+      }
+      .article-list-img {
+        transform: scale(1.1);
+      }
     }
   }
 }

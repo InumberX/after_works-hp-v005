@@ -106,15 +106,19 @@ input {
     outline: none;
     border-color: $color-form-border_active;
   }
-  &:hover {
-    border-color: $color-form-border_active;
+  @media (hover: hover) {
+    &:hover {
+      border-color: $color-form-border_active;
+    }
   }
   &:disabled {
     background-color: $color-form-background_disabled;
     cursor: not-allowed;
     color: $color-form-text_disabled;
-    &:hover {
-      border-color: $color-form-background_disabled;
+    @media (hover: hover) {
+      &:hover {
+        border-color: $color-form-background_disabled;
+      }
     }
   }
   &[type='file'] {
@@ -126,10 +130,12 @@ input {
     background-color: $color-form-background_readonly;
     border-color: $color-form-border_readonly;
     pointer-events: none;
-    &:hover {
-      background-color: $color-form-background_readonly;
-      border-color: $color-form-border_readonly;
-      pointer-events: none;
+    @media (hover: hover) {
+      &:hover {
+        background-color: $color-form-background_readonly;
+        border-color: $color-form-border_readonly;
+        pointer-events: none;
+      }
     }
   }
   &[type='date'],
@@ -149,17 +155,21 @@ input {
   &[type='submit'] {
     cursor: pointer;
     transition: 0.3s background-color, 0.3s color;
-    &:hover {
-      background-color: $color-form-btn-background_hover;
-      border-color: $color-form-btn-text_hover;
+    @media (hover: hover) {
+      &:hover {
+        background-color: $color-form-btn-background_hover;
+        border-color: $color-form-btn-text_hover;
+      }
     }
     &:disabled {
       background-color: $color-form-background_disabled;
       cursor: not-allowed;
       color: $color-form-text_disabled;
       border-color: $color-form-background_disabled;
-      &:hover {
-        border-color: $color-form-background_disabled;
+      @media (hover: hover) {
+        &:hover {
+          border-color: $color-form-background_disabled;
+        }
       }
     }
   }
@@ -170,25 +180,31 @@ textarea {
     outline: none;
     border-color: $color-form-border_active;
   }
-  &:hover {
-    border-color: $color-form-border_active;
+  @media (hover: hover) {
+    &:hover {
+      border-color: $color-form-border_active;
+    }
   }
   &:disabled {
     background-color: $color-form-background_disabled;
     cursor: not-allowed;
     color: $color-form-text_disabled;
-    &:hover {
-      border-color: $color-form-background_disabled;
+    @media (hover: hover) {
+      &:hover {
+        border-color: $color-form-background_disabled;
+      }
     }
   }
   &[readonly] {
     background-color: $color-form-background_readonly;
     border-color: $color-form-border_readonly;
     pointer-events: none;
-    &:hover {
-      background-color: $color-form-background_readonly;
-      border-color: $color-form-border_readonly;
-      pointer-events: none;
+    @media (hover: hover) {
+      &:hover {
+        background-color: $color-form-background_readonly;
+        border-color: $color-form-border_readonly;
+        pointer-events: none;
+      }
     }
   }
 }
@@ -225,12 +241,13 @@ select {
   }
   &:disabled {
     cursor: not-allowed;
-    &:hover {
-      cursor: not-allowed;
+    @media (hover: hover) {
+      &:hover {
+        cursor: not-allowed;
+      }
     }
   }
-  &:focus,
-  &:hover {
+  &:focus {
     background-image: linear-gradient(
         45deg,
         rgba($color-form-background_active, 0) 50%,
@@ -241,6 +258,20 @@ select {
         $color-form-background_active 50%,
         rgba($color-form-background_active, 0) 50%
       );
+  }
+  @media (hover: hover) {
+    &:hover {
+      background-image: linear-gradient(
+          45deg,
+          rgba($color-form-background_active, 0) 50%,
+          $color-form-background_active 50%
+        ),
+        linear-gradient(
+          135deg,
+          $color-form-background_active 50%,
+          rgba($color-form-background_active, 0) 50%
+        );
+    }
   }
 }
 textarea {
@@ -346,10 +377,12 @@ input[type='checkbox'].form-chk {
   }
 }
 .form-rdo {
-  &:hover {
-    ~ .form-rdo-tx-box {
-      .form-rdo-faker {
-        border-color: $color-form-border_active;
+  @media (hover: hover) {
+    &:hover {
+      ~ .form-rdo-tx-box {
+        .form-rdo-faker {
+          border-color: $color-form-border_active;
+        }
       }
     }
   }
@@ -401,10 +434,12 @@ input[type='checkbox'].form-chk {
   }
 }
 .form-chk {
-  &:hover {
-    ~ .form-chk-tx-box {
-      .form-chk-faker {
-        border-color: $color-form-border_active;
+  @media (hover: hover) {
+    &:hover {
+      ~ .form-chk-tx-box {
+        .form-chk-faker {
+          border-color: $color-form-border_active;
+        }
       }
     }
   }
@@ -645,9 +680,11 @@ input {
     &.is-error {
       background-color: $color-form-background_error;
       border-color: $color-form-border_error;
-      &:hover {
-        background-color: $color-form-background_error;
-        border-color: $color-form-border_error;
+      @media (hover: hover) {
+        &:hover {
+          background-color: $color-form-background_error;
+          border-color: $color-form-border_error;
+        }
       }
     }
   }
@@ -657,9 +694,11 @@ textarea {
   &.is-error {
     background-color: $color-form-background_error;
     border-color: $color-form-border_error;
-    &:hover {
-      background-color: $color-form-background_error;
-      border-color: $color-form-border_error;
+    @media (hover: hover) {
+      &:hover {
+        background-color: $color-form-background_error;
+        border-color: $color-form-border_error;
+      }
     }
   }
 }

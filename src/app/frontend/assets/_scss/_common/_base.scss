@@ -136,10 +136,12 @@ a {
     color: $color-link-text_visited;
     text-decoration: none;
   }
-  &:hover,
-  &:active {
-    color: $color-link-text_hover;
-    text-decoration: none;
+  @media (hover: hover) {
+    &:hover,
+    &:active {
+      color: $color-link-text_hover;
+      text-decoration: none;
+    }
   }
 }
 abbr[title] {

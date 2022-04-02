@@ -146,10 +146,12 @@ $color-sidebar_article_bottom_list_page_link-border_hover: g.$palette-east_bay;
   color: $color-sidebar_article_list_link-text;
   background-color: $color-sidebar_article_list_link-background;
   padding: 16px 0;
-  &:hover {
-    color: $color-sidebar_article_list_link-text_hover;
-    .sidebar-article-list-img {
-      transform: scale(1.1);
+  @media (hover: hover) {
+    &:hover {
+      color: $color-sidebar_article_list_link-text_hover;
+      .sidebar-article-list-img {
+        transform: scale(1.1);
+      }
     }
   }
 }
@@ -213,9 +215,11 @@ $color-sidebar_article_bottom_list_page_link-border_hover: g.$palette-east_bay;
       transition: 0.3s border-color;
     }
   }
-  &:hover {
-    &:after {
-      border-color: $color-sidebar_article_bottom_list_page_link-border_hover;
+  @media (hover: hover) {
+    &:hover {
+      &:after {
+        border-color: $color-sidebar_article_bottom_list_page_link-border_hover;
+      }
     }
   }
 }

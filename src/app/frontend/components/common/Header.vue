@@ -233,8 +233,10 @@ $color-header_overlay_bg-background: g.$palette-black;
 }
 .header-logo-link:not(:root) {
   display: block;
-  &:hover {
-    opacity: g.$opacity-main;
+  @media (hover: hover) {
+    &:hover {
+      opacity: g.$opacity-main;
+    }
   }
 }
 .header-logo-img {
@@ -335,8 +337,10 @@ $color-header_overlay_bg-background: g.$palette-black;
   font-size: 1.4rem;
   font-weight: 700;
   color: $color-header_menu_link-text;
-  &:hover {
-    color: $color-header_menu_link-text_hover;
+  @media (hover: hover) {
+    &:hover {
+      color: $color-header_menu_link-text_hover;
+    }
   }
   .icon {
     display: block;
