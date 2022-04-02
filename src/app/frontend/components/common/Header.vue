@@ -201,10 +201,11 @@ const hideMenu = () => {
 $color-l_header-background: g.$palette-white;
 $color-l_header-border: g.$palette-gallery;
 
-$color-header_menu_btn-background: g.$palette-resolution_blue;
-$color-header_menu_btn-text: g.$palette-marigold_yellow;
+$color-header_menu_btn-text: g.$palette-resolution_blue;
+$color-header_menu_btn-text_active: g.$palette-marigold_yellow;
 
-$color-header_hamburger-background: g.$palette-marigold_yellow;
+$color-header_hamburger-background: g.$palette-resolution_blue;
+$color-header_hamburger-background_active: g.$palette-marigold_yellow;
 
 $color-header_menu_contents-background: g.$palette-white;
 
@@ -215,7 +216,7 @@ $color-header_overlay_bg-background: g.$palette-black;
 
 .l-header {
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: g.$z_index-header_1;
@@ -224,7 +225,6 @@ $color-header_overlay_bg-background: g.$palette-black;
 .header-box {
   height: 64px;
   display: flex;
-  justify-content: center;
 }
 .header-logo-box {
   display: flex;
@@ -246,27 +246,30 @@ $color-header_overlay_bg-background: g.$palette-black;
 .header-menu-btn-box {
   position: fixed;
   z-index: g.$z_index-header_3;
-  top: 16px;
+  top: 0;
   right: 4vw;
 }
 .header-menu-btn:not(:root) {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 56px;
+  width: 64px;
+  height: 64px;
+  border-radius: 0;
   border: none;
-  padding: 4px 0 0;
+  padding: 8px 0 0;
   text-align: center;
   font-size: 1rem;
-  background-color: $color-header_menu_btn-background;
+  background-color: transparent;
   color: $color-header_menu_btn-text;
   text-align: center;
   overflow: hidden;
+  transition: 0.3s color;
   &.is-active {
+    color: $color-header_menu_btn-text_active;
     .header-hamburger-box {
       .header-hamburger {
+        background-color: $color-header_hamburger-background_active;
         &:nth-of-type(1) {
           top: 5px;
           transform: rotate(-45deg);
@@ -317,7 +320,7 @@ $color-header_overlay_bg-background: g.$palette-black;
 .header-menu-contents-box {
   display: none;
   position: fixed;
-  top: 96px;
+  top: 72px;
   right: 4vw;
   z-index: g.$z_index-header_4;
   &.is-active {
@@ -384,20 +387,9 @@ $color-header_overlay_bg-background: g.$palette-black;
   }
 }
 @include g.mxMediaQuery(g.$bp-sm) {
-  .l-header {
-    position: fixed;
-    border-bottom: 1px solid $color-l_header-border;
-    background-color: rgba($color-l_header-background, 0.64);
-    -webkit-backdrop-filter: blur(16px);
-    backdrop-filter: blur(16px);
-  }
-  @supports not (backdrop-filter: blur(16px)) {
-    .l-header {
-      background-color: $color-l_header-background;
-    }
-  }
   .header-box {
     justify-content: space-between;
+    height: 80px;
   }
   .header-menu-btn-box {
     display: none;
