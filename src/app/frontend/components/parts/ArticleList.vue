@@ -171,7 +171,7 @@ $color-article_list_tag-text: g.$palette-boulder;
     .article-list-items {
       display: flex;
       flex-wrap: nowrap;
-      width: calc(100% + (4vw * 2) + 4vw);
+      width: calc(100% + (4vw * 2));
       overflow-x: auto;
       margin-left: -4vw;
       padding: 0 4vw;
@@ -283,7 +283,7 @@ $color-article_list_tag-text: g.$palette-boulder;
   .l-article-list {
     &.is-horizontality {
       .article-list-items {
-        width: calc(100% + (4.6vw * 2) + 4.6vw);
+        width: calc(100% + (4.6vw * 2));
         margin-left: -4.6vw;
         padding: 0 4.6vw;
       }
