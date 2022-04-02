@@ -188,7 +188,7 @@ $color-history_contents_description_box-text: g.$palette-boulder;
   font-size: 2rem;
   font-weight: 700;
   position: sticky;
-  top: 16px;
+  top: 72px;
 }
 .history-contents {
   padding-left: 40px;
@@ -290,7 +290,7 @@ $color-history_contents_description_box-text: g.$palette-boulder;
   }
   .history-title {
     font-size: 2.4rem;
-    top: 80px;
+    top: 96px;
   }
   .history-contents {
     padding-left: 56px;
