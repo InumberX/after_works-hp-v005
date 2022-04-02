@@ -380,8 +380,10 @@ $color-article_work_tag_title-text: g.$palette-boulder;
   align-items: center;
   font-size: 1.2rem;
   color: $color-article_work_link-text;
-  &:hover {
-    opacity: g.$opacity-main;
+  @media (hover: hover) {
+    &:hover {
+      opacity: g.$opacity-main;
+    }
   }
 }
 .article-work-tag-box {

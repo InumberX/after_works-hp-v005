@@ -148,8 +148,10 @@ $color-footer_top_btn-border_hover: g.$palette-resolution_blue;
   font-weight: 700;
   padding: 12px 16px;
   color: $color-footer_menu_link-text;
-  &:hover {
-    opacity: g.$opacity-main;
+  @media (hover: hover) {
+    &:hover {
+      opacity: g.$opacity-main;
+    }
   }
   &:after {
     content: '';
@@ -177,8 +179,10 @@ $color-footer_top_btn-border_hover: g.$palette-resolution_blue;
 }
 .footer-sns-link:not(:root) {
   display: flex;
-  &:hover {
-    opacity: g.$opacity-main;
+  @media (hover: hover) {
+    &:hover {
+      opacity: g.$opacity-main;
+    }
   }
 }
 .footer-copy-box {
@@ -221,10 +225,12 @@ $color-footer_top_btn-border_hover: g.$palette-resolution_blue;
       transition: 0.3s border-color;
     }
   }
-  &:hover {
-    background-color: $color-footer_top_btn-background_hover;
-    &:after {
-      border-color: $color-footer_top_btn-border_hover;
+  @media (hover: hover) {
+    &:hover {
+      background-color: $color-footer_top_btn-background_hover;
+      &:after {
+        border-color: $color-footer_top_btn-border_hover;
+      }
     }
   }
 }

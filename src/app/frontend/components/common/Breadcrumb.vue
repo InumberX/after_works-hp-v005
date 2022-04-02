@@ -117,8 +117,10 @@ $color-breadcrumb_link-text_hover: g.$palette-resolution_blue;
   display: block;
   font-size: 1rem;
   color: $color-breadcrumb_link-text;
-  &:hover {
-    color: $color-breadcrumb_link-text_hover;
+  @media (hover: hover) {
+    &:hover {
+      color: $color-breadcrumb_link-text_hover;
+    }
   }
 }
 .breadcrumb-text {

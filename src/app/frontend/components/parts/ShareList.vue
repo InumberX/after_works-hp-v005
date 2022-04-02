@@ -93,8 +93,10 @@ const shareInfos = <shareInfos[]>[
   &.is-line {
     background-color: g.$color-sns-line;
   }
-  &:hover {
-    opacity: g.$opacity-main;
+  @media (hover: hover) {
+    &:hover {
+      opacity: g.$opacity-main;
+    }
   }
   .icon-twitter {
     width: 21px;

@@ -47,11 +47,13 @@ $color-primary_btn_icon-border_hover: g.$palette-resolution_blue;
       transition: 0.3s border-color;
     }
   }
-  &:hover {
-    color: $color-primary_btn-text_hover;
-    background-color: $color-primary_btn-background_hover;
-    &:after {
-      border-color: $color-primary_btn_icon-border_hover;
+  @media (hover: hover) {
+    &:hover {
+      color: $color-primary_btn-text_hover;
+      background-color: $color-primary_btn-background_hover;
+      &:after {
+        border-color: $color-primary_btn_icon-border_hover;
+      }
     }
   }
   .icon {

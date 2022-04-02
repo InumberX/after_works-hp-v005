@@ -238,10 +238,12 @@ $color-paging_current-text: g.$palette-boulder;
   &.is-next {
     .paging-link:not(:root) {
       background-color: $color-paging_link_prev_next-background;
-      &:hover {
-        background-color: $color-paging_link_prev_next-background_hover;
-        &:after {
-          border-color: $color-paging_link_prev_next-border_hover;
+      @media (hover: hover) {
+        &:hover {
+          background-color: $color-paging_link_prev_next-background_hover;
+          &:after {
+            border-color: $color-paging_link_prev_next-border_hover;
+          }
         }
       }
     }
@@ -305,9 +307,11 @@ $color-paging_current-text: g.$palette-boulder;
   border-radius: 48px;
   background-color: $color-paging_link-background;
   color: $color-paging_link-text;
-  &:hover {
-    background-color: $color-paging_link-background_hover;
-    color: $color-paging_link-text_hover;
+  @media (hover: hover) {
+    &:hover {
+      background-color: $color-paging_link-background_hover;
+      color: $color-paging_link-text_hover;
+    }
   }
 }
 .paging-current {
