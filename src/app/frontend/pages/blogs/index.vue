@@ -14,7 +14,7 @@
             <PartsArticleList
               :article-list-infos="blogInfos"
               :article-url="`${config.baseDir}${$const.pageInfos.blogs.url}`"
-              class-name="is-ground-top"
+              class-name="is-ground-top is-parallel-main"
               :paging-info="pagingInfo"
             />
           </div>
