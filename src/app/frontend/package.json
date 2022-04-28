@@ -6,28 +6,28 @@
     "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^2.2.1",
-    "@graphql-codegen/fragment-matcher": "^3.1.0",
-    "@graphql-codegen/near-operation-file-preset": "^2.2.2",
-    "@graphql-codegen/typed-document-node": "^2.2.1",
-    "@graphql-codegen/typescript": "^2.4.1",
-    "@graphql-codegen/typescript-apollo-client-helpers": "^2.1.8",
-    "@graphql-codegen/typescript-operations": "^2.2.1",
-    "@graphql-codegen/typescript-urql": "^3.4.1",
-    "@graphql-codegen/typescript-urql-graphcache": "^2.2.2",
-    "@graphql-codegen/typescript-vue-urql": "^2.2.1",
-    "@graphql-codegen/urql-introspection": "^2.1.0",
-    "@types/marked": "^4.0.2",
+    "@graphql-codegen/cli": "^2.6.2",
+    "@graphql-codegen/fragment-matcher": "^3.2.1",
+    "@graphql-codegen/near-operation-file-preset": "^2.2.9",
+    "@graphql-codegen/typed-document-node": "^2.2.8",
+    "@graphql-codegen/typescript": "^2.4.8",
+    "@graphql-codegen/typescript-apollo-client-helpers": "^2.1.15",
+    "@graphql-codegen/typescript-operations": "^2.3.5",
+    "@graphql-codegen/typescript-urql": "^3.5.7",
+    "@graphql-codegen/typescript-urql-graphcache": "^2.2.10",
+    "@graphql-codegen/typescript-vue-urql": "^2.2.9",
+    "@graphql-codegen/urql-introspection": "^2.1.1",
+    "@types/marked": "^4.0.3",
     "@urql/exchange-graphcache": "^4.3.6",
-    "@urql/vue": "^0.6.1",
+    "@urql/vue": "^0.6.2",
     "graphql-tag": "^2.12.6",
-    "nuxt3": "^3.0.0-27459267.f69126e"
+    "nuxt": "^3.0.0-rc.1"
   },
   "dependencies": {
-    "graphql": "^16.0.1",
-    "marked": "^4.0.12",
-    "sass": "^1.49.7",
-    "vee-validate": "^4.5.8",
+    "graphql": "^16.4.0",
+    "marked": "^4.0.14",
+    "sass": "^1.51.0",
+    "vee-validate": "^4.5.11",
     "vue-gtag": "^2.0.1"
   }
 }

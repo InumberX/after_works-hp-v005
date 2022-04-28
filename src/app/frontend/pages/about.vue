@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <section class="l-section is-paint is-short">
+    <section class="l-section is-paint">
       <div class="l-inner">
         <PartsProfile :qualifications="qualifications" :skills="skills" />
       </div>
