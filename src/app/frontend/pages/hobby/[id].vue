@@ -5,10 +5,10 @@
     <div class="l-section is-short">
       <div class="l-inner">
         <PartsArticle
-          :article-info="workInfo"
+          :article-info="hobbyInfo"
           :share-url="meta.canonical"
-          :list-page-url="`${config.baseDir}${$const.pageInfos.works.url}`"
-          list-page-text="実績一覧"
+          :list-page-url="`${config.baseDir}${$const.pageInfos.hobby.url}`"
+          list-page-text="趣味一覧"
           :flg-main-visual-parallel="true"
         />
       </div>
@@ -26,9 +26,9 @@ const config = useRuntimeConfig();
 const utils = useUtils();
 const route = useRoute();
 
-const workResult = await urql.useQuery({
+const hobbyResult = await urql.useQuery({
   query: gql`
-    query getWork($id: ID!) {
+    query getHobby($id: ID!) {
       work(id: $id) {
         data {
           id
@@ -99,33 +99,33 @@ const workResult = await urql.useQuery({
 
 const breadcrumbInfos: breadcrumbInfos[] = [
   {
-    url: config.baseDir + $const.pageInfos.works.url,
-    text: $const.pageInfos.works.title,
+    url: config.baseDir + $const.pageInfos.hobby.url,
+    text: $const.pageInfos.hobby.title,
   },
   {
     url: '',
-    text: workResult.data.value.work.data.attributes.title,
+    text: hobbyResult.data.value.work.data.attributes.title,
   },
 ];
 
 const meta = <meta>{
   title:
-    workResult.data.value.work.data.attributes.title +
+    hobbyResult.data.value.work.data.attributes.title +
     $const.meta.pageSeparator +
-    $const.pageInfos.works.title +
+    $const.pageInfos.hobby.title +
     $const.meta.titleTemplate,
-  description: `東京都在住のフロントエンドエンジニア：N/NE（ナイン）のポートフォリオ用Webサイトです。このページでは、「${workResult.data.value.work.data.attributes.title}」の実績について閲覧できます。`,
+  description: `東京都在住のフロントエンドエンジニア：N/NE（ナイン）のポートフォリオ用Webサイトです。このページでは、趣味で制作した「${hobbyResult.data.value.work.data.attributes.title}」について閲覧できます。`,
   ogImage: config.siteUrl + $const.url.imgOgp,
   canonical:
-    config.siteUrl + $const.pageInfos.works.url + route.params.id + '/',
+    config.siteUrl + $const.pageInfos.hobby.url + route.params.id + '/',
 };
 
-if (utils.isNotEmpty(workResult.data.value.work.data.attributes.description)) {
-  meta.description = workResult.data.value.work.data.attributes.description;
+if (utils.isNotEmpty(hobbyResult.data.value.work.data.attributes.description)) {
+  meta.description = hobbyResult.data.value.work.data.attributes.description;
 }
 
-if (utils.isNotEmpty(workResult.data.value.work.data.attributes.img.data)) {
-  let url = workResult.data.value.work.data.attributes.img.data.attributes.url;
+if (utils.isNotEmpty(hobbyResult.data.value.work.data.attributes.img.data)) {
+  let url = hobbyResult.data.value.work.data.attributes.img.data.attributes.url;
 
   if (url.indexOf('/') === 0) {
     url = url.slice(1);
@@ -134,7 +134,7 @@ if (utils.isNotEmpty(workResult.data.value.work.data.attributes.img.data)) {
   meta.ogImage = config.siteUrl + url;
 }
 
-const workInfo = <articleListInfos>workResult.data.value.work.data;
+const hobbyInfo = <articleListInfos>hobbyResult.data.value.work.data;
 
 useHead({
   title: meta.title,

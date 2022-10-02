@@ -9,7 +9,7 @@
       <div class="l-inner">
         <div class="contact-box">
           <p class="contact-lead">
-            「ランディングページを制作してほしい」、「Wordpressを使って更新性の高いWebサイトを作りたい」、
+            「ランディングページを制作してほしい」、「WordPressを使って更新性の高いWebサイトを作りたい」、
             <br class="lg-obj xl-obj" />
             「JavaScriptを用いてWebサイトにリッチな表現を取り入れてほしい」などお客様の様々なご要望にお応えいたします。<br />
             また、デザインのみ、コーディングのみ行ってほしいといったご依頼にも柔軟に対応できます。<br />

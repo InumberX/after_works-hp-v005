@@ -87,6 +87,16 @@ export default <$const>{
       description:
         '東京都在住のフロントエンドエンジニア：N/NE（ナイン）のポートフォリオ用Webサイトです。このページでは、私のこれまでの実績・制作物の一覧を閲覧できます。',
     },
+    // 趣味
+    hobby: {
+      menuText: '趣味',
+      url: 'hobby/',
+      iconClassName: 'icon-pallet',
+      title: '趣味',
+      subTitle: 'Hobby',
+      description:
+        '東京都在住のフロントエンドエンジニア：N/NE（ナイン）のポートフォリオ用Webサイトです。このページでは、私の趣味および学習のために制作したものをご紹介します。',
+    },
     // お問い合わせ
     contact: {
       menuText: 'お問い合わせ',

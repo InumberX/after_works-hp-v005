@@ -93,6 +93,10 @@ const menuInfos: {
     url: config.baseDir + $const.pageInfos.works.url,
   },
   {
+    text: $const.pageInfos.hobby.menuText,
+    url: config.baseDir + $const.pageInfos.hobby.url,
+  },
+  {
     text: $const.pageInfos.contact.menuText,
     url: config.baseDir + $const.pageInfos.contact.url,
   },
