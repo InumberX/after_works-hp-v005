@@ -10,6 +10,7 @@
           :list-page-url="`${config.baseDir}${$const.pageInfos.works.url}`"
           list-page-text="実績一覧"
           :flg-main-visual-parallel="true"
+          wrapper-type="short"
         />
       </div>
     </div>

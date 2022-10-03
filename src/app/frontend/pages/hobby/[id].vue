@@ -10,6 +10,7 @@
           :list-page-url="`${config.baseDir}${$const.pageInfos.hobby.url}`"
           list-page-text="趣味一覧"
           :flg-main-visual-parallel="true"
+          wrapper-type="short"
         />
       </div>
     </div>
