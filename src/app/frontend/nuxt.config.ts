@@ -12,6 +12,19 @@ const nowDatetime: string =
   ('0' + now.getMinutes()).slice(-2) +
   ('0' + now.getSeconds()).slice(-2);
 const cashBuster: string = 'ver=' + nowDatetime;
+const lastmod: string =
+  now.getFullYear() +
+  '-' +
+  ('0' + (now.getMonth() + 1)).slice(-2) +
+  '-' +
+  ('0' + now.getDate()).slice(-2) +
+  'T' +
+  ('0' + now.getHours()).slice(-2) +
+  ':' +
+  ('0' + now.getMinutes()).slice(-2) +
+  ':' +
+  ('0' + now.getSeconds()).slice(-2) +
+  '+09:00';
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
@@ -29,6 +42,8 @@ export default defineNuxtConfig({
     apiRoot: process.env.API_ROOT,
     // Google Analytics
     googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID,
+    // sitemap.xmlに使用する最終更新時刻
+    lastmod,
   },
   typescript: {
     strict: true,

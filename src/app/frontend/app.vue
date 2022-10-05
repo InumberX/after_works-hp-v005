@@ -164,7 +164,7 @@ watch(route, () => {
   currentPath.value = route.path;
 });
 
-useMeta({
+useHead({
   htmlAttrs: {
     lang: 'ja',
     prefix: 'og: http://ogp.me/ns#',
