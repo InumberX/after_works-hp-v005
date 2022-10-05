@@ -1,5 +1,5 @@
 <template>
-  <article class="l-article">
+  <article class="l-article" :class="[wrapperType && `is-${wrapperType}`]">
     <div class="article-wrap">
       <div
         class="article-title-wrap"
@@ -251,6 +251,7 @@ type Props = {
   listPageUrl?: string;
   listPageText?: string;
   flgMainVisualParallel?: boolean;
+  wrapperType?: 'short';
 };
 
 const {
@@ -259,6 +260,7 @@ const {
   listPageUrl,
   listPageText,
   flgMainVisualParallel,
+  wrapperType,
 } = defineProps<Props>();
 
 const isShowShareListTop = computed(() => {
@@ -309,8 +311,8 @@ const articleContents = computed(() => {
 // 変数
 $color-article_date-text: g.$palette-boulder;
 
+$color-article_contents-h2-border: g.$palette-gallery;
 $color-article_contents-h2-background: g.$palette-resolution_blue;
-$color-article_contents-h2-text: g.$palette-white;
 
 $color-article_contents-h3-border: g.$palette-resolution_blue;
 
@@ -327,6 +329,14 @@ $color-article_work_link-text: g.$palette-boulder;
 
 $color-article_work_tag_title-text: g.$palette-boulder;
 
+.l-article {
+  margin: 0 auto;
+  &.is-short {
+    .article-contents-wrap {
+      max-width: 880px;
+    }
+  }
+}
 .article-main-visual-img {
   width: 100%;
 }
@@ -404,7 +414,7 @@ $color-article_work_tag_title-text: g.$palette-boulder;
   padding-top: 2px;
 }
 .article-contents-wrap {
-  margin-top: 24px;
+  margin: 24px auto 0;
   > ::v-deep(*) {
     &:first-child {
       margin-top: 0;
@@ -412,22 +422,32 @@ $color-article_work_tag_title-text: g.$palette-boulder;
   }
   ::v-deep(h1),
   ::v-deep(h2) {
-    margin-top: 24px;
-    font-size: 2rem;
+    position: relative;
+    margin-top: 40px;
+    font-size: 2.2rem;
     font-weight: 700;
-    background-color: $color-article_contents-h2-background;
-    color: $color-article_contents-h2-text;
-    padding: 8px 16px;
+    padding: 8px 0 0;
+    border-top: 4px solid $color-article_contents-h2-border;
+
+    &:before {
+      content: '';
+      background-color: $color-article_contents-h2-background;
+      display: block;
+      width: 64px;
+      height: 4px;
+      position: absolute;
+      top: -4px;
+      left: 0;
+      z-index: g.$z_index-1;
+    }
   }
   ::v-deep(h3) {
-    margin-top: 24px;
+    margin-top: 32px;
     font-size: 2rem;
     font-weight: 700;
-    border-bottom: 4px solid $color-article_contents-h3-border;
-    padding-bottom: 4px;
   }
   ::v-deep(h4) {
-    margin-top: 16px;
+    margin-top: 24px;
     font-size: 1.8rem;
     font-weight: 700;
   }
@@ -438,7 +458,7 @@ $color-article_work_tag_title-text: g.$palette-boulder;
   }
   ::v-deep(h6) {
     margin-top: 16px;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 700;
   }
   ::v-deep(p) {
@@ -520,24 +540,19 @@ $color-article_work_tag_title-text: g.$palette-boulder;
     margin-top: 40px;
     ::v-deep(h1),
     ::v-deep(h2) {
-      margin-top: 40px;
       font-size: 2.8rem;
     }
     ::v-deep(h3) {
-      margin-top: 40px;
       font-size: 2.4rem;
     }
     ::v-deep(h4) {
-      margin-top: 24px;
       font-size: 2rem;
     }
     ::v-deep(h5) {
-      margin-top: 24px;
       font-size: 1.8rem;
     }
     ::v-deep(h6) {
-      margin-top: 24px;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
     }
     ::v-deep(p) {
       margin-top: 24px;

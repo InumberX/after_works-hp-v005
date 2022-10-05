@@ -98,4 +98,7 @@ const { className } = defineProps<Props>();
   margin-left: 8px;
   flex-shrink: 0;
 }
+.icon-pallet {
+  background-image: url('~/assets/img/icon-pallet.svg');
+}
 </style>

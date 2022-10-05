@@ -102,7 +102,6 @@ const isShowMenu = computed(() => {
 
   // 特定の画面幅以上の場合
   if (
-    breakpoints.value.flg.sm ||
     breakpoints.value.flg.md ||
     breakpoints.value.flg.lg ||
     breakpoints.value.flg.xl ||
@@ -143,6 +142,11 @@ const menuInfos: {
     text: $const.pageInfos.works.menuText,
     url: config.baseDir + $const.pageInfos.works.url,
     iconClassName: $const.pageInfos.works.iconClassName,
+  },
+  {
+    text: $const.pageInfos.hobby.menuText,
+    url: config.baseDir + $const.pageInfos.hobby.url,
+    iconClassName: $const.pageInfos.hobby.iconClassName,
   },
   {
     text: $const.pageInfos.contact.menuText,
@@ -386,7 +390,7 @@ $color-header_overlay_bg-background: g.$palette-black;
     transform: scale(1) !important;
   }
 }
-@include g.mxMediaQuery(g.$bp-sm) {
+@include g.mxMediaQuery(g.$bp-md) {
   .header-box {
     justify-content: space-between;
     height: 80px;
@@ -420,8 +424,8 @@ $color-header_overlay_bg-background: g.$palette-black;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 8px 4px;
-    min-width: 64px;
+    padding: 8px;
+    min-width: 72px;
     height: 100%;
     .icon {
       margin: 0 auto;
@@ -451,15 +455,9 @@ $color-header_overlay_bg-background: g.$palette-black;
     }
   }
 }
-@include g.mxMediaQuery(g.$bp-md) {
-  .header-menu-link:not(:root) {
-    padding: 8px;
-    min-width: 88px;
-  }
-}
 @include g.mxMediaQuery(g.$bp-lg) {
   .header-menu-link:not(:root) {
-    min-width: 104px;
+    min-width: 96px;
   }
 }
 </style>

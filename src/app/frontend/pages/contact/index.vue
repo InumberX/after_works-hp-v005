@@ -47,7 +47,7 @@ const meta = <meta>{
   canonical: config.siteUrl + $const.pageInfos.contact.url,
 };
 
-useMeta({
+useHead({
   title: meta.title,
   meta: [
     {

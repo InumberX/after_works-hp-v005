@@ -57,7 +57,7 @@ const serviceInfos: cardListInfos[] = [
     iconClassName: 'icon-laptop',
     texts: [
       'デザインをもとにコーディングを行います。',
-      'パソコン・スマートフォンなど様々なデバイスで最適なデザインを表示できるレスポンシブサイト、Wordpressを用いた更新性の高いサイト、JavaScriptを用いた動きのあるサイトなどお客様のご要望に合わせて様々なサイトが制作可能です。',
+      'パソコン・スマートフォンなど様々なデバイスで最適なデザインを表示できるレスポンシブサイト、WordPressを用いた更新性の高いサイト、JavaScriptを用いた動きのあるサイトなどお客様のご要望に合わせて様々なサイトが制作可能です。',
     ],
   },
 ];
@@ -125,7 +125,7 @@ if (
   blogInfos.value = blogsResult.data.value.blogs.data;
 }
 
-useMeta({
+useHead({
   title: meta.title,
   meta: [
     {

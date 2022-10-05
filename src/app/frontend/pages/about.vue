@@ -130,7 +130,7 @@ const histories = <history[]>(
   aboutResult.data.value.about.data.attributes.history
 );
 
-useMeta({
+useHead({
   title: meta.title,
   meta: [
     {

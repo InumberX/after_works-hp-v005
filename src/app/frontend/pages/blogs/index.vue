@@ -154,7 +154,7 @@ const isPageTransitionFirstTime = computed(() => {
   return utils.vars.value.isPageTransitionFirstTime;
 });
 
-useMeta({
+useHead({
   title: meta.title,
   meta: [
     {
