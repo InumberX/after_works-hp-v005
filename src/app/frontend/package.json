@@ -6,28 +6,34 @@
     "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^2.13.1",
-    "@graphql-codegen/fragment-matcher": "^3.3.1",
-    "@graphql-codegen/near-operation-file-preset": "^2.4.1",
-    "@graphql-codegen/typed-document-node": "^2.3.3",
-    "@graphql-codegen/typescript": "^2.7.3",
-    "@graphql-codegen/typescript-apollo-client-helpers": "^2.2.3",
-    "@graphql-codegen/typescript-operations": "^2.5.3",
-    "@graphql-codegen/typescript-urql": "^3.7.0",
-    "@graphql-codegen/typescript-urql-graphcache": "^2.4.0",
-    "@graphql-codegen/typescript-vue-urql": "^2.3.3",
+    "@graphql-codegen/cli": "^3.2.2",
+    "@graphql-codegen/fragment-matcher": "^4.0.1",
+    "@graphql-codegen/near-operation-file-preset": "^2.5.0",
+    "@graphql-codegen/typed-document-node": "^3.0.2",
+    "@graphql-codegen/typescript": "^3.0.2",
+    "@graphql-codegen/typescript-apollo-client-helpers": "^2.2.6",
+    "@graphql-codegen/typescript-operations": "^3.0.2",
+    "@graphql-codegen/typescript-urql": "^3.7.3",
+    "@graphql-codegen/typescript-urql-graphcache": "^2.4.3",
+    "@graphql-codegen/typescript-vue-urql": "^2.3.6",
     "@graphql-codegen/urql-introspection": "^2.2.1",
-    "@types/marked": "^4.0.7",
-    "@urql/exchange-graphcache": "^5.0.1",
-    "@urql/vue": "^1.0.2",
+    "@types/marked": "^4.0.8",
+    "@types/node": "^18.15.5",
+    "@urql/exchange-graphcache": "^5.2.0",
+    "@urql/vue": "^1.0.5",
     "graphql-tag": "^2.12.6",
-    "nuxt": "3.0.0-rc.10"
+    "nuxt": "3.3.1",
+    "sass": "^1.59.3",
+    "sass-loader": "^13.2.1",
+    "typescript": "^5.0.2",
+    "vite-svg-loader": "^4.0.0"
   },
   "dependencies": {
+    "date-fns": "^2.29.3",
     "graphql": "^16.6.0",
-    "marked": "^4.1.0",
-    "sass": "^1.55.0",
-    "vee-validate": "^4.6.10",
-    "vue-gtag": "^2.0.1"
+    "marked": "^4.2.12",
+    "vee-validate": "^4.8.3",
+    "vue-gtag": "^2.0.1",
+    "vue3-carousel": "^0.2.13"
   }
 }

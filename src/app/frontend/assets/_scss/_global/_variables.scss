@@ -1,64 +1,65 @@
-// 変数 ==========
-// フォント =====
-// デフォルト
-$font-main: 游明朝, 'Yu Mincho', YuMincho, 'Hiragino Mincho ProN',
-  'Hiragino Mincho Pro', HGS明朝E, serif, Times, メイリオ, Meiryo;
+// Variables ==========
 
-// ブレイクポイント =====
-$bp-xs: 321px;
-$bp-sm: 576px;
-$bp-md: 768px;
-$bp-lg: 992px;
-$bp-xl: 1200px;
-$bp-xxl: 1400px;
+// Fonts ========
+// Family ======
+// Default
+$Font__main: 游明朝, 'Yu Mincho', YuMincho, 'Hiragino Mincho ProN', 'Hiragino Mincho Pro', HGS明朝E, serif, Times,
+  メイリオ, Meiryo;
 
-// カラー =====
-// パレット
-$palette-white: #fff;
-$palette-black: #000;
+// Weight
+$Font__medium: 500;
+$Font__bold: 700;
 
-$palette-mine_shaft: #2e2e2e;
+// Size
+$Font__size: 16;
 
-$palette-gallery: #eaeaea;
-$palette-seashell: #f1f1f1;
-$palette-boulder: #7b7b7b;
-$palette-alto: #d0d0d0;
+// Blakepoints ========
+$Bp--xs: 321px;
+$Bp--sm: 576px;
+$Bp--md: 768px;
+$Bp--lg: 992px;
+$Bp--xl: 1200px;
+$Bp--xxl: 1400px;
 
-$palette-resolution_blue: #002984;
-$palette-east_bay: #475982;
-$palette-stratos: #00133e;
+// Color ========
+$Palette__white: #fff;
+$Palette__black: #000;
 
-$palette-marigold_yellow: #fad37d;
+$Palette__blueCharcoal: #000911;
 
-// SNS
-$color-sns-twitter: #1c9cef;
-$color-sns-facebook: #1877f2;
-$color-sns-line: #00b900;
+$Palette__skyBlue: #73d1ed;
 
-// z-index =====
-// 汎用
-$z_index-1: 1;
-$z_index-2: 2;
-$z_index-3: 3;
-$z_index-4: 4;
-$z_index-5: 5;
+$Palette__heliotrope: #e050f3;
 
-// モーダル
-$z_index-modal_1: 20000;
-$z_index-modal_2: 20100;
-$z_index-modal_3: 20200;
+$Palette__twitter: #1c9cef;
+$Palette__facebook: #1877f2;
+$Palette__line: #00b900;
 
-// ヘッダー
-$z_index-header_1: 10000;
-$z_index-header_2: 10100;
-$z_index-header_3: 10200;
-$z_index-header_4: 10300;
+$Gradation__primary: $Palette__skyBlue 0, $Palette__heliotrope 100%;
 
-// フッター
-$z_index-footer_1: 8000;
+// Z Index ========
+// Common ======
+$ZIndex--1: 1;
+$ZIndex--2: 2;
+$ZIndex--3: 3;
+$ZIndex--4: 4;
+$ZIndex--5: 5;
 
-// ページ
-$z_index-page_transition_1: 5000;
+// Modal ======
+$ZIndex__modal--1: 20000;
+$ZIndex__modal--2: 20100;
 
-// 透明度 =====
-$opacity-main: 0.6;
+// Header ======
+$ZIndex__header--1: 10000;
+$ZIndex__header--2: 10100;
+$ZIndex__header--3: 10200;
+$ZIndex__header--4: 10300;
+
+// Footer ======
+$ZIndex__footer--1: 8000;
+
+// Opacity ========
+$Opacity__main: 0.6;
+
+// Scale ========
+$Scale__hover: 1.1;

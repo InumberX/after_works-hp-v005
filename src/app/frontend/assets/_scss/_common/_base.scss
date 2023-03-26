@@ -1,22 +1,5 @@
 @use '../_global/index' as g;
 
-// 変数
-// サイト全体
-$color-site-background: g.$palette-white;
-$color-site-text: g.$palette-mine_shaft;
-
-// リンク
-$color-link-text: g.$palette-resolution_blue;
-$color-link-text_visited: g.$palette-resolution_blue;
-$color-link-text_hover: g.$palette-east_bay;
-
-// マーク
-$color-mark-background: g.$palette-marigold_yellow;
-$color-mark-text: g.$palette-mine_shaft;
-
-// レイアウト
-$color-l_section-background: g.$palette-seashell;
-
 /* 共通 ========== */
 /* リセット */
 * {
@@ -30,9 +13,8 @@ html {
   width: 100%;
   height: 100%;
   line-height: 1;
-  font-size: 62.5%;
-  background: $color-site-background;
-  color: $color-site-text;
+  background: g.$Palette__blueCharcoal;
+  color: g.$Palette__white;
 }
 body {
   width: 100%;
@@ -47,13 +29,28 @@ body {
   -webkit-background-size: cover;
   background-size: cover;
   background-attachment: fixed;
-  font-family: g.$font-main;
-  font-size: 1.6rem;
-  &.is-fixed {
+  font-family: g.$Font__main;
+  font-weight: g.$Font__medium;
+  @include g.mxGetFontSize(16);
+
+  &.Body--fixed {
     position: fixed;
     left: 0;
     width: 100%;
     height: 100%;
+  }
+}
+html,
+body,
+.ScrollTarget {
+  scroll-margin-top: 96px;
+
+  @include g.mxMediaQuerySm {
+    scroll-margin-top: 120px;
+  }
+
+  @include g.mxMediaQueryLg {
+    scroll-margin-top: 136px;
   }
 }
 article,
@@ -91,12 +88,10 @@ li {
   padding: 0;
   vertical-align: baseline;
   -webkit-overflow-wrap: break-word;
-  -ms-overflow-wrap: break-word;
   overflow-wrap: break-word;
   -webkit-word-wrap: break-word;
-  -ms-word-wrap: break-word;
   word-wrap: break-word;
-  font-size: 1.6rem;
+  @include g.mxGetFontSize(16);
 }
 ul,
 ol {
@@ -105,10 +100,8 @@ ol {
 figcaption,
 span {
   -webkit-overflow-wrap: break-word;
-  -ms-overflow-wrap: break-word;
   overflow-wrap: break-word;
   -webkit-word-wrap: break-word;
-  -ms-word-wrap: break-word;
   word-wrap: break-word;
 }
 audio,
@@ -127,22 +120,26 @@ template {
   display: none;
 }
 a {
-  color: $color-link-text;
-  text-decoration: none;
+  color: g.$Palette__skyBlue;
+  text-decoration: underline;
   cursor: pointer;
   transition: 0.3s color, 0.3s opacity, 0.3s background-color, 0.3s border-color;
+
   &:link,
   &:visited {
-    color: $color-link-text_visited;
-    text-decoration: none;
+    color: g.$Palette__skyBlue;
+    text-decoration: underline;
   }
-  @media (hover: hover) {
+  @include g.mxMediaHover() {
     &:hover,
     &:active {
-      color: $color-link-text_hover;
-      text-decoration: none;
+      color: g.$Palette__heliotrope;
+      text-decoration: underline;
     }
   }
+}
+button {
+  cursor: pointer;
 }
 abbr[title] {
   border-bottom: 1px dotted;
@@ -155,14 +152,14 @@ address {
 b,
 strong,
 em {
-  font-weight: 700;
+  font-weight: g.$Font__bold;
 }
 dfn {
   font-style: italic;
 }
 mark {
-  background-color: $color-mark-background;
-  color: $color-mark-text;
+  background-color: g.$Palette__white;
+  color: g.$Palette__black;
 }
 small {
   font-size: 100%;
@@ -201,8 +198,8 @@ code,
 kbd,
 pre,
 samp {
-  font-family: g.$font-main;
-  font-size: 1em;
+  font-family: g.$Font__main;
+  @include g.mxGetFontSize(10);
 }
 table {
   border-collapse: collapse;
@@ -212,9 +209,9 @@ td,
 th {
   padding: 0;
 }
-@include g.mxMediaQuery(g.$bp-sm) {
+@include g.mxMediaQuerySm {
   body {
-    font-size: 1.6rem;
+    @include g.mxGetFontSize(18);
   }
   h1,
   h2,
@@ -230,16 +227,16 @@ th {
   ul,
   ol,
   li {
-    font-size: 1.6rem;
+    @include g.mxGetFontSize(18);
   }
   p {
-    font-size: 1.6rem;
+    @include g.mxGetFontSize(18);
   }
 }
 
 /* サイト内共通 ========== */
 /* clearfix */
-.clearfix {
+.Clearfix {
   display: block;
   &:before,
   &:after {
@@ -252,142 +249,50 @@ th {
 }
 
 /* obj */
-.sm-obj:not(:root) {
+.Obj--sm:not(:root) {
   display: none;
 }
-.md-obj:not(:root) {
+.Obj--md:not(:root) {
   display: none;
 }
-.lg-obj:not(:root) {
+.Obj--lg:not(:root) {
   display: none;
 }
-.xl-obj:not(:root) {
+.Obj--xl:not(:root) {
   display: none;
 }
-.xs-obj:not(:root) {
+.Obj--xs:not(:root) {
   display: block;
 }
-@include g.mxMediaQuery(g.$bp-xs) {
-  .xs-obj:not(:root) {
+@include g.mxMediaQueryXs {
+  .Obj--xs:not(:root) {
     display: none;
   }
-  .sm-obj:not(:root) {
+  .Obj--sm:not(:root) {
     display: block;
   }
 }
-@include g.mxMediaQuery(g.$bp-sm) {
-  .sm-obj:not(:root) {
+@include g.mxMediaQuerySm {
+  .Obj--sm:not(:root) {
     display: none;
   }
-  .md-obj:not(:root) {
+  .Obj--md:not(:root) {
     display: block;
   }
 }
-@include g.mxMediaQuery(g.$bp-md) {
-  .md-obj:not(:root) {
+@include g.mxMediaQueryMd {
+  .Obj--md:not(:root) {
     display: none;
   }
-  .lg-obj:not(:root) {
+  .Obj--lg:not(:root) {
     display: block;
   }
 }
-@include g.mxMediaQuery(g.$bp-lg) {
-  .lg-obj:not(:root) {
+@include g.mxMediaQueryLg {
+  .Obj--lg:not(:root) {
     display: none;
   }
-  .xl-obj:not(:root) {
+  .Obj--xl:not(:root) {
     display: block;
   }
-}
-
-/* レイアウト */
-.l-inner {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1164px;
-  padding: 0 4vw;
-}
-.l-main {
-  padding-top: 64px;
-}
-.l-section {
-  padding: 40px 0;
-  &.is-paint {
-    background-color: $color-l_section-background;
-  }
-  &.is-short {
-    padding-top: 24px;
-    + .l-section.is-short {
-      padding-top: 40px;
-    }
-  }
-}
-.l-parallel {
-  padding: 24px 0 40px;
-}
-.l-parallel-inner {
-  .l-inner {
-    padding: 0;
-  }
-}
-.l-parallel-side {
-  margin-top: 80px;
-}
-.l-sidebar-section {
-  + .l-sidebar-section {
-    margin-top: 40px;
-  }
-}
-@include g.mxMediaQuery(g.$bp-sm) {
-  .l-main {
-    padding-top: 80px;
-  }
-  .l-inner {
-    padding: 0 4.6vw;
-  }
-  .l-section {
-    padding: 80px 0;
-    &.is-short {
-      padding-top: 40px;
-      + .l-section.is-short {
-        padding-top: 0;
-      }
-    }
-  }
-  .l-parallel {
-    padding: 40px 0 80px;
-  }
-  .l-sidebar-section {
-    + .l-sidebar-section {
-      margin-top: 80px;
-    }
-  }
-}
-@include g.mxMediaQuery(g.$bp-md) {
-  .l-inner {
-    padding: 0 32px;
-  }
-  .l-parallel-inner {
-    display: flex;
-  }
-  .l-parallel-main {
-    width: calc(100% - 300px);
-    padding-right: 24px;
-  }
-  .l-parallel-side {
-    width: 300px;
-  }
-  .l-parallel-side {
-    margin-top: 0;
-  }
-}
-@include g.mxMediaQuery(g.$bp-lg) {
-  .l-parallel-main {
-    padding-right: 40px;
-  }
-}
-
-/* Vue ========== */
-[v-cloak]:not(:root) {
-  display: none !important;
 }
