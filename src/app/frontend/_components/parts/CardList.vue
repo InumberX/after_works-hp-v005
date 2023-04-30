@@ -55,13 +55,13 @@ const { cardListInfos } = defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 // 変数
-$color-card_list_contents-background: g.$palette-white;
-$color-card_list_contents-border: g.$palette-gallery;
+$color-card_list_contents-background: $palette-white;
+$color-card_list_contents-border: $palette-gallery;
 
-$color-card_list_img_box-background: g.$palette-gallery;
+$color-card_list_img_box-background: $palette-gallery;
 
 .card-list-box {
   margin-top: 24px;
@@ -112,7 +112,7 @@ $color-card_list_img_box-background: g.$palette-gallery;
   display: flex;
   justify-content: center;
 }
-@include g.mxMediaQuery(g.$bp-sm) {
+@include mxMediaQuery($bp-sm) {
   .card-list-contents {
     padding: 40px;
   }
@@ -134,12 +134,12 @@ $color-card_list_img_box-background: g.$palette-gallery;
     margin-top: 16px;
   }
 }
-@include g.mxMediaQuery(g.$bp-md) {
+@include mxMediaQuery($bp-md) {
   .card-list-items {
     display: flex;
     flex-wrap: wrap;
     > .card-list-item {
-      @include g.mxListWidth(2, 16px) {
+      @include mxListWidth(2, 16px) {
       }
     }
   }

@@ -12,7 +12,7 @@ const { title } = defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 .sidebar-title-main {
   font-size: 2rem;

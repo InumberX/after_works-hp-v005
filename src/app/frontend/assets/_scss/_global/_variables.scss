@@ -3,63 +3,65 @@
 // Fonts ========
 // Family ======
 // Default
-$Font__main: 游明朝, 'Yu Mincho', YuMincho, 'Hiragino Mincho ProN', 'Hiragino Mincho Pro', HGS明朝E, serif, Times,
+$font-main: 游明朝, 'Yu Mincho', YuMincho, 'Hiragino Mincho ProN', 'Hiragino Mincho Pro', HGS明朝E, serif, Times,
   メイリオ, Meiryo;
 
 // Weight
-$Font__medium: 500;
-$Font__bold: 700;
+$font-medium: 500;
+$font-bold: 700;
 
 // Size
-$Font__size: 16;
+$font-size: 16;
 
 // Blakepoints ========
-$Bp--xs: 321px;
-$Bp--sm: 576px;
-$Bp--md: 768px;
-$Bp--lg: 992px;
-$Bp--xl: 1200px;
-$Bp--xxl: 1400px;
+$blakepoint-xs: 321px;
+$blakepoint-sm: 576px;
+$blakepoint-md: 768px;
+$blakepoint-lg: 992px;
+$blakepoint-xl: 1200px;
+$blakepoint-xxl: 1400px;
 
 // Color ========
-$Palette__white: #fff;
-$Palette__black: #000;
+$palette-white: #fff;
+$palette-black: #000;
 
-$Palette__blueCharcoal: #000911;
+$palette-blue-charcoal: #000911;
 
-$Palette__skyBlue: #73d1ed;
+$palette-sky-blue: #73d1ed;
+$palette-chambray: #2d507b;
 
-$Palette__heliotrope: #e050f3;
+$palette-heliotrope: #e050f3;
 
-$Palette__twitter: #1c9cef;
-$Palette__facebook: #1877f2;
-$Palette__line: #00b900;
+$palette-twitter: #1c9cef;
+$palette-facebook: #1877f2;
+$palette-line: #00b900;
 
-$Gradation__primary: $Palette__skyBlue 0, $Palette__heliotrope 100%;
+$gradation-primary: $palette-sky-blue 0, $palette-heliotrope 100%;
 
 // Z Index ========
 // Common ======
-$ZIndex--1: 1;
-$ZIndex--2: 2;
-$ZIndex--3: 3;
-$ZIndex--4: 4;
-$ZIndex--5: 5;
+$z-index-minus-1: -1;
+$z-index-1: 1;
+$z-index-2: 2;
+$z-index-3: 3;
+$z-index-4: 4;
+$z-index-5: 5;
 
 // Modal ======
-$ZIndex__modal--1: 20000;
-$ZIndex__modal--2: 20100;
+$z-index-modal-1: 20000;
+$z-index-modal-2: 20100;
 
 // Header ======
-$ZIndex__header--1: 10000;
-$ZIndex__header--2: 10100;
-$ZIndex__header--3: 10200;
-$ZIndex__header--4: 10300;
+$z-index-header-1: 10000;
+$z-index-header-2: 10100;
+$z-index-header-3: 10200;
+$z-index-header-4: 10300;
 
 // Footer ======
-$ZIndex__footer--1: 8000;
+$z-index-footer-4: 8000;
 
 // Opacity ========
-$Opacity__main: 0.6;
+$opacity-hover: 0.6;
 
 // Scale ========
-$Scale__hover: 1.1;
+$scale-hover: 1.1;

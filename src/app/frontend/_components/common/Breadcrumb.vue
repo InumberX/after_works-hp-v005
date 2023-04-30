@@ -66,13 +66,13 @@ const { breadcrumbInfos } = defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 // 変数
-$color-breadcrumb_item-border: g.$palette-resolution_blue;
+$color-breadcrumb_item-border: $palette-resolution_blue;
 
-$color-breadcrumb_link-text: g.$palette-boulder;
-$color-breadcrumb_link-text_hover: g.$palette-resolution_blue;
+$color-breadcrumb_link-text: $palette-boulder;
+$color-breadcrumb_link-text_hover: $palette-resolution_blue;
 
 .l-breadcrumb {
   margin-top: 8px;
@@ -96,7 +96,7 @@ $color-breadcrumb_link-text_hover: g.$palette-resolution_blue;
   padding-right: 16px;
   margin: 2px 0;
   &:after {
-    @include g.mxArrowLine(
+    @include mxArrowLine(
       4px,
       50%,
       6px,
@@ -127,7 +127,7 @@ $color-breadcrumb_link-text_hover: g.$palette-resolution_blue;
   display: block;
   font-size: 1rem;
 }
-@include g.mxMediaQuery(g.$bp-sm) {
+@include mxMediaQuery($bp-sm) {
   .l-breadcrumb {
     overflow: hidden;
   }

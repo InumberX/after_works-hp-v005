@@ -19,12 +19,12 @@ const { title, subTitle, flgSimple } = defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 // 変数
-$color-section_title_box-background: g.$palette-east_bay;
+$color-section_title_box-background: $palette-east_bay;
 
-$color-section_title_sub-text: g.$palette-east_bay;
+$color-section_title_sub-text: $palette-east_bay;
 
 .l-section-title {
   &.is-simple {
@@ -103,7 +103,7 @@ $color-section_title_sub-text: g.$palette-east_bay;
   text-align: center;
   margin-top: 12px;
 }
-@include g.mxMediaQuery(g.$bp-sm) {
+@include mxMediaQuery($bp-sm) {
   .section-title-box {
     padding-top: 48px;
     &:before {
@@ -122,7 +122,7 @@ $color-section_title_sub-text: g.$palette-east_bay;
     margin-top: 8px;
   }
 }
-@include g.mxMediaQuery(g.$bp-md) {
+@include mxMediaQuery($bp-md) {
   .section-title-sub {
     font-size: 2.4rem;
   }

@@ -26,10 +26,10 @@ const config = useRuntimeConfig();
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 // 変数
-$color-main_visual_title_box-background: g.$palette-seashell;
+$color-main_visual_title_box-background: $palette-seashell;
 
 .l-main-visual {
   position: relative;
@@ -37,7 +37,7 @@ $color-main_visual_title_box-background: g.$palette-seashell;
 }
 .main-visual-img-box {
   position: relative;
-  z-index: g.$z_index-2;
+  z-index: $z_index-2;
   width: 90%;
   max-width: 560px;
   margin-left: auto;
@@ -53,7 +53,7 @@ $color-main_visual_title_box-background: g.$palette-seashell;
     height: 60%;
     display: block;
     position: absolute;
-    z-index: g.$z_index-1;
+    z-index: $z_index-1;
     bottom: 40px;
     left: 0;
     background-color: $color-main_visual_title_box-background;
@@ -61,14 +61,14 @@ $color-main_visual_title_box-background: g.$palette-seashell;
 }
 .main-visual-title {
   position: relative;
-  z-index: g.$z_index-3;
+  z-index: $z_index-3;
   font-size: 4rem;
   font-weight: 700;
 }
 .main-visual-title-text {
   display: block;
 }
-@include g.mxMediaQuery(g.$bp-sm) {
+@include mxMediaQuery($bp-sm) {
   .l-main-visual {
     padding-bottom: 80px;
   }
@@ -82,7 +82,7 @@ $color-main_visual_title_box-background: g.$palette-seashell;
     font-size: 5.6rem;
   }
 }
-@include g.mxMediaQuery(g.$bp-md) {
+@include mxMediaQuery($bp-md) {
   .l-main-visual {
     padding-bottom: 0;
   }
@@ -109,7 +109,7 @@ $color-main_visual_title_box-background: g.$palette-seashell;
     }
   }
 }
-@include g.mxMediaQuery(g.$bp-lg) {
+@include mxMediaQuery($bp-lg) {
   .main-visual-title-box {
     &:after {
       height: 80%;

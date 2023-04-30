@@ -18,21 +18,21 @@ import Inner from '~/components/layout/Inner/index.vue'
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 .LayoutParallel {
   padding-bottom: 40px;
 
-  @include g.mxMediaQuerySm {
+  @include mxMediaQuerySm {
     padding-bottom: 64px;
   }
 
-  @include g.mxMediaQueryMd {
+  @include mxMediaQueryMd {
     padding-bottom: 80px;
   }
 
   &__container {
-    @include g.mxMediaQueryMd {
+    @include mxMediaQueryMd {
       display: flex;
     }
   }
@@ -40,16 +40,16 @@ import Inner from '~/components/layout/Inner/index.vue'
   &__main {
     min-width: 1px;
 
-    @include g.mxMediaQueryMd {
+    @include mxMediaQueryMd {
       flex-grow: 1;
       padding-right: 40px;
     }
 
-    @include g.mxMediaQueryLg {
+    @include mxMediaQueryLg {
       padding-right: 64px;
     }
 
-    @include g.mxMediaQueryXl {
+    @include mxMediaQueryXl {
       flex-grow: 1;
       padding-right: 80px;
     }
@@ -58,7 +58,7 @@ import Inner from '~/components/layout/Inner/index.vue'
   &__side {
     margin-top: 40px;
 
-    @include g.mxMediaQueryMd {
+    @include mxMediaQueryMd {
       margin-top: 0;
       flex-shrink: 0;
       width: 320px;

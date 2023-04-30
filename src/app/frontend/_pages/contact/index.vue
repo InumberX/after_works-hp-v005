@@ -77,7 +77,7 @@ useHead({
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 .contact-link-box {
   display: flex;

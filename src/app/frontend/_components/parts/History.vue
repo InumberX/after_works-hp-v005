@@ -149,12 +149,12 @@ const flgShowDescription = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 // 変数
-$color-history_contents_item-background: g.$palette-resolution_blue;
+$color-history_contents_item-background: $palette-resolution_blue;
 
-$color-history_contents_description_box-text: g.$palette-boulder;
+$color-history_contents_description_box-text: $palette-boulder;
 
 .history-box {
   max-width: 960px;
@@ -258,7 +258,7 @@ $color-history_contents_description_box-text: g.$palette-boulder;
     content: '、';
   }
 }
-@include g.mxMediaQuery(g.$bp-sm) {
+@include mxMediaQuery($bp-sm) {
   .history-items {
     > .history-item {
       &:first-of-type {
@@ -320,7 +320,7 @@ $color-history_contents_description_box-text: g.$palette-boulder;
     }
   }
 }
-@include g.mxMediaQuery(g.$bp-md) {
+@include mxMediaQuery($bp-md) {
   .history-items {
     > .history-item {
       &:first-of-type {

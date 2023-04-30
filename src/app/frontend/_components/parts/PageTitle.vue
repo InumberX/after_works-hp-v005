@@ -18,10 +18,10 @@ const { title, subTitle } = defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 // 変数
-$color-page_title_box-text: g.$palette-white;
+$color-page_title_box-text: $palette-white;
 
 .l-page-title {
   background-image: url('~/assets/img/img-bg-page_title.jpg');
@@ -43,7 +43,7 @@ $color-page_title_box-text: g.$palette-white;
   font-size: 2.4rem;
   font-weight: 700;
 }
-@include g.mxMediaQuery(g.$bp-sm) {
+@include mxMediaQuery($bp-sm) {
   .page-title-box {
     padding: 40px 0;
   }

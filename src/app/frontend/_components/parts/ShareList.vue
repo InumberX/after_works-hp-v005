@@ -63,7 +63,7 @@ const shareInfos = <shareInfos[]>[
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 // 変数
 
@@ -84,18 +84,18 @@ const shareInfos = <shareInfos[]>[
   border-radius: 32px;
   overflow: hidden;
   &.is-twitter {
-    background-color: g.$color-sns-twitter;
+    background-color: $color-sns-twitter;
   }
   &.is-facebook {
-    background-color: g.$color-sns-facebook;
+    background-color: $color-sns-facebook;
     align-items: flex-end;
   }
   &.is-line {
-    background-color: g.$color-sns-line;
+    background-color: $color-sns-line;
   }
   @media (hover: hover) {
     &:hover {
-      opacity: g.$opacity-main;
+      opacity: $opacity-main;
     }
   }
   .icon-twitter {

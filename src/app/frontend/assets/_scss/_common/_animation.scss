@@ -1,1 +1,19 @@
-@use '../_global/index' as g;
+@use '~/assets/_scss/_global' as *;
+
+/* アニメーション ========== */
+/* Transition ===== */
+/* フェード */
+.AnimationFade {
+  &-enter-active,
+  &-leave-active {
+    transition: 0.3s opacity;
+  }
+  &-enter-from,
+  &-leave-to {
+    opacity: 0 !important;
+  }
+  &-enter-to,
+  &-leave-from {
+    opacity: 1 !important;
+  }
+}

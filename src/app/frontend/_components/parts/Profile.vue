@@ -84,12 +84,12 @@ const { qualifications, skills } = defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 // 変数
-$color-profile_description_title-text: g.$palette-boulder;
+$color-profile_description_title-text: $palette-boulder;
 
-$color-profile_description_item-border: g.$palette-resolution_blue;
+$color-profile_description_item-border: $palette-resolution_blue;
 
 .profile-box {
   max-width: 960px;
@@ -163,7 +163,7 @@ $color-profile_description_item-border: g.$palette-resolution_blue;
     left: 0;
   }
 }
-@include g.mxMediaQuery(g.$bp-sm) {
+@include mxMediaQuery($bp-sm) {
   .profile-img-box {
     width: 120px;
     height: 120px;

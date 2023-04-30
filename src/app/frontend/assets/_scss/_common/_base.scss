@@ -1,4 +1,4 @@
-@use '../_global/index' as g;
+@use '~/assets/_scss/_global' as *;
 
 /* 共通 ========== */
 /* リセット */
@@ -13,8 +13,8 @@ html {
   width: 100%;
   height: 100%;
   line-height: 1;
-  background: g.$Palette__blueCharcoal;
-  color: g.$Palette__white;
+  background: $palette-blue-charcoal;
+  color: $palette-white;
 }
 body {
   width: 100%;
@@ -29,9 +29,9 @@ body {
   -webkit-background-size: cover;
   background-size: cover;
   background-attachment: fixed;
-  font-family: g.$Font__main;
-  font-weight: g.$Font__medium;
-  @include g.mxGetFontSize(16);
+  font-family: $font-main;
+  font-weight: $font-medium;
+  @include mxGetFontSize(16);
 
   &.Body--fixed {
     position: fixed;
@@ -45,11 +45,11 @@ body,
 .ScrollTarget {
   scroll-margin-top: 96px;
 
-  @include g.mxMediaQuerySm {
+  @include mxMediaQuerySm {
     scroll-margin-top: 120px;
   }
 
-  @include g.mxMediaQueryLg {
+  @include mxMediaQueryLg {
     scroll-margin-top: 136px;
   }
 }
@@ -91,7 +91,7 @@ li {
   overflow-wrap: break-word;
   -webkit-word-wrap: break-word;
   word-wrap: break-word;
-  @include g.mxGetFontSize(16);
+  @include mxGetFontSize(16);
 }
 ul,
 ol {
@@ -120,26 +120,28 @@ template {
   display: none;
 }
 a {
-  color: g.$Palette__skyBlue;
+  color: $palette-sky-blue;
   text-decoration: underline;
   cursor: pointer;
   transition: 0.3s color, 0.3s opacity, 0.3s background-color, 0.3s border-color;
 
   &:link,
   &:visited {
-    color: g.$Palette__skyBlue;
+    color: $palette-sky-blue;
     text-decoration: underline;
   }
-  @include g.mxMediaHover() {
+  @include mxMediaHover() {
     &:hover,
     &:active {
-      color: g.$Palette__heliotrope;
+      color: $palette-heliotrope;
       text-decoration: underline;
     }
   }
 }
 button {
   cursor: pointer;
+  font-family: $font-main;
+  font-weight: $font-medium;
 }
 abbr[title] {
   border-bottom: 1px dotted;
@@ -152,14 +154,14 @@ address {
 b,
 strong,
 em {
-  font-weight: g.$Font__bold;
+  font-weight: $font-bold;
 }
 dfn {
   font-style: italic;
 }
 mark {
-  background-color: g.$Palette__white;
-  color: g.$Palette__black;
+  background-color: $palette-white;
+  color: $palette-black;
 }
 small {
   font-size: 100%;
@@ -198,8 +200,8 @@ code,
 kbd,
 pre,
 samp {
-  font-family: g.$Font__main;
-  @include g.mxGetFontSize(10);
+  font-family: $font-main;
+  @include mxGetFontSize(10);
 }
 table {
   border-collapse: collapse;
@@ -209,9 +211,9 @@ td,
 th {
   padding: 0;
 }
-@include g.mxMediaQuerySm {
+@include mxMediaQuerySm {
   body {
-    @include g.mxGetFontSize(18);
+    @include mxGetFontSize(18);
   }
   h1,
   h2,
@@ -227,10 +229,10 @@ th {
   ul,
   ol,
   li {
-    @include g.mxGetFontSize(18);
+    @include mxGetFontSize(18);
   }
   p {
-    @include g.mxGetFontSize(18);
+    @include mxGetFontSize(18);
   }
 }
 
@@ -264,7 +266,7 @@ th {
 .Obj--xs:not(:root) {
   display: block;
 }
-@include g.mxMediaQueryXs {
+@include mxMediaQueryXs {
   .Obj--xs:not(:root) {
     display: none;
   }
@@ -272,7 +274,7 @@ th {
     display: block;
   }
 }
-@include g.mxMediaQuerySm {
+@include mxMediaQuerySm {
   .Obj--sm:not(:root) {
     display: none;
   }
@@ -280,7 +282,7 @@ th {
     display: block;
   }
 }
-@include g.mxMediaQueryMd {
+@include mxMediaQueryMd {
   .Obj--md:not(:root) {
     display: none;
   }
@@ -288,7 +290,7 @@ th {
     display: block;
   }
 }
-@include g.mxMediaQueryLg {
+@include mxMediaQueryLg {
   .Obj--lg:not(:root) {
     display: none;
   }

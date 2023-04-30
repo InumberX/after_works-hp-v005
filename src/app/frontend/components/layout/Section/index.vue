@@ -16,29 +16,29 @@ const { tagName } = withDefaults(defineProps<Props>(), {
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 .LayoutSection {
   margin: 0;
   width: 100%;
   padding: 40px 0;
 
-  @include g.mxMediaQuerySm {
+  @include mxMediaQuerySm {
     padding: 64px 0;
   }
 
-  @include g.mxMediaQueryMd {
+  @include mxMediaQueryMd {
     padding: 80px 0;
   }
 
   &--first {
     padding-top: 24px;
 
-    @include g.mxMediaQuerySm {
+    @include mxMediaQuerySm {
       padding-top: 32px;
     }
 
-    @include g.mxMediaQueryMd {
+    @include mxMediaQueryMd {
       padding-top: 40px;
     }
   }

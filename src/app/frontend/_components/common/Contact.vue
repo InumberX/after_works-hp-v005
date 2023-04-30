@@ -45,7 +45,7 @@ const isPageTransitionFirstTime = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 .contact-box {
   margin-top: 16px;
@@ -55,7 +55,7 @@ const isPageTransitionFirstTime = computed(() => {
   justify-content: center;
   margin-top: 40px;
 }
-@include g.mxMediaQuery(g.$bp-sm) {
+@include mxMediaQuery($bp-sm) {
   .contact-box {
     margin-top: 24px;
   }
