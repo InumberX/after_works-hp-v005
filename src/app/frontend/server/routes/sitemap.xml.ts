@@ -1,17 +1,17 @@
-import { createClient, gql } from '@urql/core';
-import $const from '~/config/const';
+import { createClient, gql } from '@urql/core'
+import { routes } from '~/config/routes'
 
 export default defineEventHandler(async (event) => {
-  const config = useRuntimeConfig();
-  const { siteUrl, lastmod, apiUrl, apiRoot } = config;
-  const { pageInfos } = $const;
+  const config = useRuntimeConfig()
+  const { siteUrl, lastmod, apiUrl, apiRoot } = config
   const client = createClient({
     url: `${apiUrl}${apiRoot}`,
-  });
+  })
+
   const sitemapInfos: {
-    loc: string;
-    lastmod: string;
-    priority: string;
+    loc: string
+    lastmod: string
+    priority: string
   }[] = [
     {
       loc: siteUrl,
@@ -19,26 +19,26 @@ export default defineEventHandler(async (event) => {
       priority: '1.00',
     },
     {
-      loc: `${siteUrl}${pageInfos.blogs.url}`,
+      loc: `${siteUrl}${routes.blogs.url({})}`,
       lastmod,
       priority: '0.50',
     },
     {
-      loc: `${siteUrl}${pageInfos.works.url}`,
+      loc: `${siteUrl}${routes.works.url({})}`,
       lastmod,
       priority: '0.50',
     },
     {
-      loc: `${siteUrl}${pageInfos.hobby.url}`,
+      loc: `${siteUrl}${routes.hobby.url({})}`,
       lastmod,
       priority: '0.50',
     },
     {
-      loc: `${siteUrl}${pageInfos.contact.url}`,
+      loc: `${siteUrl}${routes.contact.url({})}`,
       lastmod,
       priority: '0.50',
     },
-  ];
+  ]
 
   const workInfos = await client
     .query(
@@ -63,21 +63,17 @@ export default defineEventHandler(async (event) => {
     )
     .toPromise()
     .then((response) => {
-      return response.data.works.data;
+      return response.data.works.data
     })
     .catch(() => {
-      return [];
-    });
+      return []
+    })
 
   const hobbyInfos = await client
     .query(
       gql`
         query getHobbies {
-          works(
-            pagination: { limit: -1 }
-            sort: ["createdDate:desc", "id:desc"]
-            filters: { flgHobby: { eq: true } }
-          ) {
+          works(pagination: { limit: -1 }, sort: ["createdDate:desc", "id:desc"], filters: { flgHobby: { eq: true } }) {
             data {
               id
               attributes {
@@ -92,20 +88,17 @@ export default defineEventHandler(async (event) => {
     )
     .toPromise()
     .then((response) => {
-      return response.data.works.data;
+      return response.data.works.data
     })
     .catch(() => {
-      return [];
-    });
+      return []
+    })
 
   const blogInfos = await client
     .query(
       gql`
         query getBlogs {
-          works(
-            pagination: { limit: -1 }
-            sort: ["createdDate:desc", "id:desc"]
-          ) {
+          works(pagination: { limit: -1 }, sort: ["createdDate:desc", "id:desc"]) {
             data {
               id
               attributes {
@@ -119,11 +112,11 @@ export default defineEventHandler(async (event) => {
     )
     .toPromise()
     .then((response) => {
-      return response.data.works.data;
+      return response.data.works.data
     })
     .catch(() => {
-      return [];
-    });
+      return []
+    })
 
   const aboutInfo = await client
     .query(
@@ -142,77 +135,77 @@ export default defineEventHandler(async (event) => {
     )
     .toPromise()
     .then((response) => {
-      return response.data.about.data;
+      return response.data.about.data
     })
     .catch(() => {
-      return undefined;
-    });
+      return undefined
+    })
 
   for (let i = 0, iLength = workInfos.length; i < iLength; i = (i + 1) | 0) {
-    const workInfo = workInfos[i];
-    const { id, attributes } = workInfo;
-    const { url, updatedAt } = attributes;
+    const workInfo = workInfos[i]
+    const { id, attributes } = workInfo
+    const { url, updatedAt } = attributes
 
     sitemapInfos.push({
-      loc: `${siteUrl}${pageInfos.works.url}${id}/`,
+      loc: `${siteUrl}${routes.worksDetail.url({ id })}`,
       lastmod: updatedAt,
       priority: '0.50',
-    });
+    })
 
     if (!url || !url.startsWith(siteUrl)) {
-      continue;
+      continue
     }
 
     sitemapInfos.push({
       loc: url,
       lastmod,
       priority: '0.50',
-    });
+    })
   }
 
   for (let i = 0, iLength = hobbyInfos.length; i < iLength; i = (i + 1) | 0) {
-    const hobbyInfo = hobbyInfos[i];
-    const { id, attributes } = hobbyInfo;
-    const { url, updatedAt } = attributes;
+    const hobbyInfo = hobbyInfos[i]
+    const { id, attributes } = hobbyInfo
+    const { url, updatedAt } = attributes
 
     sitemapInfos.push({
-      loc: `${siteUrl}${pageInfos.hobby.url}${id}/`,
+      loc: `${siteUrl}${routes.hobbyDetail.url({ id })}`,
       lastmod: updatedAt,
       priority: '0.50',
-    });
+    })
 
     if (!url || !url.startsWith(siteUrl)) {
-      continue;
+      continue
     }
 
     sitemapInfos.push({
       loc: url,
       lastmod,
       priority: '0.50',
-    });
+    })
   }
 
   for (let i = 0, iLength = blogInfos.length; i < iLength; i = (i + 1) | 0) {
-    const blogInfo = blogInfos[i];
-    const { id, attributes } = blogInfo;
-    const { url, updatedAt } = attributes;
+    const blogInfo = blogInfos[i]
+    const { id, attributes } = blogInfo
+    const { updatedAt } = attributes
 
     sitemapInfos.push({
-      loc: `${siteUrl}${pageInfos.blogs.url}${id}/`,
+      loc: `${siteUrl}${routes.blogsDetail.url({ id })}`,
       lastmod: updatedAt,
       priority: '0.50',
-    });
+    })
   }
 
   if (aboutInfo) {
-    const { attributes } = aboutInfo;
-    const { updatedAt } = attributes;
+    const { attributes } = aboutInfo
+    const { updatedAt } = attributes
 
     sitemapInfos.push({
-      loc: `${siteUrl}${pageInfos.about.url}`,
+      loc: `${siteUrl}${routes.about.url({})}`,
       lastmod: updatedAt,
       priority: '0.50',
-    });
+    })
   }
 
   let sitemapString = `<?xml version="1.0" encoding="UTF-8"?>
@@ -221,10 +214,10 @@ export default defineEventHandler(async (event) => {
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  `;
+  `
 
   for (let i = 0, iLength = sitemapInfos.length; i < iLength; i = (i + 1) | 0) {
-    const sitemapInfo = sitemapInfos[i];
+    const sitemapInfo = sitemapInfos[i]
 
     sitemapString += `
       <url>
@@ -232,11 +225,11 @@ export default defineEventHandler(async (event) => {
         <lastmod>${sitemapInfo.lastmod}</lastmod>
         <priority>${sitemapInfo.priority}</priority>
       </url>
-    `;
+    `
   }
 
-  sitemapString += `</urlset>`;
+  sitemapString += `</urlset>`
 
-  event.res.setHeader('content-type', 'text/xml');
-  event.res.end(sitemapString);
-});
+  event.res.setHeader('content-type', 'text/xml')
+  event.res.end(sitemapString)
+})

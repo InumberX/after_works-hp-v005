@@ -1,142 +1,109 @@
+@use './variables' as v;
 @use 'sass:math';
 
-// 線の矢印
-@mixin mxArrowLine(
-  $width-and-height,
-  $top,
-  $right,
-  $bottom,
-  $left,
-  $margin-top,
-  $margin-right,
-  $margin-bottom,
-  $margin-left,
-  $border-width,
-  $border-color,
-  $deg
-) {
-  content: '';
-  position: absolute;
-  display: block;
-  width: $width-and-height;
-  height: $width-and-height;
-  @if ($top != '') {
-    top: $top;
-  }
-  @if ($right != '') {
-    right: $right;
-  }
-  @if ($bottom != '') {
-    bottom: $bottom;
-  }
-  @if ($left != '') {
-    left: $left;
-  }
-  @if ($margin-top != '') {
-    margin-top: $margin-top;
-  }
-  @if ($margin-right != '') {
-    margin-right: $margin-right;
-  }
-  @if ($margin-bottom != '') {
-    margin-bottom: $margin-bottom;
-  }
-  @if ($margin-left != '') {
-    margin-left: $margin-left;
-  }
-  border-left: $border-width solid $border-color;
-  border-bottom: $border-width solid $border-color;
-  @if ($deg != '') {
-    transform: rotate($deg);
-  }
-  transition: 0.3s border-color, 0.3s transform;
-  @content;
-}
-
-// 三角形
-@mixin mxTriangle(
-  $width,
-  $height,
-  $top,
-  $right,
-  $bottom,
-  $left,
-  $margin-top,
-  $margin-right,
-  $margin-bottom,
-  $margin-left,
-  $border-color,
-  $deg
-) {
-  content: '';
-  position: absolute;
-  display: block;
-  @if ($top != '') {
-    top: $top;
-  }
-  @if ($right != '') {
-    right: $right;
-  }
-  @if ($bottom != '') {
-    bottom: $bottom;
-  }
-  @if ($left != '') {
-    left: $left;
-  }
-  @if ($margin-top != '') {
-    margin-top: $margin-top;
-  }
-  @if ($margin-right != '') {
-    margin-right: $margin-right;
-  }
-  @if ($margin-bottom != '') {
-    margin-bottom: $margin-bottom;
-  }
-  @if ($margin-left != '') {
-    margin-left: $margin-left;
-  }
-  border-top: $height solid $border-color;
-  border-right: math.div($width, 2) solid transparent;
-  border-left: math.div($width, 2) solid transparent;
-  @if ($deg != '') {
-    transform: rotate($deg);
-  }
-  transition: 0.3s border-color, 0.3s transform;
-  @content;
-}
-
-// メディアクエリ
-@mixin mxMediaQuery($bp) {
-  @media screen and (min-width: $bp), print {
+// Media Query
+@mixin mxMediaQueryXs() {
+  @media screen and (min-width: v.$Bp--xs), print {
     @content;
   }
 }
 
-// リストの横幅定義
-@mixin mxListWidth($col, $marign-light) {
-  width: calc(
-    (100% / #{$col}) - ((#{$marign-light} * (#{$col} - 1)) / #{$col})
-  );
-  margin-right: $marign-light;
-  &:nth-of-type(#{$col}n) {
-    margin-right: 0;
+@mixin mxMediaQuerySm() {
+  @media screen and (min-width: v.$Bp--sm), print {
+    @content;
   }
-  &:nth-of-type(-n + #{$col}) {
-    margin-top: 0;
+}
+
+@mixin mxMediaQueryMd() {
+  @media screen and (min-width: v.$Bp--md), print {
+    @content;
   }
+}
+
+@mixin mxMediaQueryLg() {
+  @media screen and (min-width: v.$Bp--lg), print {
+    @content;
+  }
+}
+
+@mixin mxMediaQueryXl() {
+  @media screen and (min-width: v.$Bp--xl), print {
+    @content;
+  }
+}
+
+@mixin mxMediaQueryXxl() {
+  @media screen and (min-width: v.$Bp--xxl), print {
+    @content;
+  }
+}
+
+@mixin mxMediaQueryPrint() {
+  @media print {
+    @content;
+  }
+}
+
+@mixin mxMediaHover() {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
+// Font
+@mixin mxGetFontSize($Font__sizePx) {
+  font-size: math.div($Font__sizePx, v.$Font__size) * 1rem;
+}
+
+// Lists
+@mixin mxGetMarginListItems($Margin__top, $Margin__left) {
+  margin: (-$Margin__top) 0 0 (-$Margin__left);
+}
+
+@mixin mxGetPaddingListItem($Padding__top, $Padding__left) {
+  padding: $Padding__top 0 0 $Padding__left;
+}
+
+// Arrow
+@mixin mxArrowLine(
+  $WidthAndHeight,
+  $Position,
+  $Margin,
+  $Border__width,
+  $Border__color,
+  $Deg
+) {
+  content: '';
+  position: absolute;
+  display: block;
+  width: $WidthAndHeight;
+  height: $WidthAndHeight;
+  @each $Key, $Val in $Position {
+    #{$Key}: $Val;
+  }
+  @each $Key, $Val in $Margin {
+    #{$Key}: $Val;
+  }
+  border-left: $Border__width solid $Border__color;
+  border-bottom: $Border__width solid $Border__color;
+  @if ($Deg != '') {
+    transform: rotate($Deg);
+  }
+  transition: 0.3s border-color, 0.3s transform;
   @content;
 }
 
-@mixin mxListWidthBetween($col, $marign-light) {
-  width: calc(
-    (100% / #{$col}) - ((#{$marign-light} * (#{$col} - 1)) / #{$col})
-  );
-  @content;
-}
-
-@mixin mxGetListWidth($col, $marign-light) {
-  width: calc(
-    (100% / #{$col}) - ((#{$marign-light} * (#{$col} - 1)) / #{$col})
-  );
+// Triangle
+@mixin mxTriangle($Width, $Height, $Border__color, $Deg) {
+  content: '';
+  position: absolute;
+  display: block;
+  border-top: $Height solid $Border__color;
+  border-right: math.div($Width, 2) solid transparent;
+  border-left: math.div($Width, 2) solid transparent;
+  @if ($Deg != '') {
+    transform: rotate($Deg);
+  }
+  transition: 0.3s border-color, 0.3s transform;
   @content;
 }
