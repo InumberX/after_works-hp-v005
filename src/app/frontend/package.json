@@ -1,9 +1,11 @@
 {
   "private": true,
   "scripts": {
-    "dev": "nuxi dev --mode dev",
-    "build": "nuxi build",
-    "start": "node .output/server/index.mjs"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^3.3.1",
@@ -29,11 +31,11 @@
     "vite-svg-loader": "^4.0.0"
   },
   "dependencies": {
-    "date-fns": "^2.29.3",
+    "date-fns": "^2.30.0",
     "graphql": "^16.6.0",
     "marked": "^4.3.0",
     "vee-validate": "^4.8.6",
     "vue-gtag": "^2.0.1",
-    "vue3-carousel": "^0.3.0"
+    "vue3-carousel": "^0.3.1"
   }
 }

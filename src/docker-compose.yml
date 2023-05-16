@@ -18,18 +18,29 @@ services:
       - '3306:3306'
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     platform: linux/amd64
-  app:
+  backend:
     build: node
     environment:
       - CHOKIDAR_USEPOLLING=true
     ports:
       - '8080:8080'
       - '1337:1337'
-      - '3000:3000'
-      - '24678:24678'
     volumes:
-      - ./app:/src
-    working_dir: /src
+      - ./app/backend:/backend
+    working_dir: /backend
     tty: true
     depends_on:
       - db
+  frontend:
+    build: node
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - '3000:3000'
+      - '24678:24678'
+    volumes:
+      - ./app/frontend:/frontend
+    working_dir: /frontend
+    tty: true
+    depends_on:
+      - backend

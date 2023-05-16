@@ -356,7 +356,7 @@ const animationHeaderMenuOuterOnAfterLeave = (el: Element) => {
     transition: 0.3s color, 0.3s text-shadow;
     font-weight: $font-bold;
     color: $palette-white;
-    @include mxGetFontSize(12);
+    @include mxGetFontSize(14);
     min-width: 72px;
     height: 100%;
 

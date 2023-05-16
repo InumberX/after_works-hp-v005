@@ -27,6 +27,8 @@ $palette-black: #000;
 
 $palette-blue-charcoal: #000911;
 
+$palette-silver-chalice: #a6a6a6;
+
 $palette-sky-blue: #73d1ed;
 $palette-chambray: #2d507b;
 
@@ -36,7 +38,7 @@ $palette-twitter: #1c9cef;
 $palette-facebook: #1877f2;
 $palette-line: #00b900;
 
-$gradation-primary: $palette-sky-blue 0, $palette-heliotrope 100%;
+$gradation-primary: $palette-heliotrope 0, $palette-sky-blue 100%;
 
 // Z Index ========
 // Common ======
@@ -58,7 +60,7 @@ $z-index-header-3: 10200;
 $z-index-header-4: 10300;
 
 // Footer ======
-$z-index-footer-4: 8000;
+$z-index-footer-1: 8000;
 
 // Opacity ========
 $opacity-hover: 0.6;
