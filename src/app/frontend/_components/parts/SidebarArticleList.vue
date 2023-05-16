@@ -113,19 +113,19 @@ if (
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 // 変数
-$color-sidebar_article_list_item-border: g.$palette-gallery;
+$color-sidebar_article_list_item-border: $palette-gallery;
 
-$color-sidebar_article_list_link-background: g.$palette-white;
-$color-sidebar_article_list_link-text: g.$palette-mine_shaft;
-$color-sidebar_article_list_link-text_hover: g.$palette-resolution_blue;
+$color-sidebar_article_list_link-background: $palette-white;
+$color-sidebar_article_list_link-text: $palette-mine_shaft;
+$color-sidebar_article_list_link-text_hover: $palette-resolution_blue;
 
-$color-sidebar_article_list_date_box-text: g.$palette-boulder;
+$color-sidebar_article_list_date_box-text: $palette-boulder;
 
-$color-sidebar_article_bottom_list_page_link-border: g.$palette-resolution_blue;
-$color-sidebar_article_bottom_list_page_link-border_hover: g.$palette-east_bay;
+$color-sidebar_article_bottom_list_page_link-border: $palette-resolution_blue;
+$color-sidebar_article_bottom_list_page_link-border_hover: $palette-east_bay;
 
 .sidebar-article-list-box {
   margin-top: 24px;
@@ -198,7 +198,7 @@ $color-sidebar_article_bottom_list_page_link-border_hover: g.$palette-east_bay;
   font-weight: 700;
   padding-right: 24px;
   &:after {
-    @include g.mxArrowLine(
+    @include mxArrowLine(
       12px,
       50%,
       4px,

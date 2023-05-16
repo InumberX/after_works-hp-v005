@@ -1,39 +1,41 @@
 {
   "private": true,
   "scripts": {
-    "dev": "nuxi dev --mode dev",
-    "build": "nuxi build",
-    "start": "node .output/server/index.mjs"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^3.2.2",
+    "@graphql-codegen/cli": "^3.3.1",
     "@graphql-codegen/fragment-matcher": "^4.0.1",
     "@graphql-codegen/near-operation-file-preset": "^2.5.0",
-    "@graphql-codegen/typed-document-node": "^3.0.2",
-    "@graphql-codegen/typescript": "^3.0.2",
+    "@graphql-codegen/typed-document-node": "^4.0.1",
+    "@graphql-codegen/typescript": "^3.0.4",
     "@graphql-codegen/typescript-apollo-client-helpers": "^2.2.6",
-    "@graphql-codegen/typescript-operations": "^3.0.2",
+    "@graphql-codegen/typescript-operations": "^3.0.4",
     "@graphql-codegen/typescript-urql": "^3.7.3",
-    "@graphql-codegen/typescript-urql-graphcache": "^2.4.3",
+    "@graphql-codegen/typescript-urql-graphcache": "^2.4.4",
     "@graphql-codegen/typescript-vue-urql": "^2.3.6",
     "@graphql-codegen/urql-introspection": "^2.2.1",
     "@types/marked": "^4.0.8",
-    "@types/node": "^18.15.5",
-    "@urql/exchange-graphcache": "^5.2.0",
-    "@urql/vue": "^1.0.5",
+    "@types/node": "^18.16.3",
+    "@urql/exchange-graphcache": "^6.0.4",
+    "@urql/vue": "^1.1.1",
     "graphql-tag": "^2.12.6",
-    "nuxt": "3.3.1",
-    "sass": "^1.59.3",
-    "sass-loader": "^13.2.1",
-    "typescript": "^5.0.2",
+    "nuxt": "3.4.3",
+    "sass": "^1.62.1",
+    "sass-loader": "^13.2.2",
+    "typescript": "^5.0.4",
     "vite-svg-loader": "^4.0.0"
   },
   "dependencies": {
-    "date-fns": "^2.29.3",
+    "date-fns": "^2.30.0",
     "graphql": "^16.6.0",
-    "marked": "^4.2.12",
-    "vee-validate": "^4.8.3",
+    "marked": "^4.3.0",
+    "vee-validate": "^4.8.6",
     "vue-gtag": "^2.0.1",
-    "vue3-carousel": "^0.2.13"
+    "vue3-carousel": "^0.3.1"
   }
 }

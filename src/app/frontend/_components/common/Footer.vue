@@ -117,20 +117,20 @@ const currentYear: number = new Date().getFullYear();
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 // 変数
-$color-l_footer_contents-background: g.$palette-stratos;
+$color-l_footer_contents-background: $palette-stratos;
 
-$color-footer_menu_link-background: g.$palette-marigold_yellow;
-$color-footer_menu_link-text: g.$palette-marigold_yellow;
+$color-footer_menu_link-background: $palette-marigold_yellow;
+$color-footer_menu_link-text: $palette-marigold_yellow;
 
-$color-footer_copy-text: g.$palette-white;
+$color-footer_copy-text: $palette-white;
 
-$color-footer_top_btn-background: g.$palette-resolution_blue;
-$color-footer_top_btn-background_hover: g.$palette-marigold_yellow;
-$color-footer_top_btn-border: g.$palette-marigold_yellow;
-$color-footer_top_btn-border_hover: g.$palette-resolution_blue;
+$color-footer_top_btn-background: $palette-resolution_blue;
+$color-footer_top_btn-background_hover: $palette-marigold_yellow;
+$color-footer_top_btn-border: $palette-marigold_yellow;
+$color-footer_top_btn-border_hover: $palette-resolution_blue;
 
 .l-footer-contents {
   background-color: $color-l_footer_contents-background;
@@ -154,7 +154,7 @@ $color-footer_top_btn-border_hover: g.$palette-resolution_blue;
   color: $color-footer_menu_link-text;
   @media (hover: hover) {
     &:hover {
-      opacity: g.$opacity-main;
+      opacity: $opacity-main;
     }
   }
   &:after {
@@ -185,7 +185,7 @@ $color-footer_top_btn-border_hover: g.$palette-resolution_blue;
   display: flex;
   @media (hover: hover) {
     &:hover {
-      opacity: g.$opacity-main;
+      opacity: $opacity-main;
     }
   }
 }
@@ -200,7 +200,7 @@ $color-footer_top_btn-border_hover: g.$palette-resolution_blue;
 }
 .footer-fixed-box {
   position: fixed;
-  z-index: g.$z_index-footer_1;
+  z-index: $z_index-footer_1;
   bottom: 16px;
   right: 4vw;
 }
@@ -212,7 +212,7 @@ $color-footer_top_btn-border_hover: g.$palette-resolution_blue;
   border-radius: 48px;
   background-color: $color-footer_top_btn-background;
   &:after {
-    @include g.mxArrowLine(
+    @include mxArrowLine(
       16px,
       50%,
       50%,
@@ -238,7 +238,7 @@ $color-footer_top_btn-border_hover: g.$palette-resolution_blue;
     }
   }
 }
-@include g.mxMediaQuery(g.$bp-sm) {
+@include mxMediaQuery($bp-sm) {
   .footer-contents-wrap {
     padding-top: 68px;
   }
@@ -268,7 +268,7 @@ $color-footer_top_btn-border_hover: g.$palette-resolution_blue;
     right: 4.6vw;
   }
 }
-@include g.mxMediaQuery(g.$bp-md) {
+@include mxMediaQuery($bp-md) {
   .footer-fixed-box {
     right: 32px;
   }

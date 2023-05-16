@@ -21,7 +21,7 @@ const { adSenseInfos, flgSide } = defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 .ads-box {
   overflow: hidden;
@@ -55,7 +55,7 @@ const { adSenseInfos, flgSide } = defineProps<Props>();
   height: 300px;
   max-height: 300px;
 }
-@include g.mxMediaQuery(g.$bp-sm) {
+@include mxMediaQuery($bp-sm) {
   .ads-box {
     margin-top: 80px;
   }
@@ -66,7 +66,7 @@ const { adSenseInfos, flgSide } = defineProps<Props>();
     padding: 20px;
   }
 }
-@include g.mxMediaQuery(g.$bp-md) {
+@include mxMediaQuery($bp-md) {
   .ads-box {
     &.is-side {
       .ads-items {

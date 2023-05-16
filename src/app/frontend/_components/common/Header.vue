@@ -199,31 +199,31 @@ const hideMenu = () => {
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 // 変数
-$color-l_header-background: g.$palette-white;
-$color-l_header-border: g.$palette-gallery;
+$color-l_header-background: $palette-white;
+$color-l_header-border: $palette-gallery;
 
-$color-header_menu_btn-text: g.$palette-resolution_blue;
-$color-header_menu_btn-text_active: g.$palette-marigold_yellow;
+$color-header_menu_btn-text: $palette-resolution_blue;
+$color-header_menu_btn-text_active: $palette-marigold_yellow;
 
-$color-header_hamburger-background: g.$palette-resolution_blue;
-$color-header_hamburger-background_active: g.$palette-marigold_yellow;
+$color-header_hamburger-background: $palette-resolution_blue;
+$color-header_hamburger-background_active: $palette-marigold_yellow;
 
-$color-header_menu_contents-background: g.$palette-white;
+$color-header_menu_contents-background: $palette-white;
 
-$color-header_menu_link-text: g.$palette-mine_shaft;
-$color-header_menu_link-text_hover: g.$palette-resolution_blue;
+$color-header_menu_link-text: $palette-mine_shaft;
+$color-header_menu_link-text_hover: $palette-resolution_blue;
 
-$color-header_overlay_bg-background: g.$palette-black;
+$color-header_overlay_bg-background: $palette-black;
 
 .l-header {
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: g.$z_index-header_1;
+  z-index: $z_index-header_1;
   background-color: $color-l_header-background;
 }
 .header-box {
@@ -239,7 +239,7 @@ $color-header_overlay_bg-background: g.$palette-black;
   display: block;
   @media (hover: hover) {
     &:hover {
-      opacity: g.$opacity-main;
+      opacity: $opacity-main;
     }
   }
 }
@@ -249,7 +249,7 @@ $color-header_overlay_bg-background: g.$palette-black;
 }
 .header-menu-btn-box {
   position: fixed;
-  z-index: g.$z_index-header_3;
+  z-index: $z_index-header_3;
   top: 0;
   right: 4vw;
 }
@@ -326,7 +326,7 @@ $color-header_overlay_bg-background: g.$palette-black;
   position: fixed;
   top: 72px;
   right: 4vw;
-  z-index: g.$z_index-header_4;
+  z-index: $z_index-header_4;
   &.is-active {
     display: block;
   }
@@ -368,7 +368,7 @@ $color-header_overlay_bg-background: g.$palette-black;
   width: 100%;
   height: 100%;
   background-color: rgba($color-header_overlay_bg-background, 0.6);
-  z-index: g.$z_index-header_2;
+  z-index: $z_index-header_2;
   &.is-active {
     display: block;
   }
@@ -390,7 +390,7 @@ $color-header_overlay_bg-background: g.$palette-black;
     transform: scale(1) !important;
   }
 }
-@include g.mxMediaQuery(g.$bp-md) {
+@include mxMediaQuery($bp-md) {
   .header-box {
     justify-content: space-between;
     height: 80px;
@@ -455,7 +455,7 @@ $color-header_overlay_bg-background: g.$palette-black;
     }
   }
 }
-@include g.mxMediaQuery(g.$bp-lg) {
+@include mxMediaQuery($bp-lg) {
   .header-menu-link:not(:root) {
     min-width: 96px;
   }

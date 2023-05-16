@@ -1,10 +1,12 @@
 # After Works.
 
-## 概要
+[README](./src)
 
-私のポートフォリオサイトです。  
+## Overview
+
+This is my portfolio website.
 https://afterworks.jp/
 
-## 構成図
+## Structure Diagram
 
-![構成図](readme/img/configuration_diagram.jpg)
+![Structure Diagram](readme/img/configuration_diagram.jpg)

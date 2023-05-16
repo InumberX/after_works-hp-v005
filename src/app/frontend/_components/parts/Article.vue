@@ -306,28 +306,28 @@ const articleContents = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 // 変数
-$color-article_date-text: g.$palette-boulder;
+$color-article_date-text: $palette-boulder;
 
-$color-article_contents-h2-border: g.$palette-gallery;
-$color-article_contents-h2-background: g.$palette-resolution_blue;
+$color-article_contents-h2-border: $palette-gallery;
+$color-article_contents-h2-background: $palette-resolution_blue;
 
-$color-article_contents-h3-border: g.$palette-resolution_blue;
+$color-article_contents-h3-border: $palette-resolution_blue;
 
-$color-article_contents-pre-background: g.$palette-seashell;
-$color-article_contents-pre-border: g.$palette-alto;
+$color-article_contents-pre-background: $palette-seashell;
+$color-article_contents-pre-border: $palette-alto;
 
-$color-article_contents-blockquote-background: g.$palette-seashell;
-$color-article_contents-blockquote-border: g.$palette-alto;
+$color-article_contents-blockquote-background: $palette-seashell;
+$color-article_contents-blockquote-border: $palette-alto;
 
-$color-article_tag-background: g.$palette-seashell;
-$color-article_tag-text: g.$palette-boulder;
+$color-article_tag-background: $palette-seashell;
+$color-article_tag-text: $palette-boulder;
 
-$color-article_work_link-text: g.$palette-boulder;
+$color-article_work_link-text: $palette-boulder;
 
-$color-article_work_tag_title-text: g.$palette-boulder;
+$color-article_work_tag_title-text: $palette-boulder;
 
 .l-article {
   margin: 0 auto;
@@ -392,7 +392,7 @@ $color-article_work_tag_title-text: g.$palette-boulder;
   color: $color-article_work_link-text;
   @media (hover: hover) {
     &:hover {
-      opacity: g.$opacity-main;
+      opacity: $opacity-main;
     }
   }
 }
@@ -438,7 +438,7 @@ $color-article_work_tag_title-text: g.$palette-boulder;
       position: absolute;
       top: -4px;
       left: 0;
-      z-index: g.$z_index-1;
+      z-index: $z_index-1;
     }
   }
   ::v-deep(h3) {
@@ -529,7 +529,7 @@ $color-article_work_tag_title-text: g.$palette-boulder;
   justify-content: center;
   margin-top: 40px;
 }
-@include g.mxMediaQuery(g.$bp-sm) {
+@include mxMediaQuery($bp-sm) {
   .article-date {
     font-size: 1.8rem;
   }
@@ -580,7 +580,7 @@ $color-article_work_tag_title-text: g.$palette-boulder;
     margin-top: 80px;
   }
 }
-@include g.mxMediaQuery(g.$bp-md) {
+@include mxMediaQuery($bp-md) {
   .article-title-wrap {
     &.is-parallel {
       display: flex;
@@ -598,7 +598,7 @@ $color-article_work_tag_title-text: g.$palette-boulder;
     }
   }
 }
-@include g.mxMediaQuery(g.$bp-lg) {
+@include mxMediaQuery($bp-lg) {
   .article-title-wrap {
     &.is-parallel {
       .article-main-visual-img-box {

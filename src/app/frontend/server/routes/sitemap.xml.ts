@@ -6,6 +6,7 @@ export default defineEventHandler(async (event) => {
   const { siteUrl, lastmod, apiUrl, apiRoot } = config
   const client = createClient({
     url: `${apiUrl}${apiRoot}`,
+    exchanges: [],
   })
 
   const sitemapInfos: {

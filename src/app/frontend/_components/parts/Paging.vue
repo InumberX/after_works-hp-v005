@@ -204,20 +204,20 @@ const isNormalMode = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 // 変数
-$color-paging_link-background: g.$palette-seashell;
-$color-paging_link-background_hover: g.$palette-resolution_blue;
-$color-paging_link-text: g.$palette-resolution_blue;
-$color-paging_link-text_hover: g.$palette-marigold_yellow;
+$color-paging_link-background: $palette-seashell;
+$color-paging_link-background_hover: $palette-resolution_blue;
+$color-paging_link-text: $palette-resolution_blue;
+$color-paging_link-text_hover: $palette-marigold_yellow;
 
-$color-paging_link_prev_next-background: g.$palette-resolution_blue;
-$color-paging_link_prev_next-background_hover: g.$palette-marigold_yellow;
-$color-paging_link_prev_next-border: g.$palette-marigold_yellow;
-$color-paging_link_prev_next-border_hover: g.$palette-resolution_blue;
+$color-paging_link_prev_next-background: $palette-resolution_blue;
+$color-paging_link_prev_next-background_hover: $palette-marigold_yellow;
+$color-paging_link_prev_next-border: $palette-marigold_yellow;
+$color-paging_link_prev_next-border_hover: $palette-resolution_blue;
 
-$color-paging_current-text: g.$palette-boulder;
+$color-paging_current-text: $palette-boulder;
 
 .paging-box {
   margin-top: 24px;
@@ -251,7 +251,7 @@ $color-paging_current-text: g.$palette-boulder;
   &.is-prev {
     .paging-link:not(:root) {
       &:after {
-        @include g.mxArrowLine(
+        @include mxArrowLine(
           12px,
           50%,
           50%,
@@ -273,7 +273,7 @@ $color-paging_current-text: g.$palette-boulder;
   &.is-next {
     .paging-link:not(:root) {
       &:after {
-        @include g.mxArrowLine(
+        @include mxArrowLine(
           12px,
           50%,
           50%,
@@ -337,7 +337,7 @@ $color-paging_current-text: g.$palette-boulder;
     content: '…';
   }
 }
-@include g.mxMediaQuery(g.$bp-sm) {
+@include mxMediaQuery($bp-sm) {
   .paging-box {
     margin-top: 40px;
   }

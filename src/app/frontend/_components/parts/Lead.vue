@@ -20,14 +20,14 @@ const { leads } = defineProps<Props>();
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 .lead-text {
   + .lead-text {
     margin-top: 16px;
   }
 }
-@include g.mxMediaQuery(g.$bp-sm) {
+@include mxMediaQuery($bp-sm) {
   .lead-text {
     + .lead-text {
       margin-top: 24px;

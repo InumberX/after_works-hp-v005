@@ -7,7 +7,7 @@
 <script setup lang="ts"></script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 .LayoutInner {
   margin: 0 auto;
@@ -15,11 +15,11 @@
   max-width: calc(1400px + (32px * 2));
   padding: 0 4vw;
 
-  @include g.mxMediaQuerySm {
+  @include mxMediaQuerySm {
     padding: 0 4.6vw;
   }
 
-  @include g.mxMediaQueryMd {
+  @include mxMediaQueryMd {
     padding: 0 32px;
   }
 }

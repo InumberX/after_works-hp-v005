@@ -147,19 +147,19 @@ const {
 </script>
 
 <style lang="scss" scoped>
-@use '~/assets/_scss/_global/index' as g;
+@use '~/assets/_scss/_global/index' as *;
 
 // 変数
-$color-article_list_link-background: g.$palette-white;
-$color-article_list_link-text: g.$palette-mine_shaft;
-$color-article_list_link-text_hover: g.$palette-resolution_blue;
-$color-article_list_link-border: g.$palette-gallery;
-$color-article_list_link-border_hover: g.$palette-east_bay;
+$color-article_list_link-background: $palette-white;
+$color-article_list_link-text: $palette-mine_shaft;
+$color-article_list_link-text_hover: $palette-resolution_blue;
+$color-article_list_link-border: $palette-gallery;
+$color-article_list_link-border_hover: $palette-east_bay;
 
-$color-article_list_date_box-text: g.$palette-boulder;
+$color-article_list_date_box-text: $palette-boulder;
 
-$color-article_list_tag-background: g.$palette-seashell;
-$color-article_list_tag-text: g.$palette-boulder;
+$color-article_list_tag-background: $palette-seashell;
+$color-article_list_tag-text: $palette-boulder;
 
 .l-article-list {
   &.is-ground-top {
@@ -279,7 +279,7 @@ $color-article_list_tag-text: g.$palette-boulder;
   justify-content: center;
   margin-top: 24px;
 }
-@include g.mxMediaQuery(g.$bp-sm) {
+@include mxMediaQuery($bp-sm) {
   .l-article-list {
     &.is-horizontality {
       .article-list-items {
@@ -296,7 +296,7 @@ $color-article_list_tag-text: g.$palette-boulder;
     display: flex;
     flex-wrap: wrap;
     > .article-list-item {
-      @include g.mxListWidth(2, 24px) {
+      @include mxListWidth(2, 24px) {
       }
     }
   }
@@ -314,7 +314,7 @@ $color-article_list_tag-text: g.$palette-boulder;
     margin-top: 40px;
   }
 }
-@include g.mxMediaQuery(g.$bp-md) {
+@include mxMediaQuery($bp-md) {
   .l-article-list {
     &.is-horizontality {
       .article-list-items {
@@ -332,14 +332,14 @@ $color-article_list_tag-text: g.$palette-boulder;
           &:nth-of-type(2n) {
             margin-right: 24px;
           }
-          @include g.mxListWidth(3, 24px) {
+          @include mxListWidth(3, 24px) {
           }
         }
       }
     }
   }
 }
-@include g.mxMediaQuery(g.$bp-lg) {
+@include mxMediaQuery($bp-lg) {
   .l-article-list {
     &.is-parallel-main {
       .article-list-items {
@@ -347,7 +347,7 @@ $color-article_list_tag-text: g.$palette-boulder;
           &:nth-of-type(2n) {
             margin-right: 24px;
           }
-          @include g.mxListWidth(3, 24px) {
+          @include mxListWidth(3, 24px) {
           }
         }
       }

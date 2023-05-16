@@ -1,10 +1,4 @@
 @charset "utf-8";
 
 // 共通
-@use '../_scss/_common/base';
-
-// 入力項目共通
-@use '../_scss/_common/baseForm';
-
-// アニメーション
-@use '../_scss/_common/animation';
+@use '../_scss/_common';

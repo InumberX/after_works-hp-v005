@@ -3,37 +3,37 @@
 
 // Media Query
 @mixin mxMediaQueryXs() {
-  @media screen and (min-width: v.$Bp--xs), print {
+  @media screen and (min-width: v.$blakepoint-xs), print {
     @content;
   }
 }
 
 @mixin mxMediaQuerySm() {
-  @media screen and (min-width: v.$Bp--sm), print {
+  @media screen and (min-width: v.$blakepoint-sm), print {
     @content;
   }
 }
 
 @mixin mxMediaQueryMd() {
-  @media screen and (min-width: v.$Bp--md), print {
+  @media screen and (min-width: v.$blakepoint-md), print {
     @content;
   }
 }
 
 @mixin mxMediaQueryLg() {
-  @media screen and (min-width: v.$Bp--lg), print {
+  @media screen and (min-width: v.$blakepoint-lg), print {
     @content;
   }
 }
 
 @mixin mxMediaQueryXl() {
-  @media screen and (min-width: v.$Bp--xl), print {
+  @media screen and (min-width: v.$blakepoint-xl), print {
     @content;
   }
 }
 
 @mixin mxMediaQueryXxl() {
-  @media screen and (min-width: v.$Bp--xxl), print {
+  @media screen and (min-width: v.$blakepoint-xxl), print {
     @content;
   }
 }
@@ -51,8 +51,8 @@
 }
 
 // Font
-@mixin mxGetFontSize($Font__sizePx) {
-  font-size: math.div($Font__sizePx, v.$Font__size) * 1rem;
+@mixin mxGetFontSize($font-sizePx) {
+  font-size: math.div($font-sizePx, v.$font-size) * 1rem;
 }
 
 // Lists
